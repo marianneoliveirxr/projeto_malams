@@ -9,8 +9,6 @@ Este é um sistema de agendamento online desenvolvido para salões de beleza de 
 3. [Instalação](#instalação)
 4. [Uso](#uso)
 5. [Comandos Git para Gerenciamento de Branches](#comandos-git-para-gerenciamento-de-branches)
-6. [Contribuição](#contribuição)
-7. [Licença](#licença)
 
 # Descrição
 O sistema de agendamento online foi criado para facilitar a gestão de salões de beleza. Ele permite que os clientes agendem horários para diversos serviços, visualizem as informações sobre os profissionais disponíveis, vejam os preços dos serviços e escolham o horário que melhor se adapta à sua agenda.
