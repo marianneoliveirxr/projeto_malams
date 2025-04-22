@@ -9,7 +9,7 @@ Route::get('/', function () {
 
 Route::get('/cadastro', function () {
     return view('cadastro');
-});
+})->name('cadastro');
 
 Route::post('/cadastro','App\Http\Controllers\UsuarioController@store');
 

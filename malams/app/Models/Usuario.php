@@ -11,7 +11,7 @@ class Usuario extends Model
 
     protected $table = 'clientes'; // Nome da tabela
 
-    public $fillable = ['idCliente', 'nomeCliente', 'cpfCliente', 'idadeCliente', 'celularCliente', 'emailCliente', 'cepCliente','numeroResidenciaCliente', 'senhaCliente'];
+    public $fillable = ['idCliente', 'nomeCliente', 'cpfCliente', 'dataNascimento', 'celularCliente', 'emailCliente', 'senhaCliente'];
 
-    public $timestamps = true;
+    public $timestamps = false;
 }

@@ -1,7 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Usuario;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
@@ -27,23 +28,35 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'cpfCliente' => 'required|unique:clientes,cpfCliente',  // Verifica se o CPF é único
+            'emailCliente' => 'required|email|unique:clientes,emailCliente',  // Verifica se o e-mail é único
+            'celularCliente' => 'required|unique:clientes,celularCliente',  // Verifica se o celular é único
+            'password' => 'required|min:6|confirmed',
+        ], [
+            'cpfCliente.required' => 'O CPF é obrigatório.',
+            'cpfCliente.unique' => 'Já existe um cadastro com este CPF.',
+            
+            'emailCliente.required' => 'O e-mail é obrigatório.',
+            'emailCliente.email' => 'Informe um e-mail válido.',
+            'emailCliente.unique' => 'Já existe um cadastro com este e-mail.',
+            
+            'celularCliente.required' => 'O número de celular é obrigatório.',
+            'celularCliente.unique' => 'Já existe um cadastro com este número de celular.',
+        ]);
+
         $user = new Usuario();
         $user->nomeCliente = $request->txtName;
         $user->cpfCliente = $request->txtCpf;
-        $user->idadeCliente = $request->txtIdade;
+        $user->dataNascimento = $request->txtDatNascimento;
         $user->celularCliente = $request->txtCelular;
         $user->emailCliente = $request->txtEmail;
-        $user->cepCliente = $request->txtCep;
-        $user->ruaCliente = $request->txtRua;
-        $user->bairroCliente = $request->txtBairro;
-        $user->cidadeCliente = $request->txtCidade;
-        $user->numeroResidenciaCliente = $request->txtNumResidencia;
         $user->senhaCliente =  Hash::make($request->password); 
-        $user->created_at = date('Y-m-d');
-        $user->updated_at = date('Y-m-d'); 
+        // $user->created_at = date('Y-m-d');
+        // $user->updated_at = date('Y-m-d'); 
         $user->save();
 
-        return redirect()->route('entrar')->with('success', 'Usuário cadastrado com sucesso!');
+        return redirect()->route('cadastro')->with('success', 'Usuário cadastrado com sucesso!');
 
     }
 
