@@ -7,23 +7,25 @@
     <title>Login - Salão de Beleza</title>
     <link rel="stylesheet" href="/css/login.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
+    
 </head>
 
 <body>
     <header>
-        <div class="logo">LOGO</div>
+        <img class="logo" src="/img/malamslogo.png" alt="logo">
         <nav>
             <ul>
                 <li><a href="#">Home</a></li>
                 <li><a href="#">Serviços</a></li>
                 <li><a href="#">Contato</a></li>
                 <li><a href="#">Sobre</a></li>
-                <li><a href="#">Login</a></li>
             </ul>
         </nav>
         <div class="social-icons">
-            <a href="#"><img src="facebook-icon.png" alt="Facebook"></a>
-            <a href="#"><img src="instagram-icon.png" alt="Instagram"></a>
+            <img src=/img/facebook.png alt="Facebook">
+            <img src=/img/instagram.png alt="Instagram">
+            <div href="#">Cadastre-se</div>
+            <div href="#">Login</div>
         </div>
     </header>
 

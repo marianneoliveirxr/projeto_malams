@@ -21,8 +21,9 @@ header {
 }
 
 .logo {
-    font-size: 30px;
-    font-weight: bold;
+    max-width: 100%;  /* A imagem vai ocupar 100% da largura do seu contêiner */
+    height: auto;     /* A altura vai ser ajustada automaticamente para manter a proporção */
+    object-fit: cover; 
 }
 
 nav ul {
@@ -46,6 +47,16 @@ li {
 }
 
 .social-icons img {
+    width: 24px;
+    margin-left: 10px;
+}
+
+.cadastre-se{
+    width: 24px;
+    margin-left: 10px;
+}
+
+.login{
     width: 24px;
     margin-left: 10px;
 }
