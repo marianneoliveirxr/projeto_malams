@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
     <link rel="stylesheet" href="/css/cadastro.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <header>
@@ -18,98 +19,82 @@
             </ul>
         </nav>
         <div class="social-icons">
-            <img src=/img/facebook.png alt="Facebook">
-            <img src=/img/instagram.png alt="Instagram">
+            <img src="/img/facebook.png" alt="Facebook">
+            <img src="/img/instagram.png" alt="Instagram">
             <div href="#">Cadastre-se</div>
             <div href="#">Login</div>
         </div>
     </header>
 
     <div class="container">
-    <!-- Mensagem de sucesso -->
-    @if (session('success'))
-        <div class="alert success-alert">
-            {{ session('success') }}
-        </div>
-    @endif
+        <div class="form-container">
+            <h4>Cadastro de Usuário</h4>
+            <form action="/cadastro" method="POST">
+                @csrf
+                <fieldset>
+                    <!-- Etapa 1 -->
+                    <div id="etapa1" class="form-columns">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <div class="inputBox">
+                                    <label class="labelInput" for="name">Nome</label>
+                                    <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName') }}" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputBox">
+                                    <label class="labelInput" for="cpf">CPF</label>
+                                    <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf') }}" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputBox">
+                                    <label class="labelInput" for="nascimento">Data de Nascimento</label>
+                                    <input type="text" id="nascimento" name="txtDatNascimento" class="inputUser" value="{{ old('txtDatNascimento') }}" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputBox">
+                                    <label class="labelInput" for="celular">Celular</label>
+                                    <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular') }}" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Erros de validação -->
-    @if ($errors->any())
-        <div class="alert error-alert">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+                    <!-- Etapa 2 -->
+                    <div id="etapa2" class="form-columns" style="display:none;">
+                        <div class="form-column">
+                            <div class="form-group">
+                                <div class="inputBox">
+                                    <label class="labelInput" for="email">Email</label>
+                                    <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail') }}" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputBox">
+                                    <label class="labelInput" for="password">Senha:</label>
+                                    <input type="password" id="password" name="password" class="inputUser" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="inputBox">
+                                    <label class="labelInput" for="password_confirmation">Confirmar Senha:</label>
+                                    <input type="password" id="password_confirmation" name="password_confirmation" class="inputUser" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-    <!-- Formulário -->
-    <div class="form-container">
-        <h4>Cadastro de Usuário</h4>
-        <form action="/cadastro" method="POST">
-            @csrf
-
-            <fieldset>
-    <div class="form-columns">
-        <!-- Coluna 1 -->
-        <div class="form-column">
-            <div class="form-group">
-                <div class="inputBox">
-                    <label class="labelInput" for="name">Nome</label>
-                    <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName') }}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="inputBox">
-                    <label class="labelInput" for="cpf">CPF</label>
-                    <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf') }}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="inputBox">
-                    <label class="labelInput" for="nascimento">Data de Nascimento</label>
-                    <input type="text" id="nascimento" name="txtDatNascimento" class="inputUser" value="{{ old('txtDatNascimento') }}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="inputBox">
-                    <label class="labelInput" for="celular">Celular</label>
-                    <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular') }}" required>
-                </div>
-            </div>
-        </div>
-
-        <!-- Coluna 2 -->
-        <div class="form-column">
-            <div class="form-group">
-                <div class="inputBox">
-                    <label class="labelInput" for="email">Email</label>
-                    <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail') }}" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="inputBox">
-                    <label class="labelInput" for="password">Senha:</label>
-                    <input type="password" id="password" name="password" class="inputUser" required>
-                </div>
-            </div>
-            <div class="form-group">
-                <div class="inputBox">
-                    <label class="labelInput" for="password_confirmation">Confirmar Senha:</label>
-                    <input type="password" id="password_confirmation" name="password_confirmation" class="inputUser" required>
-                </div>
-            </div>
+                    <!-- Botões -->
+                    <div class="form-submit">
+                        <input type="button" id="next" value="Próximo" onclick="nextStep()" class="form-btn">
+                        <input type="submit" id="submit" value="Cadastrar" style="display: none;" class="form-btn">
+                    </div>
+                </fieldset>
+            </form>
         </div>
     </div>
-
-    <div class="form-submit">
-        <input type="submit" id="submit" value="Cadastrar">
-    </div>
-</fieldset>
-        </form>
-    </div>
-</div>
 
     <footer>
         <p>Faça parte da nossa família</p>
@@ -129,20 +114,64 @@
         </div>
     </footer>
 
+    <!-- Script para Data de Nascimento -->
     <script>
         const inputData = document.getElementById('nascimento');
-
         inputData.addEventListener('input', () => {
-            let value = inputData.value.replace(/\D/g, ''); // Remove tudo que não for número
-
+            let value = inputData.value.replace(/\D/g, '');
             if (value.length > 2 && value.length <= 4) {
                 value = value.slice(0, 2) + '/' + value.slice(2);
             } else if (value.length > 4) {
                 value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
             }
-
             inputData.value = value;
         });
+    </script>
+
+    <!-- SweetAlert2 Mensagens -->
+    @if (session('success'))
+        <script>
+            Swal.fire({
+                icon: 'success',
+                title: 'Sucesso!',
+                text: '{{ session('success') }}',
+                confirmButtonColor: '#d08989'
+            });
+        </script>
+    @endif
+
+    @if ($errors->any())
+        <script>
+            Swal.fire({
+                icon: 'error',
+                title: 'Erro',
+                html: `{!! implode('<br>', $errors->all()) !!}`,
+                confirmButtonColor: '#d08989'
+            });
+        </script>
+    @endif
+
+    <!-- Seu código JavaScript para transição -->
+    <script>
+        function nextStep() {
+            // Faz a Etapa 1 desaparecer com fade-out
+            document.getElementById('etapa1').style.opacity = 0;
+            
+            // Espera o tempo da transição para esconder completamente a Etapa 1 e exibir a Etapa 2
+            setTimeout(function () {
+                document.getElementById('etapa1').style.display = 'none';
+                document.getElementById('etapa2').style.display = 'block';
+                
+                // Aplica o fade-in na Etapa 2
+                setTimeout(function () {
+                    document.getElementById('etapa2').style.opacity = 1;
+                    // Mostra o botão "Cadastrar"
+                    document.getElementById('submit').style.display = 'block';
+                    // Esconde o botão "Próximo"
+                    document.getElementById('next').style.display = 'none';
+                }, 10);
+            }, 500); // Tempo da transição de 0.5s
+        }
     </script>
 </body>
 </html>

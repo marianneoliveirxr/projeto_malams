@@ -66,12 +66,12 @@ li {
 .form-container {
     border-radius: 10px;
     width: 100%;
-    max-width: 800px;
+    max-width: 500px;
     text-align: center;
     margin: 0;
     padding: 20px;
-    background-color: rgba(255, 255, 255, 0.7); /* Transparência no fundo */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-container h4 {
@@ -81,51 +81,52 @@ li {
     font-family: 'Playfair Display', serif;
 }
 
-/* Divisão de duas colunas */
-.form-container .form-row {
+.form-columns {
     display: flex;
-    justify-content: space-between;
-    gap: 30px;
-    margin-bottom: 20px;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.form-container .form-group {
-    flex: 1;
+.form-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
-.form-container .inputBox {
+.form-group {
     width: 100%;
 }
 
-.form-container .labelInput {
+.labelInput {
     display: block;
     font-size: 16px;
     font-weight: bold;
     margin-bottom: 8px;
     color: #d19f9f;
+    text-align: left;
 }
 
-.form-container input {
+.inputBox input {
     width: 100%;
     padding: 12px;
-    margin: 10px 0;
     border: 1px solid #d19f9f;
     border-radius: 20px;
     font-size: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: transparent;
     color: #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.form-container input:focus {
+.inputBox input::placeholder {
+    color: #a2a2a2;
+}
+
+.inputBox input:focus {
     border-color: #c59595;
     outline: none;
 }
 
-.form-container input::placeholder {
-    color: #a2a2a2;
-}
-
+.form-submit button,
 .form-container input[type="submit"] {
     background-color: #cda1a1;
     color: white;
@@ -136,42 +137,27 @@ li {
     width: 100%;
     padding: 12px;
     border-radius: 20px;
+    border: none;
+    font-size: 16px;
 }
 
+.form-submit button:hover,
 .form-container input[type="submit"]:hover {
     background-color: #c59595;
-}
-
-.form-columns {
-    display: flex;
-    gap: 40px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.form-column {
-    flex: 1;
-    min-width: 280px;
-    max-width: 350px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
 }
 
 fieldset {
     border: none;
 }
 
-/* Imagem responsiva */
 .image-container img {
     border-radius: 10px;
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     height: auto;
     object-fit: cover;
 }
 
-/* Rodapé */
 footer {
     background-color: #c59595;
     padding: 20px 0;
@@ -206,72 +192,40 @@ footer p {
     margin-top: 5px;
 }
 
-/* Media Queries para responsividade */
-
-/* Até 1200px */
-@media (max-width: 1200px) {
+@media (max-width: 992px) {
     .container {
         flex-direction: column;
-        gap: 30px;
     }
 
     .image-container img {
-        width: 80%;
-    }
-
-    .form-container .form-row {
-        flex-direction: column;
-    }
-}
-
-/* Até 992px */
-@media (max-width: 992px) {
-    .form-container h4 {
-        font-size: 35px;
-    }
-
-    .form-container input {
-        font-size: 16px;
-    }
-
-    .form-container input[type="submit"] {
-        font-size: 16px;
-    }
-}
-
-/* Até 768px */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        gap: 30px;
+        max-width: 100%;
     }
 
     .form-container {
         max-width: 90%;
-        margin: 0 auto;
     }
 
-    .image-container img {
-        width: 100%;
-        height: auto;
-    }
-
-    .form-container .form-row {
+    .form-columns {
         flex-direction: column;
+    }
+
+    .form-container h4 {
+        font-size: 32px;
+    }
+
+    .form-submit button,
+    .form-container input[type="submit"] {
+        font-size: 14px;
     }
 }
 
-/* Até 576px */
 @media (max-width: 576px) {
     .form-container h4 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
-    .form-container input {
-        font-size: 14px;
-    }
-
-    .form-container input[type="submit"] {
+    .labelInput,
+    .inputBox input {
         font-size: 14px;
     }
 
@@ -279,4 +233,38 @@ footer p {
         flex-direction: column;
         gap: 20px;
     }
+}
+
+/* Efeito de transição nas etapas */
+#etapa1, #etapa2 {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#etapa1 {
+    display: block;
+}
+
+#etapa2 {
+    display: none;
+    opacity: 0;
+}
+
+/* Botões */
+.form-btn {
+    background-color: #cda1a1;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
+}
+
+.form-btn:hover {
+    background-color: #c59595;
 }
