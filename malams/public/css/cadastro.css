@@ -11,6 +11,8 @@ body {
 
 /* Cabeçalho */
 header {
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -50,28 +52,80 @@ li {
     margin-left: 10px;
 }
 
-/* Container principal */
+/* Rodapé */
+footer {
+    background-color: #c59595;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    font-family: 'Lora', serif;
+    position: relative;
+    bottom: 0;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.link-item {
+    text-align: center;
+}
+
+.link-item img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+/* Ajustes do Formulário Principal */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 40px 20px;
     flex: 1;
-    gap: 50px;
-    margin-top: 30px;
     flex-wrap: wrap;
-    padding: 0 15px;
 }
 
-/* Formulário responsivo */
+.card-cadastro {
+    display: flex;
+    flex-direction: row;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    max-width: 900px;
+    width: 100%;
+    overflow: hidden;
+    align-items: stretch;
+}
+
 .form-container {
-    border-radius: 10px;
+    display: flex; 
+    flex-direction: column;
+    justify-content: center; 
     width: 100%;
     max-width: 500px;
     text-align: center;
     margin: 0;
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    height: 100%; 
+    box-sizing: border-box;
+    min-height: 400px; /* Adiciona altura mínima ao formulário */
+    transition: min-height 0.5s ease; /* Transição suave para altura */
 }
 
 .form-container h4 {
@@ -150,48 +204,54 @@ fieldset {
     border: none;
 }
 
-.image-container img {
-    border-radius: 10px;
-    width: 100%;
+.imagem-cadastro {
+    width: 50%;
     max-width: 450px;
     height: auto;
+    display: flex;
+}
+
+.imagem-cadastro img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
-footer {
-    background-color: #c59595;
-    padding: 20px 0;
+/* Efeito de transição nas etapas */
+#etapa1, #etapa2 {
+    opacity: 1;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#etapa1 {
+    display: block;
+}
+
+#etapa2 {
+    display: none;
+    opacity: 0;
+}
+
+/* Botões */
+.form-btn {
+    background-color: #cda1a1;
     color: white;
-    text-align: center;
-    margin-top: auto;
-    width: 100%;
-    font-family: 'Lora', serif;
-}
-
-footer p {
-    margin-bottom: 15px;
-    font-size: 18px;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
     margin-top: 10px;
-    flex-wrap: wrap;
+    width: 100%;
+    padding: 12px;
+    border-radius: 20px;
+    border: none;
+    font-size: 16px;
 }
 
-.link-item {
-    text-align: center;
+.form-btn:hover {
+    background-color: #c59595;
 }
 
-.link-item img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-top: 5px;
-}
-
+/* Responsividade */
 @media (max-width: 992px) {
     .container {
         flex-direction: column;
@@ -233,38 +293,4 @@ footer p {
         flex-direction: column;
         gap: 20px;
     }
-}
-
-/* Efeito de transição nas etapas */
-#etapa1, #etapa2 {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-#etapa1 {
-    display: block;
-}
-
-#etapa2 {
-    display: none;
-    opacity: 0;
-}
-
-/* Botões */
-.form-btn {
-    background-color: #cda1a1;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-    width: 100%;
-    padding: 12px;
-    border-radius: 20px;
-    border: none;
-    font-size: 16px;
-}
-
-.form-btn:hover {
-    background-color: #c59595;
 }

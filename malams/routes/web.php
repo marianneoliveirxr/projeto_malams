@@ -13,3 +13,4 @@ Route::get('/cadastro', function () {
 
 Route::post('/cadastro','App\Http\Controllers\UsuarioController@store');
 
+
