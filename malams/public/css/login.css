@@ -1,12 +1,20 @@
 /* Definições globais */
 body {
-    font-family: 'Lora', serif; /* Usando a fonte Lora no corpo do texto para um toque sofisticado */
+    font-family: 'Lora', serif;
     background-color: #ffe7e3;
     margin: 0;
     padding: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
 }
 
 /* Cabeçalho */
@@ -17,13 +25,14 @@ header {
     background-color: #c59595;
     padding: 15px 30px;
     color: white;
-    font: 'Merriweather'; /* Usando Playfair Display para o cabeçalho */
+    font-family: 'Merriweather';
 }
 
 .logo {
-    max-width: 100%;  /* A imagem vai ocupar 100% da largura do seu contêiner */
-    height: auto;     /* A altura vai ser ajustada automaticamente para manter a proporção */
-    object-fit: cover; 
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    width: 100px;
 }
 
 nav ul {
@@ -37,13 +46,236 @@ nav ul a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    margin-bottom: -13px;
 }
+
+/*Animação começa aqui */
+nav ul a,
+.login {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+}
+
+nav ul a:hover,
+.login:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.login {
+    position: relative;
+}
+
+.login::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.login:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.cadastre-se {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.cadastre-se:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.cadastre-se {
+    position: relative;
+}
+
+.cadastre-se::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.cadastre-se:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.home {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.home:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.home {
+    position: relative;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.home:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.servicos {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.servicos:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.servicos {
+    position: relative;
+}
+
+.servicos::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.servicos:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.contato {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.contato:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.contato {
+    position: relative;
+}
+
+.contato::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.contato:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.sobre {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.sobre:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.sobre {
+    position: relative;
+}
+
+.sobre::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.sobre:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
 
 li {
     text-decoration: none;
     color: white;
-    font-family: 'Playfair Display'; /* Alterando fonte para Lora no menu */
+    font-family: 'Playfair Display';
 }
 
 .social-icons img {
@@ -51,12 +283,8 @@ li {
     margin-left: 10px;
 }
 
-.cadastre-se{
-    width: 24px;
-    margin-left: 10px;
-}
-
-.login{
+.cadastre-se,
+.login {
     width: 24px;
     margin-left: 10px;
 }
@@ -66,9 +294,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
     gap: 50px;
-    margin-top: 30px;
     flex-wrap: wrap;
     padding: 0 15px;
 }
@@ -79,15 +305,16 @@ li {
     width: 100%;
     max-width: 320px;
     text-align: center;
-    margin: 0;
     padding: 15px;
+    margin-top: -20px;
 }
 
 .form-container h4 {
     color: #d19f9f;
     margin-bottom: 8px;
-    font-size: 45px;
-    font-family: 'Playfair Display', serif; /* Título com fonte sofisticada Playfair */
+    font-size: 57px;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 8%;
 }
 
 .form-container input {
@@ -101,8 +328,9 @@ li {
 }
 
 .form-container button {
-    width: 100%;
+    width: 108%;
     padding: 15px;
+    padding-left: 10px;
     background-color: #cda1a1;
     color: white;
     border: none;
@@ -112,13 +340,13 @@ li {
     margin-top: 10px;
 }
 
-/* Imagem responsiva */
 .image-container img {
     border-radius: 10px;
     width: 100%;
-    max-width: 500px;
+    max-width: 580px; 
     height: auto;
     object-fit: cover;
+    margin-left: 27px; 
 }
 
 /* Rodapé */
@@ -129,12 +357,12 @@ footer {
     text-align: center;
     margin-top: auto;
     width: 100%;
-    font-family: 'Lora', serif; /* Usando Lora para o rodapé */
+    font-family: 'Lora', serif;
 }
 
 footer p {
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .footer-links {
@@ -145,20 +373,29 @@ footer p {
     flex-wrap: wrap;
 }
 
-.link-item {
+.profissionais {
     text-align: center;
 }
 
-.link-item img {
+.localizacao {
+    text-align: center;
+}
+
+.nossosprofissionais img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-top: 5px;
 }
 
-/* Media Queries para responsividade */
+.local img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
 
-/* Até 1200px */
+/* Responsividade */
 @media (max-width: 1200px) {
     .container {
         flex-direction: column;
@@ -170,22 +407,17 @@ footer p {
     }
 }
 
-/* Até 992px */
 @media (max-width: 992px) {
     .form-container h4 {
         font-size: 35px;
     }
 
-    .form-container input {
-        font-size: 16px;
-    }
-
+    .form-container input,
     .form-container button {
         font-size: 16px;
     }
 }
 
-/* Até 768px */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
@@ -203,16 +435,12 @@ footer p {
     }
 }
 
-/* Até 576px */
 @media (max-width: 576px) {
     .form-container h4 {
         font-size: 30px;
     }
 
-    .form-container input {
-        font-size: 14px;
-    }
-
+    .form-container input,
     .form-container button {
         font-size: 14px;
     }

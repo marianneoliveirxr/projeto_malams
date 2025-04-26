@@ -15,17 +15,17 @@
         <img class="logo" src="/img/malamslogo.png" alt="logo">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Serviços</a></li>
-                <li><a href="#">Contato</a></li>
-                <li><a href="#">Sobre</a></li>
+                <li><a class="home" href="#">Home</a></li>
+                <li><a class="servicos" href="#">Serviços</a></li>
+                <li><a class="contato" href="#">Contato</a></li>
+                <li><a class="sobre" href="#">Sobre</a></li>
             </ul>
         </nav>
         <div class="social-icons">
             <img src=/img/facebook.png alt="Facebook">
             <img src=/img/instagram.png alt="Instagram">
-            <div href="#">Cadastre-se</div>
-            <div href="#">Login</div>
+            <a class="cadastre-se" href="/teste">Cadastre-se</a>
+            <a class="login" href="{{ url('/login') }}">Login</a>
         </div>
     </header>
 
@@ -50,17 +50,13 @@
     <footer>
         <p>Faça parte da nossa família</p>
         <div class="footer-links">
-            <div class="link-item">
-                <a href="#">Nossos Profissionais</a>
+            <div class="nossosprofissionais">
+                <a class="profissionais" href="#">Nossos Profissionais</a>
                 <img src="profissionais.jpg" alt="Profissionais">
             </div>
-            <div class="link-item">
-                <a href="#">Localização</a>
+            <div class="local">
+                <a class="localizacao" href="#">Localização</a>
                 <img src="localizacao.jpg" alt="Localização">
-            </div>
-            <div class="link-item">
-                <a href="#">Avaliações</a>
-                <img src="avaliacoes.jpg" alt="Avaliações">
             </div>
         </div>
     </footer>
