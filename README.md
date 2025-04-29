@@ -24,26 +24,27 @@ Além disso, os administradores têm acesso a um painel de controle para gerenci
 Para rodar o projeto na sua máquina local, siga os passos abaixo:
 
 1. **Clone o repositório:**
+   /c/xampp/htdocs
    git clone https://github.com/usuario/nome-do-projeto.git
-2. **Navegue até a pasta do projeto:**
+3. **Navegue até a pasta do projeto:**
    cd nome-do-projeto
-3. **Instale as dependências do projeto:**
+4. **Instale as dependências do projeto:**
    Se você ainda não tiver o Composer instalado, você pode baixá-lo aqui: https://getcomposer.org/.
    Com o Composer instalado, execute o seguinte comando para instalar as dependências:
    composer install
-4. **Configuração do ambiente:**
+5. **Configuração do ambiente:**
    Crie um arquivo .env baseado no arquivo .env.example.
    Em seguida, configure suas credenciais de banco de dados no arquivo .env.
-5. **Gerar a chave do aplicativo:**
+6. **Gerar a chave do aplicativo:**
    Execute o comando abaixo para gerar a chave do Laravel:
    php artisan key:generate
-6. **Criando o banco de dados no Workbench:**
+7. **Criando o banco de dados no Workbench:**
    Abra o aplicativo do My Workbench e crie o banco de dados com o nome bdMalams
    create database bdMalams;
-7. **Migrar o banco de dados:**
+8. **Migrar o banco de dados:**
    Execute as migrações para criar as tabelas necessárias no banco de dados:
    php artisan migrate
-8. **Rodar o servidor:**
+9. **Rodar o servidor:**
    Agora, você pode rodar o servidor local para testar a aplicação:
    php artisan serve
    O sistema estará acessível em http://localhost:8000.
