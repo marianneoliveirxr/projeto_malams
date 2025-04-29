@@ -6,11 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Salão de Beleza</title>
     <link rel="stylesheet" href="/css/login.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
-    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 
 <body>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Merriweather:opsz,wght@18..144,900&family=Rubik:ital,wght@0,605;1,605&display=swap');
+    </style>
+
     <header>
         <img class="logo" src="/img/malamslogo.png" alt="logo">
         <nav>
@@ -50,12 +54,12 @@
     <footer>
         <p>Faça parte da nossa família</p>
         <div class="footer-links">
-            <div class="nossosprofissionais">
-                <a class="profissionais" href="#">Nossos Profissionais</a>
+            <div class="profissionais">
+                <a href="#">Nossos Profissionais</a>
                 <img src="profissionais.jpg" alt="Profissionais">
             </div>
             <div class="local">
-                <a class="localizacao" href="#">Localização</a>
+                <a href="#">Localização</a>
                 <img src="localizacao.jpg" alt="Localização">
             </div>
         </div>
