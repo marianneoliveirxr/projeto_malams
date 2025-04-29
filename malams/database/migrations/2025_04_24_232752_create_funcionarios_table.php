@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('funcionarios', function (Blueprint $table) {
             $table->id();
+            $table->string('nomeFuncionario');
+            $table->string('emailFuncionario');
+            $table->string('celularFuncionario');
+            $table->string('cpfFuncionario');
+            $table->varbinary('senha');
+            $table->foreingId('idPermissao')->constrained('permissoes');
+            $table->foreingId('idCategoria')->constrained('categorias');
             $table->timestamps();
         });
     }

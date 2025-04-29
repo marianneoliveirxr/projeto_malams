@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->
+            $table->string('nomeCliente');
+            $table->string('cpfCliente')->unique();
+            $table->string('celularCliente')->unique();
+            $table->string('emailCliente')->unique();
+            $table->date('dataNascimento');
+            $table->varbinary('senhaCliente');
+            $table->foreignId('idPermissoes')->constrained('permissoes');
             $table->timestamps();
         });
     }
