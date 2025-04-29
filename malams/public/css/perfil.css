@@ -1,0 +1,452 @@
+/* Definições globais */
+body {
+    font-family: 'Lora', serif;
+    background-color: #ffe7e3;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c59595;
+    padding: 15px 30px;
+    color: white;
+    font-family: 'Merriweather';
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    width: 100px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    margin-bottom: -13px;
+}
+
+/*Animação começa aqui */
+nav ul a,
+.login {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+}
+
+nav ul a:hover,
+.login:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.login {
+    position: relative;
+}
+
+.login::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.login:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.cadastre-se {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.cadastre-se:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.cadastre-se {
+    position: relative;
+}
+
+.cadastre-se::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.cadastre-se:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.home {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.home:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.home {
+    position: relative;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.home:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.servicos {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.servicos:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.servicos {
+    position: relative;
+}
+
+.servicos::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.servicos:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.contato {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.contato:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.contato {
+    position: relative;
+}
+
+.contato::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.contato:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.sobre {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.sobre:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.sobre {
+    position: relative;
+}
+
+.sobre::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.sobre:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+li {
+    text-decoration: none;
+    color: white;
+    font-family: 'Playfair Display';
+}
+
+.social-icons img {
+    width: 24px;
+    margin-left: 10px;
+}
+
+.cadastre-se,
+.login {
+    width: 24px;
+    margin-left: 10px;
+}
+
+/* Container principal */
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    padding: 0 15px;
+}
+
+/* Formulário responsivo */
+.form-container {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    padding: 15px;
+    margin-top: -20px;
+}
+
+.form-container h4 {
+    color: #d19f9f;
+    margin-bottom: 8px;
+    font-size: 57px;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 8%;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 15px;
+    margin: 14px 0;
+    border: 1px solid #d19f9f;
+    border-radius: 20px;
+    font-size: 18px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.form-container button {
+    width: 108%;
+    padding: 15px;
+    padding-left: 10px;
+    background-color: #cda1a1;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.image-container img {
+    border-radius: 10px;
+    width: 100%;
+    max-width: 580px; 
+    height: auto;
+    object-fit: cover;
+    margin-left: 27px; 
+}
+
+/* Rodapé */
+footer {
+    background-color: #c59595;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    font-family: 'Lora', serif;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.profissionais {
+    text-align: center;
+}
+
+.localizacao {
+    text-align: center;
+}
+
+.nossosprofissionais img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+.local img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 5px;
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .image-container img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    .form-container h4 {
+        font-size: 35px;
+    }
+
+    .form-container input,
+    .form-container button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .form-container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .form-container h4 {
+        font-size: 30px;
+    }
+
+    .form-container input,
+    .form-container button {
+        font-size: 14px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}
