@@ -1,24 +1,28 @@
-/* Definições globais */
-body {
-    font-family: 'Lora', serif;
-    background-color: #ffe7e3;
+html, body {
+    height: 100%;
     margin: 0;
     padding: 0;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    font-family: 'Lora', serif;
+    background-color: #ffe7e3;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: 'Lora', serif;
 }
 
 /* Cabeçalho */
 header {
-    margin: 0;
-    padding: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #c59595;
     padding: 15px 30px;
-    color: white;
+    color: #ffffff;
     font-family: 'Merriweather';
 }
 
@@ -26,6 +30,7 @@ header {
     max-width: 100%;
     height: auto;
     object-fit: cover;
+    width: 100px;
 }
 
 nav ul {
@@ -39,17 +44,8 @@ nav ul a {
     text-decoration: none;
     color: white;
     font-weight: bold;
-    font-size: 18px;
-}
-
-li {
-    text-decoration: none;
-    color: white;
-}
-
-.social-icons img {
-    width: 24px;
-    margin-left: 10px;
+    font-size: 22px;
+    transition: all 0.3s ease;
 }
 
 /* Rodapé */
@@ -62,12 +58,11 @@ footer {
     width: 100%;
     font-family: 'Lora', serif;
     position: relative;
-    bottom: 0;
 }
 
 footer p {
     margin-bottom: 15px;
-    font-size: 18px;
+    font-size: 24px;
 }
 
 .footer-links {
@@ -78,27 +73,29 @@ footer p {
     flex-wrap: wrap;
 }
 
-.link-item {
+.profissionais,
+.localizacao {
     text-align: center;
 }
 
-.link-item img {
+.nossosprofissionais img,
+.local img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
     margin-top: 5px;
 }
 
-/* Ajustes do Formulário Principal */
+/* Container */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 40px 20px;
-    flex: 1;
-    flex-wrap: wrap;
+    flex-grow: 1;
+    padding: 20px 0;
 }
 
+/* Card de cadastro */
 .card-cadastro {
     display: flex;
     flex-direction: row;
@@ -112,9 +109,9 @@ footer p {
 }
 
 .form-container {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    justify-content: center; 
+    justify-content: center;
     width: 100%;
     max-width: 500px;
     text-align: center;
@@ -122,175 +119,62 @@ footer p {
     padding: 20px;
     background-color: rgba(255, 255, 255, 0.8);
     flex: 1;
-    height: 100%; 
+    height: 100%;
     box-sizing: border-box;
-    min-height: 400px; /* Adiciona altura mínima ao formulário */
-    transition: min-height 0.5s ease; /* Transição suave para altura */
 }
 
 .form-container h4 {
     color: #d19f9f;
     margin-bottom: 15px;
-    font-size: 36px;
-    font-family: 'Playfair Display', serif;
+    font-size: 32px;
 }
 
 .form-columns {
     display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.form-column {
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-between;
     gap: 20px;
 }
 
 .form-group {
+    width: 48%;
+}
+
+.inputBox {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 15px;
+}
+
+.inputUser {
     width: 100%;
+    padding: 12px;
+    margin-top: 8px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
 }
 
 .labelInput {
-    display: block;
     font-size: 16px;
-    font-weight: bold;
-    margin-bottom: 8px;
-    color: #d19f9f;
-    text-align: left;
-}
-
-.inputBox input {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #d19f9f;
-    border-radius: 20px;
-    font-size: 16px;
-    background-color: transparent;
     color: #333;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.inputBox input::placeholder {
-    color: #a2a2a2;
+.form-submit {
+    margin-top: 20px;
 }
 
-.inputBox input:focus {
-    border-color: #c59595;
-    outline: none;
-}
-
-.form-submit button,
-.form-container input[type="submit"] {
-    background-color: #cda1a1;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-    width: 100%;
-    padding: 12px;
-    border-radius: 20px;
-    border: none;
-    font-size: 16px;
-}
-
-.form-submit button:hover,
-.form-container input[type="submit"]:hover {
-    background-color: #c59595;
-}
-
-fieldset {
-    border: none;
-}
-
-.imagem-cadastro {
-    width: 50%;
-    max-width: 450px;
-    height: auto;
-    display: flex;
-}
-
-.imagem-cadastro img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Efeito de transição nas etapas */
-#etapa1, #etapa2 {
-    opacity: 1;
-    transition: opacity 0.5s ease-in-out;
-}
-
-#etapa1 {
-    display: block;
-}
-
-#etapa2 {
-    display: none;
-    opacity: 0;
-}
-
-/* Botões */
 .form-btn {
-    background-color: #cda1a1;
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 10px;
-    width: 100%;
-    padding: 12px;
-    border-radius: 20px;
+    padding: 10px 20px;
+    background-color: #c59595;
     border: none;
+    border-radius: 8px;
+    color: white;
     font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
 .form-btn:hover {
-    background-color: #c59595;
-}
-
-/* Responsividade */
-@media (max-width: 992px) {
-    .container {
-        flex-direction: column;
-    }
-
-    .image-container img {
-        max-width: 100%;
-    }
-
-    .form-container {
-        max-width: 90%;
-    }
-
-    .form-columns {
-        flex-direction: column;
-    }
-
-    .form-container h4 {
-        font-size: 32px;
-    }
-
-    .form-submit button,
-    .form-container input[type="submit"] {
-        font-size: 14px;
-    }
-}
-
-@media (max-width: 576px) {
-    .form-container h4 {
-        font-size: 28px;
-    }
-
-    .labelInput,
-    .inputBox input {
-        font-size: 14px;
-    }
-
-    .footer-links {
-        flex-direction: column;
-        gap: 20px;
-    }
+    background-color: #a57878;
 }
