@@ -1,3 +1,19 @@
+/* Resetando a borda do fieldset e elementos internos */
+fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+legend {
+    border: none;
+    font-size: 18px;
+    color: #d19f9f;
+    font-weight: bold;
+    padding: 5px 10px;
+}
+
+/* Reset de body e html */
 html, body {
     height: 100%;
     margin: 0;
@@ -6,13 +22,6 @@ html, body {
     flex-direction: column;
     font-family: 'Lora', serif;
     background-color: #ffe7e3;
-}
-
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: 'Lora', serif;
 }
 
 /* Cabeçalho */
@@ -99,36 +108,51 @@ footer p {
 .card-cadastro {
     display: flex;
     flex-direction: row;
-    background-color: rgba(255, 255, 255, 0.5);
+    max-width: 1000px; /* Card continua com esse tamanho fixo */
+    width: 100%;
+    height: auto;
     border-radius: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    max-width: 900px;
-    width: 100%;
     overflow: hidden;
-    align-items: stretch;
+    background-color: rgba(255, 255, 255, 0.5);
 }
 
+/* Imagem do cadastro */
+.imagem-cadastro {
+    width: 65%; /* A imagem ocupa 50% do card */
+    height: auto;
+    overflow: hidden;
+}
+
+.imagem-cadastro img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Formulário */
 .form-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
-    max-width: 500px;
+    width: 50%; /* Formulário ocupa os outros 50% */
     text-align: center;
     margin: 0;
-    padding: 20px;
+    padding: 30px;
     background-color: rgba(255, 255, 255, 0.8);
-    flex: 1;
+    flex: 1; /* Ocupa o restante do card */
     height: 100%;
     box-sizing: border-box;
 }
 
 .form-container h4 {
-    color: #d19f9f;
+    color: #d19f9f; /* Rosa do título */
     margin-bottom: 15px;
     font-size: 32px;
 }
 
+/* Layout dos campos */
 .form-columns {
     display: flex;
     flex-wrap: wrap;
@@ -137,7 +161,7 @@ footer p {
 }
 
 .form-group {
-    width: 48%;
+    width: 100%; /* Mudando para 100% para ocupar toda a linha */
 }
 
 .inputBox {
@@ -148,24 +172,34 @@ footer p {
 }
 
 .inputUser {
-    width: 100%;
-    padding: 12px;
+    width: 300px; /* O campo de input ocupa 100% da largura */
+    padding: 14px;
     margin-top: 8px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
+    border: 1px solid #d19f9f;
+    border-radius: 16px;
+    background-color: #f9f9f9;
+    font-size: 16px;
+    outline: none;
+}
+
+.inputUser:focus {
+    border-color: #9c979a; /* Rosa mais forte no foco */
+    box-shadow: 0 0 5px rgba(206, 114, 160, 0.5);
 }
 
 .labelInput {
     font-size: 16px;
-    color: #333;
+    color: #d19f9f; /* Rosa do título */
+    font-weight: bold;
 }
 
+/* Botão de envio */
 .form-submit {
     margin-top: 20px;
 }
 
 .form-btn {
-    padding: 10px 20px;
+    padding: 14px 20px;
     background-color: #c59595;
     border: none;
     border-radius: 8px;
@@ -178,3 +212,34 @@ footer p {
 .form-btn:hover {
     background-color: #a57878;
 }
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .card-cadastro {
+        flex-direction: column;
+    }
+
+    .imagem-cadastro {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .imagem-cadastro img {
+        object-fit: cover;
+        height: 100%;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 20px;
+    }
+
+    .inputUser {
+        padding: 12px; /* Ajuste para telas menores */
+    }
+
+    .form-btn {
+        padding: 12px 18px; /* Ajuste para telas menores */
+    }
+}
+

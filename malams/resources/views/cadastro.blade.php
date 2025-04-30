@@ -38,13 +38,12 @@
                 <form action="/cadastro" method="POST">
                     @csrf
                     <fieldset>
-                        <!-- Etapa 1 -->
-                        <div id="etapa1" class="form-columns">
+                        <div class="form-columns">
                             <div class="form-column">
                                 <div class="form-group">
                                     <div class="inputBox">
                                         <label class="labelInput" for="name">Nome</label>
-                                        <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName') }}"  placeholder="Ex: Maria Bonita" required>
+                                        <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName') }}" placeholder="Ex: Maria Bonita" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -65,22 +64,16 @@
                                         <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular') }}" placeholder="Ex: 912657845" required>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-
-                        <!-- Etapa 2 -->
-                        <div id="etapa2" class="form-columns" style="display:none;">
-                            <div class="form-column">
                                 <div class="form-group">
                                     <div class="inputBox">
                                         <label class="labelInput" for="email">Email</label>
-                                        <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail') }}" required>
+                                        <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail') }}" placeholder="Ex: maria@gmail.com" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="inputBox">
                                         <label class="labelInput" for="password">Senha:</label>
-                                        <input type="password" id="password" name="password" class="inputUser" required>
+                                        <input type="password" id="password" name="password" class="inputUser" placeholder="Mínimo de 6 caracteres" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -94,8 +87,7 @@
 
                         <!-- Botões -->
                         <div class="form-submit">
-                            <input type="button" id="next" value="Próximo" onclick="nextStep()" class="form-btn">
-                            <input type="submit" id="submit" value="Cadastrar" style="display: none;" class="form-btn">
+                            <input type="submit" id="submit" value="Cadastrar" class="form-btn">
                         </div>
                     </fieldset>
                 </form>
@@ -128,19 +120,6 @@
             }
             inputData.value = value;
         });
-
-        function nextStep() {
-            document.getElementById('etapa1').style.opacity = 0;
-            setTimeout(function () {
-                document.getElementById('etapa1').style.display = 'none';
-                document.getElementById('etapa2').style.display = 'block';
-                setTimeout(function () {
-                    document.getElementById('etapa2').style.opacity = 1;
-                    document.getElementById('submit').style.display = 'block';
-                    document.getElementById('next').style.display = 'none';
-                }, 10);
-            }, 500);
-        }
     </script>
 
 </body>
