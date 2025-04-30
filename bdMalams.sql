@@ -38,13 +38,13 @@ idServico int auto_increment not null, -- Cria um número de ID automático e n�
 idCategoria int not null, -- Insere o ID de uma tabela que faz conexão com a tabela atual, FK
 preco decimal (5, 2) not null, -- Permite que o preço definico no sistema seja em decimal, tendo 5 casas antes da vírgula e 2 após
 primary key (idServico), -- Definindo que o idServico é uma PK
-foreign key (idCategoria) references categoria(idCategoria) -- Definindo que o idCategoria é uma FK nesta tabela
+foreign key (idCategoria) references categorias(idCategoria) -- Definindo que o idCategoria é uma FK nesta tabela
 );
 
 -- Criação da tabela com informações úteis e necessárias para cadastro dos funcionários
 create table funcionarios(
 idFuncionario int auto_increment not null, -- Cria um número de ID automático e não nulo
-idPermissoes int not null, -- Insere o ID de uma tabela que faz conexão com a tabela atual, FK
+idPermissao int not null, -- Insere o ID de uma tabela que faz conexão com a tabela atual, FK
 idCategoria int not null, -- Insere o ID de uma tabela que faz conexão com a tabela atual, FK
 nomeFuncionario varchar(50) not null, -- Identificação de um funcionário
 emailFuncionario varchar(50) not null,  -- Confirmação de cadastro do sistema e comunicação com o funcionário com atualizações na plataforma ou avisos do salão
@@ -53,7 +53,7 @@ cpfFuncionario int(20), -- O registro do CPF evita que o sistema crie funcionár
 senhaFuncionario varbinary(255) not null, -- Proteção do login do funcionário
 primary key (idFuncionario), -- Definindo o que o idFuncionario é uma PK
 foreign key (idPermissao) references permissoes(idPermissao), -- Definindo que o idPermissoes é uma FK nesta tabela
-foreign key (idCategoria) references categoria(idCategoria) -- Definindo que o idCategoria é uma FK nesta tabela
+foreign key (idCategoria) references categorias(idCategoria) -- Definindo que o idCategoria é uma FK nesta tabela
 );
 
 -- Criação da tabela com informações úteis e necessárias para cadastro do formato de agendamentos
@@ -72,43 +72,61 @@ foreign key (idFuncionario) references funcionarios(idFuncionario), -- Definindo
 foreign key (idCliente) references clientes(idCliente) -- Definindo o que o idCliente é uma FK nesta tabela
 );
 
--- Inserção de dados nas tabelas
+-- CRUD de permissoes
 insert into permissoes (permissao) values
 ('cliente'),
 ('funcionario'),
 ('administrador');
+select * from permissoes where idPermissao = 2;
+update permissoes set permissao = '' where idPermissao = 2;
+delete from permissoes where idPermissao = 1;
 
+-- CRUD de clientes
 insert into clientes (idPermissao, nomeCliente, cpfCliente, dataNascimento, celularCliente, emailCliente, senhaCliente) values
 (1, 'João Silva', 12345678901, '1990-05-20', 91999999999, 'joao@email.com', binary 'senha123'),
 (1, 'Maria Oliveira', 10987654321, '1985-09-15', 91998888888, 'maria@email.com', binary 'senha456'),
 (2, 'Pedro Costa', 11223344556, '1992-02-28', 91997777777, 'pedro@email.com', binary 'senha789');
+select * from clientes where idCliente = 1;
+update clientes set nomeCliente = '' where idCliente = 2;
+delete from clientes where idCliente = 1;
 
+-- CRUD de categorias
 insert into categorias (categoria) values
 ('Cabelo'),
 ('Penteado'),
 ('Manicure e Pedicure');
+select * from categorias where idCategoria = 1;
+update categorias set categoria = '' where idCategoria = 2;
+delete from categorias where idCategoria = 1;
 
+-- CRUD de servicos
 insert into servicos (idCategoria, preco) values
 (1, 50.00), -- Cabelo
 (2, 120.00), -- Penteado
 (3, 30.00); -- Manicure e Pedicure
+select * from servicos where idServicos = 1;
+update servicos set preco = '' where idServicos = 2;
+delete from servicos where idServicos = 1;
 
+-- CRUD de funcionarios
 insert into funcionarios (idPermissao, idCategoria, nomeFuncionario, emailFuncionario, celularFuncionario, cpfFuncionario, senhaFuncionario) values
 (2, 1, 'Carlos Souza', 'carlos@email.com', 91996666666, 23456789012, binary 'funcionario123'),
 (2, 2, 'Ana Pereira', 'ana@email.com', 91995555555, 22334455667, binary 'funcionario456'),
 (3, 3, 'Lucia Almeida', 'lucia@email.com', 91994444444, 22334455678, binary 'admin123');
+select * from funcionarios where idFuncionario = 1;
+update funcionarios set nomeFuncionario = '' where idFuncionario = 2;
+delete from funcionarios where idFuncionario = 1;
 
+-- CRUD de agendamentos
 insert into agendamentos (idServico, idFuncionario, idCliente, dataAgendamento, hora, statusAgendamento, confirmacao) values
 (1, 1, 1, '2025-04-20', '14:00:00', 'ativo', 'sim'),
 (2, 2, 2, '2025-04-21', '15:30:00', 'pendente', 'nao'),
 (3, 3, 3, '2025-04-22', '09:00:00', 'ativo', 'sim');
-
-select * from clientes;
+select * from agendamentos where idAgendamento = 1;
+update agendamentos set confirmacao = '' where idAgendamento = 2;
+delete from agendamentos where idAgendamento = 1;
 
 show tables; -- Mostra todas as tabelas criadas
-
 rollback; -- Retorna/Desfaz alterações feitas
-
 commit; -- Salva no disco alterações feitas, após utilizar ele, não é possível utilizar a ação rollback
-
-drop database bdMalams;
+-- drop database bdMalams; -- APAGA o Banco de dados
