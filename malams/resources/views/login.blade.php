@@ -55,12 +55,12 @@
         <p>Faça parte da nossa família</p>
         <div class="footer-links">
             <div class="profissionais">
+                <img src="/img/profissionais.jpg" alt="Profissionais">   
                 <a href="#">Nossos Profissionais</a>
-                <img src="profissionais.jpg" alt="Profissionais">
             </div>
             <div class="local">
+                <img src="/img/localizacao.png" alt="Localização">    
                 <a href="#">Localização</a>
-                <img src="localizacao.jpg" alt="Localização">
             </div>
         </div>
     </footer>
