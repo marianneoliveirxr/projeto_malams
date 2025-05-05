@@ -31,6 +31,14 @@
             <a class="cadastre-se" href="/teste">Cadastre-se</a>
             <a class="login" href="{{ url('/login') }}">Login</a>
         </div>
+        <div class="profile">
+        <img class="profile-img" src="/img/perfil.jpg" alt="Foto de perfil" onclick="toggleProfileMenu()">
+        <div class="profile-menu" id="profile-menu">
+            <a href="#">Meu Perfil</a>
+            <a href="#">Meus Agendamentos</a>
+            <a href="#">Sair</a>
+        </div>
+    </div>
     </header>
 
     <main>
