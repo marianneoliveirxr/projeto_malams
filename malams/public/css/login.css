@@ -265,6 +265,71 @@ nav ul a:hover,
 }
 /*Animação acaba aqui */
 
+/* Foto de perfil redonda */
+.perfil-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Dropdown menu escondido por padrão */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    background-color: #c59595;
+    border-radius: 8px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+/* Mostrar quando ativado */
+.menu-dropdown.show {
+    display: flex;
+}
+
+/* Itens do menu (com a animação que você pediu) */
+.menu-dropdown a {
+    padding: 10px 20px;
+    display: block;
+}
+
+/* Reutiliza a animação */
+.link-animado {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.link-animado:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+.link-animado::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.link-animado:hover::after {
+    width: 100%;
+}
+
 li {
     text-decoration: none;
     color: white;

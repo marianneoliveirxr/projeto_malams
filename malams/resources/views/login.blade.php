@@ -31,13 +31,30 @@
             <a class="cadastre-se" href="/teste">Cadastre-se</a>
             <a class="login" href="{{ url('/login') }}">Login</a>
         </div>
-        <div class="profile">
-        <img class="profile-img" src="/img/perfil.jpg" alt="Foto de perfil" onclick="toggleProfileMenu()">
-        <div class="profile-menu" id="profile-menu">
-            <a href="#">Meu Perfil</a>
-            <a href="#">Meus Agendamentos</a>
-            <a href="#">Sair</a>
-        </div>
+        <div class="perfil-menu">
+    <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
+    <div class="menu-dropdown" id="menuDropdown">
+        <a href="#" class="link-animado">Meu perfil</a>
+        <a href="#" class="link-animado">Meus agendamentos</a>
+        <a href="#" class="link-animado">Sair</a>
+    </div>
+</div>
+    <script>
+function toggleMenu() {
+    const menu = document.getElementById("menuDropdown");
+    menu.classList.toggle("show");
+}
+
+// Fecha o menu ao clicar fora
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById("menuDropdown");
+    const foto = document.querySelector('.perfil-foto');
+    if (!menu.contains(event.target) && !foto.contains(event.target)) {
+        menu.classList.remove('show');
+    }
+});
+</script>
+
     </div>
     </header>
 
