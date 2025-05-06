@@ -5,10 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
     <link rel="stylesheet" href="/css/cadastro.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Lora:wght@400&display=swap" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 </head>
 <body>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Merriweather:opsz,wght@18..144,900&family=Rubik:ital,wght@0,605;1,605&display=swap');
+    </style>
+
     <header>
         <img class="logo" src="/img/malamslogo.png" alt="logo">
         <nav>
@@ -20,8 +25,8 @@
             </ul>
         </nav>
         <div class="social-icons">
-            <img src="/img/facebook.png" alt="Facebook">
-            <img src="/img/instagram.png" alt="Instagram">
+            <img src=/img/facebook.png alt="Facebook">
+            <img src=/img/instagram.png alt="Instagram">
             <a class="cadastre-se" href="/teste">Cadastre-se</a>
             <a class="login" href="{{ url('/login') }}">Login</a>
         </div>
@@ -85,7 +90,6 @@
                             </div>
                         </div>
 
-                        <!-- Botões -->
                         <div class="form-submit">
                             <input type="submit" id="submit" value="Cadastrar" class="form-btn">
                         </div>
@@ -98,17 +102,18 @@
     <footer>
         <p>Faça parte da nossa família</p>
         <div class="footer-links">
-            <div class="nossosprofissionais">
-                <a class="profissionais" href="#">Nossos Profissionais</a>
-                <img src="profissionais.jpg" alt="Profissionais">
+            <div class="profissionais">
+                <img src="/img/profissionais.jpg" alt="Profissionais">   
+                <a href="#">Nossos Profissionais</a>
             </div>
             <div class="local">
-                <a class="localizacao" href="#">Localização</a>
-                <img src="localizacao.jpg" alt="Localização">
+                <img src="/img/localizacao.png" alt="Localização">    
+                <a href="#">Localização</a>
             </div>
         </div>
     </footer>
 
+      <!-- Script para Data de Nascimento -->
     <script>
         const inputData = document.getElementById('nascimento');
         inputData.addEventListener('input', () => {
@@ -121,6 +126,31 @@
             inputData.value = value;
         });
     </script>
+
+     <!-- SweetAlert2 Mensagens -->
+     @if (session('success'))
+         <script>
+             Swal.fire({
+                 icon: 'success',
+                 title: 'Sucesso!',
+                 text: '{{ session('success') }}',
+                 confirmButtonColor: '#d08989'
+             });
+         </script>
+     @endif
+ 
+     @if ($errors->any())
+         <script>
+             Swal.fire({
+                 icon: 'error',
+                 title: 'Erro',
+                 html: `{!! implode('<br>', $errors->all()) !!}`,
+                 confirmButtonColor: '#d08989'
+             });
+         </script>
+     @endif
+ 
+     <script>
 
 </body>
 </html>

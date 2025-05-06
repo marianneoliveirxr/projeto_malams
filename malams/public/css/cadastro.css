@@ -20,8 +20,10 @@ html, body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    font-family: 'Lora', serif;
     background-color: #ffe7e3;
+    font-weight: 400;
+    font-style: normal;
+    font-family: "Rubik", sans-serif; 
 }
 
 /* Cabeçalho */
@@ -32,7 +34,7 @@ header {
     background-color: #c59595;
     padding: 15px 30px;
     color: #ffffff;
-    font-family: 'Merriweather';
+    font-family: 'Cal Sans';
 }
 
 .logo {
@@ -55,7 +57,243 @@ nav ul a {
     font-weight: bold;
     font-size: 22px;
     transition: all 0.3s ease;
+    margin-bottom: -13px;
 }
+
+/* Animações do Header */
+/*Animação começa aqui */
+nav ul a,
+.home {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-size: 22px;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.home:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.home {
+    position: relative;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.home:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.servicos {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.servicos:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.servicos {
+    position: relative;
+}
+
+.servicos::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.servicos:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.contato {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.contato:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.contato {
+    position: relative;
+}
+
+.contato::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.contato:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.sobre {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.sobre:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.sobre {
+    position: relative;
+}
+
+.sobre::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.sobre:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.login {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+}
+
+nav ul a:hover,
+.login:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.login {
+    position: relative;
+}
+
+.login::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.login:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.cadastre-se {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.cadastre-se:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.cadastre-se {
+    position: relative;
+}
+
+.cadastre-se::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.cadastre-se:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
 
 /* Rodapé */
 footer {
@@ -65,8 +303,14 @@ footer {
     text-align: center;
     margin-top: auto;
     width: 100%;
-    font-family: 'Lora', serif;
-    position: relative;
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
 }
 
 footer p {
@@ -77,22 +321,106 @@ footer p {
 .footer-links {
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 40px;
     margin-top: 10px;
     flex-wrap: wrap;
+    text-align: left;
+}
+
+/* Animação nos links do footer (rodapé) */
+footer a {
+    text-decoration: none;
+    color: white;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+/* Estilos específicos para as seções Nossos Profissionais e Localização */
+footer .profissionais a,
+footer .local a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: normal;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer .profissionais a:hover,
+footer .local a:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+footer .profissionais a::after,
+footer .local a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+footer .profissionais a:hover::after,
+footer .local a:hover::after {
+    width: 100%;
 }
 
 .profissionais,
-.localizacao {
-    text-align: center;
+.local {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row; /* garante imagem à esquerda e texto à direita */
 }
 
-.nossosprofissionais img,
+.profissionais img,
 .local img {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    margin-top: 5px;
+    margin-top: 0; /* remove espaçamento extra */
+}
+
+.profissionais a,
+.local a {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.profissionais a:hover,
+.local a:hover {
+    color: #E8D6D3;
 }
 
 /* Container */
@@ -150,6 +478,10 @@ footer p {
     color: #d19f9f; /* Rosa do título */
     margin-bottom: 15px;
     font-size: 32px;
+    font-optical-sizing: auto;
+    font-weight: 605;
+    font-style: normal;
+    margin-bottom: 8%;
 }
 
 /* Layout dos campos */
@@ -202,11 +534,12 @@ footer p {
     padding: 14px 20px;
     background-color: #c59595;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     color: white;
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    font-family: "Rubik", sans-serif;
 }
 
 .form-btn:hover {
