@@ -17,8 +17,15 @@ class User extends Authenticatable
      *
      * @var list<string>
      */
+    use HasFactory;
+
+    public $timestamps = true;
+
     protected $fillable = [
-        'name',
+        'nomeCliente',
+        'cpfCliente',
+        'dataNascimento',
+        'celularCliente',
         'email',
         'password',
     ];

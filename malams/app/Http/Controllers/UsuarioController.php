@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Usuario;
+use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UsuarioController extends Controller
 {
@@ -30,12 +31,15 @@ class UsuarioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'txtCpf' => 'required|unique:clientes,cpfCliente',
-            'txtEmail' => 'required|email|unique:clientes,emailCliente',
-            'txtCelular' => 'required|unique:clientes,celularCliente',
+            'txtName' => 'required|string|max:255',
+            'txtCpf' => 'required|unique:users,cpfCliente',
+            'txtEmail' => 'required|email|unique:users,email',
+            'txtCelular' => 'required|unique:users,celularCliente',
             'txtDatNascimento' => 'required|date_format:d/m/Y',
             'password' => 'required|min:6|confirmed',
-        ], [
+
+        ], 
+        [
             'txtCpf.required' => 'O CPF é obrigatório.',
             'txtCpf.unique' => 'Já existe um cadastro com este CPF.',
     
@@ -58,19 +62,38 @@ class UsuarioController extends Controller
         $dataFormatada = Carbon::createFromFormat('d/m/Y', $request->txtDatNascimento)->format('Y-m-d');
     
         // Cria e salva o usuário
-        $user = new Usuario();
+        $user = new User();
         $user->nomeCliente = $request->txtName;
         $user->cpfCliente = $request->txtCpf;
         $user->dataNascimento = $dataFormatada;
         $user->celularCliente = $request->txtCelular;
-        $user->emailCliente = $request->txtEmail;
-        $user->senhaCliente = Hash::make($request->password);
+        $user->email = $request->txtEmail;
+        $user->password = Hash::make($request->password);
         $user->save();
     
         return redirect()->route('cadastro')->with('success', 'Usuário cadastrado com sucesso!');
 
     }
 
+    public function verifyUser(Request $request)
+    {
+
+        $credentials = [
+            'email' => $request->input('txtEmail'), 
+            'password' => $request->input('password'),
+        ];
+
+        if (!Auth::attempt($credentials)) {
+            return redirect('/login')->withErrors(['login' => 'Email ou Senha Incorretos.']);
+        }
+
+    return redirect('/home');
+    }
+
+    public function logoutUser(Request $request){
+        Auth::logout();
+        return redirect('/home');  
+    } 
     /**
      * Display the specified resource.
      */
