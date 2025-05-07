@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
+    <title>Perfil do Funcionário</title>
     <link rel="stylesheet" href="/css/perfil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -60,7 +60,7 @@ document.addEventListener('click', function(event) {
 
 <div class="caixa-central">
     <form class="info">
-        <h1>Informações do Cliente</h1>
+        <h1>Informações do Funcionário</h1>
 
         <label><strong>Nome:</strong></label>
         <input type="text" value="Bruna Silva"><br>
@@ -73,9 +73,6 @@ document.addEventListener('click', function(event) {
 
         <label><strong>Celular:</strong></label>
         <input type="tel" value="(11) 99999-9999"><br>
-
-        <label><strong>Data de nascimento:</strong></label>
-        <input type="date" value="2007-10-03"><br>
 
         <button type="submit">Salvar Alterações</button>
     </form>

@@ -34,83 +34,6 @@ nav ul a {
 
 /*Animação começa aqui */
 nav ul a,
-.login {
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
-    transition: all 0.3s ease;  /* transição suave no hover */
-}
-
-nav ul a:hover,
-.login:hover {
-    color: #E8D6D3;          
-    text-decoration: underline; 
-}
-
-.login {
-    position: relative;
-}
-
-.login::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-.login:hover::after {
-    width: 100%;
-}
-/*Animação acaba aqui */
-
-/*Animação começa aqui */
-nav ul a,
-.cadastre-se {
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
-    transition: all 0.3s ease;  /* transição suave no hover */
-    margin-bottom: 22px;
-}
-
-nav ul a:hover,
-.cadastre-se:hover {
-    color: #E8D6D3;          
-    text-decoration: underline; 
-}
-
-.cadastre-se {
-    position: relative;
-}
-
-.cadastre-se::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-.cadastre-se:hover::after {
-    width: 100%;
-}
-/*Animação acaba aqui */
-
-/*Animação começa aqui */
-nav ul a,
 .home {
     text-decoration: none;   /* remove sublinhado */
     color: white;            /* mantém branco */
@@ -265,6 +188,148 @@ nav ul a:hover,
 }
 /*Animação acaba aqui */
 
+/*Animação começa aqui */
+nav ul a,
+.login {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+}
+
+nav ul a:hover,
+.login:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.login {
+    position: relative;
+}
+
+.login::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.login:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.cadastre-se {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.cadastre-se:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.cadastre-se {
+    position: relative;
+}
+
+.cadastre-se::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.cadastre-se:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/* Foto de perfil redonda */
+.perfil-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Dropdown menu escondido por padrão */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    background-color: #c59595;
+    border-radius: 8px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+/* Mostrar quando ativado */
+.menu-dropdown.show {
+    display: flex;
+}
+
+/* Itens do menu (com a animação que você pediu) */
+.menu-dropdown a {
+    padding: 10px 20px;
+    display: block;
+}
+
+/* Reutiliza a animação */
+.link-animado {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.link-animado:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+.link-animado::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.link-animado:hover::after {
+    width: 100%;
+}
+
 li {
     text-decoration: none;
     color: white;
@@ -282,12 +347,54 @@ li {
     margin-left: 10px;
 }
 
+/* Estilizando a imagem do perfil */
+.profile {
+    position: relative;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #c59595;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.profile-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.profile-menu a:hover {
+    background-color: #E8D6D3;
+}
+
+/* Exibe o menu quando ativo */
+.profile-menu.show {
+    display: block;
+}
+
 /* Definições globais */
 body {
     font-family: "Cal Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    background-color: white;
+    background-color: #ffff;
     margin: 0;
     padding: 0;
     min-height: 100vh;
@@ -297,55 +404,59 @@ body {
 
 .caixa-central {
     background-color: #ffe7e3;
-    width: 900px;
-    padding: 200px;
+    width: 700px;
+    padding: 60px;
     margin: 100px auto;
-    display: flex;
-    align-items: flex-start; /* Alinha tudo no topo */
-    gap: 40px;
     border-radius: 12px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.349);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     font-family: 'Rubik', sans-serif;
+    display: flex;
+    justify-content: center;
 }
 
-.lado-esquerdo {
-    flex: 1;
-    text-align: left;
-    font-size: 24px;
-    line-height: 1.6;
-    margin-right: 100px;
+.info {
+    width: 100%;
 }
 
-.lado-esquerdo img {
-    width: 300px;
-    height: 300px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    margin-right: 100px;
+.info h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #c59595;
 }
 
-.lado-direito {
-    flex: 2;
-    margin-left: 100px;
+label {
+    display: block;
+    margin-top: 20px;
+    font-size: 18px;
+    color: #c59595;
 }
 
-.lado-direito h2 {
-    margin-top: 0;
-    font-size: 38px;
-    font-weight: 700;
+input {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #fff;
+    box-sizing: border-box;
 }
 
-.lado-direito p {
-    margin: 20px 0;
-    font-size: 28px;
-    line-height: 1.8;
+button {
+    margin-top: 30px;
+    padding: 12px 24px;
+    background-color: #c59595;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    font-weight: bolder;
 }
 
-.lado-direito strong {
-    display: inline-block;
-    width: 180px;
-    font-weight: 600;
+button:hover {
+    background-color: #c59595;
 }
 
 main {
@@ -433,7 +544,14 @@ footer {
     text-align: center;
     margin-top: auto;
     width: 100%;
-    font-family: 'Cal Sans';
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
 }
 
 footer p {
@@ -451,14 +569,70 @@ footer p {
     text-align: left;
 }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-    text-align: left;
+/* Animação nos links do footer (rodapé) */
+footer a {
+    text-decoration: none;
+    color: white;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
+/* Estilos específicos para as seções Nossos Profissionais e Localização */
+footer .profissionais a,
+footer .local a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: normal;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer .profissionais a:hover,
+footer .local a:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+footer .profissionais a::after,
+footer .local a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+footer .profissionais a:hover::after,
+footer .local a:hover::after {
+    width: 100%;
 }
 
 .profissionais,
@@ -480,16 +654,14 @@ footer p {
 .profissionais a,
 .local a {
     color: white;
-    font-size: 18px;
+    font-size: 22px;
     text-decoration: none;
-    font-weight: bold;
     transition: color 0.3s ease;
 }
 
 .profissionais a:hover,
 .local a:hover {
     color: #E8D6D3;
-    text-decoration: underline;
 }
 
 
@@ -531,6 +703,7 @@ footer p {
         width: 100%;
         height: auto;
         margin: 0 auto;
+
     }
 
     header {
