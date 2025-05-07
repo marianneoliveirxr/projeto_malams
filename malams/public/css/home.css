@@ -1,3 +1,6 @@
+@import "tailwindcss";
+@source "../views";
+
 /* Cabeçalho */
 header {
     display: flex;
@@ -265,71 +268,6 @@ nav ul a:hover,
 }
 /*Animação acaba aqui */
 
-/* Foto de perfil redonda */
-.perfil-foto {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-/* Dropdown menu escondido por padrão */
-.menu-dropdown {
-    display: none;
-    position: absolute;
-    right: 30px;
-    top: 80px;
-    background-color: #c59595;
-    border-radius: 8px;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-    flex-direction: column;
-}
-
-/* Mostrar quando ativado */
-.menu-dropdown.show {
-    display: flex;
-}
-
-/* Itens do menu (com a animação que você pediu) */
-.menu-dropdown a {
-    padding: 10px 20px;
-    display: block;
-}
-
-/* Reutiliza a animação */
-.link-animado {
-    position: relative;
-    text-decoration: none;
-    color: white;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-.link-animado:hover {
-    color: #E8D6D3;
-    text-decoration: underline;
-}
-
-.link-animado::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-.link-animado:hover::after {
-    width: 100%;
-}
-
 li {
     text-decoration: none;
     color: white;
@@ -345,97 +283,6 @@ li {
 .login {
     width: 24px;
     margin-left: 10px;
-}
-
-
-/* Definições globais */
-body {
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #ffe7e3;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px 0;
-}
-
-/* Container principal */
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    padding: 0 15px;
-}
-
-/* Formulário responsivo */
-.form-container {
-    border-radius: 10px;
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-    padding: 15px;
-    margin-top: -20px;
-    margin: 0 auto;
-}
-
-.form-container h4 {
-    color: #d19f9f;
-    margin-bottom: 8px;
-    font-size: 57px;
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 605;
-    font-style: normal;
-    margin-bottom: 8%;
-}
-
-.form-container input {
-    width: 100%;
-    padding: 15px;
-    margin: 14px 0;
-    border: 1px solid #d19f9f;
-    border-radius: 20px;
-    font-size: 18px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.form-container button {
-    width: 108%;
-    padding: 15px;
-    padding-left: 10px;
-    background-color: #cda1a1;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    font-size: 18px;
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 605;
-    font-style: normal;
-    cursor: pointer;
-    margin-top: 10px;
-}
-
-.image-container img {
-    border-radius: 10px;
-    width: 100%;
-    max-width: 700px; 
-    height: auto;
-    object-fit: cover;
-    margin-left: clamp(10%, 20%, 20%);
-    display: block;
 }
 
 /* Rodapé */
@@ -565,6 +412,7 @@ footer .local a:hover::after {
 .local a:hover {
     color: #E8D6D3;
 }
+
 
 
 /* Responsividade */

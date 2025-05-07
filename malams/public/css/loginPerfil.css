@@ -1,12 +1,34 @@
 /* Cabeçalho */
 header {
     display: flex;
-    justify-content: space-between;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c59595;
+  padding: 20px 40px;
+  color: white;
+  font-family: 'Cal Sans';
+  flex-wrap: wrap;
+}
+
+.header-left {
+    flex: 1;
+    display: flex;
     align-items: center;
-    background-color: #c59595;
-    padding: 15px 30px;
-    color: white;
-    font-family: 'Cal Sans';
+}
+
+.header-center {
+    flex: 2;
+    display: flex;
+    justify-content: center;
+    margin-left: 100px;
+}
+
+.header-right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 15px;
 }
 
 .logo {
@@ -19,8 +41,11 @@ header {
 nav ul {
     list-style: none;
     display: flex;
-    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
     padding: 0;
+    margin: 0;
 }
 
 nav ul a {
@@ -30,6 +55,8 @@ nav ul a {
     font-size: 22px;
     transition: all 0.3s ease;
     margin-bottom: -13px;
+    justify-content: center;
+    text-align: center;
 }
 
 /*Animação começa aqui */
@@ -330,6 +357,13 @@ nav ul a:hover,
     width: 100%;
 }
 
+.menu-direita {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-left: auto;
+}
+
 li {
     text-decoration: none;
     color: white;
@@ -347,6 +381,47 @@ li {
     margin-left: 10px;
 }
 
+/* Estilizando a imagem do perfil */
+.profile {
+    position: relative;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #c59595;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.profile-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.profile-menu a:hover {
+    background-color: #E8D6D3;
+}
+
+/* Exibe o menu quando ativo */
+.profile-menu.show {
+    display: block;
+}
 
 /* Definições globais */
 body {
@@ -610,13 +685,18 @@ footer .local a:hover::after {
 
     header {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+        align-items: stretch;
+    }
+
+    .header-left,
+    .header-center,
+    .header-right {
+        justify-content: center;
+        margin: 10px 0;
     }
 
     nav ul {
-        flex-direction: column;
-        align-items: flex-start;
+        flex-wrap: wrap;
         gap: 10px;
     }
 

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - Salão de Beleza</title>
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" href="/css/loginPerfil.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="/img/icon.ico">
@@ -17,8 +17,10 @@
     </style>
 
     <header>
+        <div class="header-esquerda">
         <img class="logo" src="/img/malamslogo.png" alt="logo">
-        <nav>
+</div>
+        <nav class="header-center">
             <ul>
                 <li><a class="home" href="#">Home</a></li>
                 <li><a class="servicos" href="#">Serviços</a></li>
@@ -26,12 +28,38 @@
                 <li><a class="sobre" href="#">Sobre</a></li>
             </ul>
         </nav>
+        <div class="header-right menu-direita">
         <div class="social-icons">
             <img src=/img/facebook.png alt="Facebook">
             <img src=/img/instagram.png alt="Instagram">
             <a class="cadastre-se" href="/teste">Cadastre-se</a>
             <a class="login" href="{{ url('/login') }}">Login</a>
         </div>
+        <div class="perfil-menu">
+    <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
+    <div class="menu-dropdown" id="menuDropdown">
+        <a href="#" class="link-animado">Meu perfil</a>
+        <a href="#" class="link-animado">Meus agendamentos</a>
+        <a href="#" class="link-animado">Sair</a>
+    </div>
+</div>
+</div>
+    <script>
+function toggleMenu() {
+    const menu = document.getElementById("menuDropdown");
+    menu.classList.toggle("show");
+}
+
+// Fecha o menu ao clicar fora
+document.addEventListener('click', function(event) {
+    const menu = document.getElementById("menuDropdown");
+    const foto = document.querySelector('.perfil-foto');
+    if (!menu.contains(event.target) && !foto.contains(event.target)) {
+        menu.classList.remove('show');
+    }
+});
+</script>
+
     </div>
     </header>
 

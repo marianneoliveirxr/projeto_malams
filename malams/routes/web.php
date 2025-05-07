@@ -11,3 +11,9 @@ Route::get('/login', function () {
 Route::get('/teste', function () {
     return view('teste');
 });
+Route::get('/loginPerfil', function () {
+    return view('loginPerfil');
+});
+Route::get('/home', function () {
+    return view('home');
+});
