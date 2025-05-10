@@ -292,6 +292,12 @@ nav ul a:hover,
 .cadastre-se:hover::after {
     width: 100%;
 }
+
+.cadastre-se,
+.login {
+    width: 24px;
+    margin-left: 10px;
+}
 /*Animação acaba aqui */
 
 
@@ -575,4 +581,131 @@ footer .local a:hover::after {
         padding: 12px 18px; /* Ajuste para telas menores */
     }
 }
+
+/* Configurações do Menu quando o Usuário estiver Logado*/
+/* Foto de perfil redonda */
+.perfil-foto {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    cursor: pointer;
+}
+
+/* Dropdown menu escondido por padrão */
+.menu-dropdown {
+    display: none;
+    position: absolute;
+    right: 30px;
+    top: 80px;
+    background-color: #c59595;
+    border-radius: 8px;
+    padding: 10px 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    flex-direction: column;
+}
+
+/* Mostrar quando ativado */
+.menu-dropdown.show {
+    display: flex;
+}
+
+/* Itens do menu  */
+.menu-dropdown a {
+    padding: 10px 20px;
+    display: block;
+}
+
+/* Reutiliza a animação */
+.link-animado {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+
+.link-animado:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+.link-animado::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.link-animado:hover::after {
+    width: 100%;
+}
+
+li {
+    text-decoration: none;
+    color: white;
+    font-family: 'Cal Sans';
+}
+
+.social-icons img {
+    width: 24px;
+    margin-left: 10px;
+}
+
+.cadastre-se,
+.login {
+    width: 24px;
+    margin-left: 10px;
+}
+
+/* Estilizando a imagem do perfil */
+.profile {
+    position: relative;
+}
+
+.profile-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.profile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #c59595;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.profile-menu a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    padding: 5px 0;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.profile-menu a:hover {
+    background-color: #E8D6D3;
+}
+
+/* Exibe o menu quando ativo */
+.profile-menu.show {
+    display: block;
+}
+
+
 

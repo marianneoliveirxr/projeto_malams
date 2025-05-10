@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="/css/login.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="icon" href="/img/icon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 
 <body>
@@ -16,57 +18,90 @@
     </style>
 
     <header>
-        <img class="logo" src="/img/malamslogo.png" alt="logo">
-        <nav>
-            <ul>
-                <li><a class="home" href="#">Home</a></li>
-                <li><a class="servicos" href="#">Serviços</a></li>
-                <li><a class="contato" href="#">Contato</a></li>
-                <li><a class="sobre" href="#">Sobre</a></li>
-            </ul>
-        </nav>
-        <div class="social-icons">
-            <img src=/img/facebook.png alt="Facebook">
-            <img src=/img/instagram.png alt="Instagram">
-            <a class="cadastre-se" href="/teste">Cadastre-se</a>
-            <a class="login" href="{{ url('/login') }}">Login</a>
-        </div>
-        <div class="perfil-menu">
-    <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
-    <div class="menu-dropdown" id="menuDropdown">
-        <a href="#" class="link-animado">Meu perfil</a>
-        <a href="#" class="link-animado">Meus agendamentos</a>
-        <a href="#" class="link-animado">Sair</a>
-    </div>
-</div>
-    <script>
-function toggleMenu() {
-    const menu = document.getElementById("menuDropdown");
-    menu.classList.toggle("show");
-}
+    <img class="logo" src="/img/malamslogo.png" alt="logo">
 
-// Fecha o menu ao clicar fora
-document.addEventListener('click', function(event) {
-    const menu = document.getElementById("menuDropdown");
-    const foto = document.querySelector('.perfil-foto');
-    if (!menu.contains(event.target) && !foto.contains(event.target)) {
-        menu.classList.remove('show');
+    <!-- Navegação Principal -->
+    <nav class="header-center">
+        <ul>
+            <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
+            <li><a class="nav-links" href="#">Serviços</a></li>
+            <li><a class="nav-links" href="#">Contato</a></li>
+            <li><a class="nav-links" href="#">Sobre</a></li>
+        </ul>
+    </nav>
+
+    <!-- Parte Direita (Dependendo da Autenticação) -->
+    <div class="header-right menu-direita">
+        @guest
+            <!-- Se o usuário NÃO estiver autenticado -->
+            <div class="social-icons">
+                <a class="cadastre-se" href="{{ url('/cadastro') }}">Cadastre-se</a>
+                <a class="login" href="{{ url('/login') }}">Login</a>
+            </div>
+        @endguest
+
+        @auth
+            <!-- Se o usuário ESTIVER autenticado -->
+            <div class="perfil-menu">
+                <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
+                <div class="menu-dropdown" id="menuDropdown">
+                    <a href="{{ url('/profile') }}" class="link-animado">Meu perfil</a>
+                    <a href="{{ url('/appointments') }}" class="link-animado">Meus agendamentos</a>
+                    <!-- Formulário de logout -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();" class="link-animado">Sair</a>
+                </div>
+            </div>
+        @endauth
+    </div>
+</header>
+
+<script>
+    // Função para mostrar/ocultar o menu dropdown
+    function toggleMenu() {
+        const menu = document.getElementById("menuDropdown");
+        menu.classList.toggle("show");
     }
-});
+
+    // Fecha o menu dropdown ao clicar fora dele
+    document.addEventListener('click', function(event) {
+        const menu = document.getElementById("menuDropdown");
+        const foto = document.querySelector('.perfil-foto');
+        if (!menu.contains(event.target) && !foto.contains(event.target)) {
+            menu.classList.remove('show');
+        }
+    });
 </script>
 
-    </div>
-    </header>
-
     <main>
-        <div class="container">
+    <div class="container">
             <!-- Formulário de Login -->
             <div class="form-container">
                 <h4>Entre</h4>
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Senha">
-                <button>Acessar</button>
+                <form action="{{ route('login-user') }}" method="POST">
+                    @csrf
+                    <input type="email" name="txtEmail" placeholder="Email" required>
+                    <input type="password" name="password" placeholder="Senha" required>
+                    <button type="submit">Acessar</button>
+                </form>
             </div>
+
+            <!-- Mensagem de erro -->
+           @if ($errors->has('login'))
+                <script>
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Erro',
+                        text: 'Email ou Senha inválidos',
+                        confirmButtonText: 'OK',
+                        customClass: {
+                            confirmButton: 'swal2-confirm'
+                        }
+                    });
+                </script>
+            @endif
 
             <!-- Imagem -->
             <div class="image-container">
@@ -79,11 +114,11 @@ document.addEventListener('click', function(event) {
     <footer>
         <p>Faça parte da nossa família</p>
         <div class="footer-links">
-            <div class="profissionais">
-                <img src="/img/profissionais.jpg" alt="Profissionais">   
-                <a href="#">Nossos Profissionais</a>
+            <div class="footer-items">
+                <img src="/img/contato.jpg" alt="Contato">   
+                <a href="#">Contato</a>
             </div>
-            <div class="local">
+            <div class="footer-items">
                 <img src="/img/localizacao.png" alt="Localização">    
                 <a href="#">Localização</a>
             </div>

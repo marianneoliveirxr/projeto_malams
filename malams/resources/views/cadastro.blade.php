@@ -15,22 +15,62 @@
     </style>
 
     <header>
-        <img class="logo" src="/img/malamslogo.png" alt="logo">
-        <nav>
-            <ul>
-                <li><a class="home" href="#">Home</a></li>
-                <li><a class="servicos" href="#">Serviços</a></li>
-                <li><a class="contato" href="#">Contato</a></li>
-                <li><a class="sobre" href="#">Sobre</a></li>
-            </ul>
-        </nav>
-        <div class="social-icons">
-            <img src=/img/facebook.png alt="Facebook">
-            <img src=/img/instagram.png alt="Instagram">
-            <a class="cadastre-se" href="/teste">Cadastre-se</a>
-            <a class="login" href="{{ url('/login') }}">Login</a>
-        </div>
-    </header>
+    <img class="logo" src="/img/malamslogo.png" alt="logo">
+
+    <!-- Navegação Principal -->
+    <nav class="header-center">
+        <ul>
+            <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
+            <li><a class="nav-links" href="#">Serviços</a></li>
+            <li><a class="nav-links" href="#">Contato</a></li>
+            <li><a class="nav-links" href="#">Sobre</a></li>
+        </ul>
+    </nav>
+
+    <!-- Parte Direita (Dependendo da Autenticação) -->
+    <div class="header-right menu-direita">
+        @guest
+            <!-- Se o usuário NÃO estiver autenticado -->
+            <div class="social-icons">
+                <a class="cadastre-se" href="{{ url('/register') }}">Cadastre-se</a>
+                <a class="login" href="{{ url('/login') }}">Login</a>
+            </div>
+        @endguest
+
+        @auth
+            <!-- Se o usuário ESTIVER autenticado -->
+            <div class="perfil-menu">
+                <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
+                <div class="menu-dropdown" id="menuDropdown">
+                    <a href="{{ url('/profile') }}" class="link-animado">Meu perfil</a>
+                    <a href="{{ url('/appointments') }}" class="link-animado">Meus agendamentos</a>
+                    <!-- Formulário de logout -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();" class="link-animado">Sair</a>
+                </div>
+            </div>
+        @endauth
+    </div>
+</header>
+
+<script>
+    // Função para mostrar/ocultar o menu dropdown
+    function toggleMenu() {
+        const menu = document.getElementById("menuDropdown");
+        menu.classList.toggle("show");
+    }
+
+    // Fecha o menu dropdown ao clicar fora dele
+    document.addEventListener('click', function(event) {
+        const menu = document.getElementById("menuDropdown");
+        const foto = document.querySelector('.perfil-foto');
+        if (!menu.contains(event.target) && !foto.contains(event.target)) {
+            menu.classList.remove('show');
+        }
+    });
+</script>
 
     <div class="container">
         <div class="card-cadastro">

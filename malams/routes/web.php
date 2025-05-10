@@ -20,7 +20,7 @@ Route::post('/cadastro','App\Http\Controllers\UsuarioController@store');
 
 Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->name('login-user');
 
-Route::get('/logout','App\Http\Controllers\UsuarioController@logoutUser')->name('logout');
+Route::post('/logout','App\Http\Controllers\UsuarioController@logoutUser')->name('logout');
 
 //Rota de Dashboard
 Route::get('/painel', function () {
