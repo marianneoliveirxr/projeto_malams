@@ -22,16 +22,14 @@
 </div>
         <nav class="header-center">
             <ul>
-                <li><a class="home" href="#">Home</a></li>
-                <li><a class="servicos" href="#">Serviços</a></li>
-                <li><a class="contato" href="#">Contato</a></li>
-                <li><a class="sobre" href="#">Sobre</a></li>
+                <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
+                <li><a class="nav-links" href="#">Serviços</a></li>
+                <li><a class="nav-links" href="#">Contato</a></li>
+                <li><a class="nav-links" href="#">Sobre</a></li>
             </ul>
         </nav>
         <div class="header-right menu-direita">
         <div class="social-icons">
-            <img src=/img/facebook.png alt="Facebook">
-            <img src=/img/instagram.png alt="Instagram">
             <a class="cadastre-se" href="/teste">Cadastre-se</a>
             <a class="login" href="{{ url('/login') }}">Login</a>
         </div>
@@ -84,11 +82,11 @@ document.addEventListener('click', function(event) {
     <footer>
         <p>Faça parte da nossa família</p>
         <div class="footer-links">
-            <div class="profissionais">
-                <img src="/img/profissionais.jpg" alt="Profissionais">   
-                <a href="#">Nossos Profissionais</a>
+            <div class="footer-items">
+                <img src="/img/contato.jpg" alt="Contato">   
+                <a href="#">Contato</a>
             </div>
-            <div class="local">
+            <div class="footer-items">
                 <img src="/img/localizacao.png" alt="Localização">    
                 <a href="#">Localização</a>
             </div>
