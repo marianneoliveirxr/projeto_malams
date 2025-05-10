@@ -15,21 +15,43 @@
 </head>
 <body class="bg-white text-gray-800">
 
-  <header>
-    <img class="logo" src="/img/malamslogo.png" alt="logo">
-    <nav>
-      <ul>
-        <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
-        <li><a class="nav-links" href="#">Serviços</a></li>
-        <li><a class="nav-links" href="#">Contato</a></li>
-        <li><a class="nav-links" href="#">Sobre</a></li>
-      </ul>
-    </nav>
-    <div class="social-icons">
-      <a class="cadastre-se" href="/teste">Cadastre-se</a>
-      <a class="login" href="{{ url('/login') }}">Login</a>
+<header>
+        <img class="logo" src="/img/malamslogo.png" alt="logo">
+        <nav>
+            <ul>
+                <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
+                <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
+                <li><a class="nav-links" href="#">Sobre</a></li>
+            </ul>
+        </nav>
+        
+    <!-- Parte Direita (Dependendo da Autenticação) -->
+    <div class="header-right menu-direita">
+        @guest
+            <!-- Se o usuário NÃO estiver autenticado -->
+            <div class="social-icons">
+                <a class="cadastre-se" href="{{ url('/cadastro') }}">Cadastre-se</a>
+                <a class="login" href="{{ url('/login') }}">Login</a>
+            </div>
+        @endguest
+
+        @auth
+            <!-- Se o usuário ESTIVER autenticado -->
+            <div class="perfil-menu">
+                <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
+                <div class="menu-dropdown" id="menuDropdown">
+                    <a href="{{ url('/profile') }}" class="link-animado">Meu perfil</a>
+                    <a href="{{ url('/appointments') }}" class="link-animado">Meus agendamentos</a>
+                    <!-- Formulário de logout -->
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                    <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();" class="link-animado">Sair</a>
+                </div>
+            </div>
+        @endauth
     </div>
-  </header>
+</header>
 
   <main class="p-4">
     <section class="text-center my-8">

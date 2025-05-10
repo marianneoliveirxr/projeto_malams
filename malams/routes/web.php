@@ -17,3 +17,8 @@ Route::get('/loginPerfil', function () {
 Route::get('/home', function () {
     return view('home');
 });
+Route::get('/agendamento', function () {
+    return view('agendamento');
+});
+Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->name('login-user');
+

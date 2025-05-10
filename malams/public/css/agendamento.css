@@ -1,0 +1,380 @@
+@import "tailwindcss";
+@source "../views";
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #c59595;
+    padding: 15px 30px;
+    color: white;
+    font-family: 'Cal Sans';
+}
+
+.logo {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    width: 100px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    padding: 0;
+}
+
+nav ul a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    margin-bottom: -13px;
+}
+
+/*Animação começa aqui */
+nav ul a,
+.nav-links {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-size: 22px;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.nav-links:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.nav-links {
+    position: relative;
+}
+
+.nav-links::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.nav-links:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.login {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+}
+
+nav ul a:hover,
+.login:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.login {
+    position: relative;
+}
+
+.login::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.login:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+/*Animação começa aqui */
+nav ul a,
+.cadastre-se {
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.cadastre-se:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+}
+
+.cadastre-se {
+    position: relative;
+}
+
+.cadastre-se::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+.cadastre-se:hover::after {
+    width: 100%;
+}
+/*Animação acaba aqui */
+
+li {
+    text-decoration: none;
+    color: white;
+    font-family: 'Cal Sans';
+}
+
+.social-icons img {
+    width: 24px;
+    margin-left: 10px;
+}
+
+.cadastre-se,
+.login {
+    width: 24px;
+    margin-left: 10px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #c59595;
+    padding: 20px 0;
+    color: white;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    text-decoration: none;   /* remove sublinhado */
+    color: white;            /* mantém branco */
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 22px;
+    transition: all 0.3s ease;  /* transição suave no hover */
+    margin-bottom: 22px;
+}
+
+footer p {
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+/* Animação nos links do footer (rodapé) */
+footer a {
+    text-decoration: none;
+    color: white;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: 400;
+    font-size: 22px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+footer a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+/* Estilos específicos para as seções Nossos Profissionais e Localização */
+footer .footer-items a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 22px;
+    font-family: "Cal Sans", sans-serif;
+    font-weight: normal;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+footer .footer-items a a:hover {
+    color: #E8D6D3;
+    text-decoration: underline;
+}
+
+footer .footer-items a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0%;
+    height: 2px;
+    background-color: #E8D6D3;
+    transition: width 0.3s ease;
+}
+
+footer .footer-items a:hover::after {
+    width: 100%;
+}
+
+.footer-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-direction: row; /* garante imagem à esquerda e texto à direita */
+}
+
+.footer-items img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-top: 0; /* remove espaçamento extra */
+}
+
+.footer-items {
+    color: white;
+    font-size: 22px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-items a:hover {
+    color: #E8D6D3;
+}
+
+
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .image-container img {
+        width: 80%;
+    }
+}
+
+@media (max-width: 992px) {
+    .form-container h4 {
+        font-size: 35px;
+    }
+
+    .form-container input,
+    .form-container button {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .form-container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        margin: 0 auto;
+
+    }
+
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 10px;
+        margin-left: 0; /* remove excesso de margem */
+    }
+
+    .social-icons img {
+        width: 24px;
+        margin-left: 10px;
+    }
+
+    .cadastre-se,
+    .login {
+        width: auto;
+        font-size: 20px;
+        margin-left: 10px; /* mantém espaçamento similar ao desktop */
+    }
+}
+
+@media (max-width: 576px) {
+    .form-container h4 {
+        font-size: 30px;
+    }
+
+    .form-container input,
+    .form-container button {
+        font-size: 14px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+}

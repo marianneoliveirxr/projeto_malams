@@ -234,7 +234,7 @@ footer a:hover::after {
 /* Estilos específicos para as seções Nossos Profissionais e Localização */
 footer .footer-items a {
     text-decoration: none;
-    color: white;
+    color: #ffffff;
     font-size: 22px;
     font-family: "Cal Sans", sans-serif;
     font-weight: normal;
