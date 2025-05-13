@@ -12,9 +12,6 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
 
 Route::post('/cadastro','App\Http\Controllers\UsuarioController@store');
 
@@ -23,10 +20,9 @@ Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->
 Route::post('/logout','App\Http\Controllers\UsuarioController@logoutUser')->name('logout');
 
 //Rota de Dashboard
-Route::get('/painel', function () {
-    return view('painel');
-})->name('painel');
-
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
 
 //Testes 
 

@@ -32,9 +32,9 @@ class UsuarioController extends Controller
     {
         $request->validate([
             'txtName' => 'required|string|max:255',
-            'txtCpf' => 'required|unique:users,cpfCliente',
+            'txtCpf' => 'required|unique:users,cpfUser',
             'txtEmail' => 'required|email|unique:users,email',
-            'txtCelular' => 'required|unique:users,celularCliente',
+            'txtCelular' => 'required|unique:users,celularUser',
             'txtDatNascimento' => 'required|date_format:d/m/Y',
             'password' => 'required|min:6|confirmed',
 
@@ -63,10 +63,10 @@ class UsuarioController extends Controller
     
         // Cria e salva o usuário
         $user = new User();
-        $user->nomeCliente = $request->txtName;
-        $user->cpfCliente = $request->txtCpf;
+        $user->nomeUser = $request->txtName;
+        $user->cpfUser = $request->txtCpf;
         $user->dataNascimento = $dataFormatada;
-        $user->celularCliente = $request->txtCelular;
+        $user->celularUser = $request->txtCelular;
         $user->email = $request->txtEmail;
         $user->password = Hash::make($request->password);
         $user->save();

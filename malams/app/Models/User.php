@@ -22,10 +22,10 @@ class User extends Authenticatable
     public $timestamps = true;
 
     protected $fillable = [
-        'nomeCliente',
-        'cpfCliente',
+        'nomeUser',
+        'cpfUser',
         'dataNascimento',
-        'celularCliente',
+        'celularUser',
         'email',
         'password',
     ];
