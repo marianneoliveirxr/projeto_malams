@@ -1,9 +1,15 @@
-body {
-    font-family: 'Inter', sans-serif;
+.dashboard-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    margin: 20px;
 }
-.bg-gray-800 {
-    background-color: #2d3748;
-}
-.bg-gray-100 {
-    background-color: #f7fafc;
+
+.card {
+    background-color: #ffffff22;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+    backdrop-filter: blur(5px);
 }

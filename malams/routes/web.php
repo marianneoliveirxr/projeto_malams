@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -20,15 +21,10 @@ Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->
 Route::post('/logout','App\Http\Controllers\UsuarioController@logoutUser')->name('logout');
 
 //Rota de Dashboard
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
-
-Route::prefix('admin')->group(function () {
-    Route::resource('funcionarios', FuncionarioController::class);
-    Route::resource('servicos', ServicoController::class);
-    Route::resource('clientes', ClienteController::class);
-});
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::get('/servicos', [ServicosController::class, 'index'])->name('servicos');
+Route::get('/funcionarios', [FuncionariosController::class, 'index'])->name('funcionarios');
+Route::get('/clientes', [ClientesController::class, 'index'])->name('clientes');
 
 //Testes 
 

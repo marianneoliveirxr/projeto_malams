@@ -3,18 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Servico;
-use App\Models\User; 
-use Carbon\Carbon;
 
-class DashboardController extends Controller
+class ClientesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       return view('dashboard.index');
+         return view('cliente.index');
     }
 
     /**
