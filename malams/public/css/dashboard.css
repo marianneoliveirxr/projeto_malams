@@ -1,0 +1,9 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+.bg-gray-800 {
+    background-color: #2d3748;
+}
+.bg-gray-100 {
+    background-color: #f7fafc;
+}

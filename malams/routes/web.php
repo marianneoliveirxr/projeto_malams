@@ -24,6 +24,12 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
 
+Route::prefix('admin')->group(function () {
+    Route::resource('funcionarios', FuncionarioController::class);
+    Route::resource('servicos', ServicoController::class);
+    Route::resource('clientes', ClienteController::class);
+});
+
 //Testes 
 
 Route::get('/home', function () {
