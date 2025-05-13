@@ -168,13 +168,223 @@ li {
     margin-left: 10px;
 }
 
+/*Body*/
+/* Geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Cal Sans', sans-serif;
+    color: #333;
+    line-height: 1.6;
+    background-color: #f8f8f8;
+  }
+  
+  /* Seção Hero */
+  .hero {
+    background-image: url('/img/fundo-salao.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    position: relative;
+  }
+  
+  .hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  
+  .hero h1 {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    font-family: 'Merriweather', serif;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+  }
+  
+  .btn-comecar {
+    padding: 12px 30px;
+    background-color: #e76f51;
+    color: white;
+    border: none;
+    font-size: 18px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-comecar:hover {
+    background-color: #f4a261;
+  }
+  
+  /* Seção Sobre Nós */
+  /* Estilos para a transição suave ao aparecer a seção */
+.sobre-nos {
+    opacity: 0;
+    transform: translateY(20px); /* Começa com um pequeno deslocamento */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  }
+  
+  .sobre-nos.aparecer {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Para o conteúdo dentro da seção */
+  .sobre-conteudo {
+    
+  }
+  
+  .sobre-conteudo.aparecer {
+    opacity: 1;
+  }  
+  
+  .sobre-conteudo {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+    gap: 40px;
+    align-items: center;
+  }
+  
+  .sobre-conteudo .texto {
+    flex: 1;
+  }
+  
+  .sobre-conteudo h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    font-weight: 700;
+    color: #e76f51;
+  }
+  
+  .sobre-conteudo p {
+    font-size: 1.1em;
+    line-height: 1.7;
+  }
+  
+  .sobre-conteudo .imagem {
+    flex: 1;
+  }
+  
+  .sobre-conteudo .imagem img {
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Seção Nossos Serviços */
+  .servicos {
+    padding: 80px 20px;
+    background-color: #f1f1f1;
+    text-align: center;
+  }
+  
+  .servicos h2 {
+    font-size: 2.5em;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #e76f51;
+  }
+  
+  .cards-servicos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 30px;
+    width: 300px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card h3 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    color: #e76f51;
+    font-weight: 700;
+  }
+  
+  .card ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .card ul li {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #555;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2.5em;
+    }
+  
+    .hero p {
+      font-size: 1.1em;
+    }
+  
+    .sobre-conteudo {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .sobre-conteudo .imagem {
+      margin-top: 20px;
+    }
+  
+    .cards-servicos {
+      flex-direction: column;
+      gap: 20px;
+    }
+  
+    .card {
+      width: 90%;
+    }
+  }
+  
+
 /* Rodapé */
 footer {
     background-color: #c59595;
-    padding: 20px 0;
+    padding: 15px 30px;
     color: white;
     text-align: center;
-    margin-top: auto;
     width: 100%;
     text-decoration: none;   /* remove sublinhado */
     color: white;            /* mantém branco */
@@ -182,8 +392,10 @@ footer {
     font-weight: 400;
     font-style: normal;
     font-size: 22px;
-    transition: all 0.3s ease;  /* transição suave no hover */
-    margin-bottom: 22px;
+    transition: all 0.3s ease; 
+    position: fixed;         
+    bottom: 0;                
+    left: 0;                            
 }
 
 footer p {
@@ -231,6 +443,7 @@ footer a::after {
 footer a:hover::after {
     width: 100%;
 }
+
 /* Estilos específicos para as seções Nossos Profissionais e Localização */
 footer .footer-items a {
     text-decoration: none;

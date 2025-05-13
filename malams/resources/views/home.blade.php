@@ -53,15 +53,86 @@
     </div>
 </header>
 
-  <main class="p-4">
-    <section class="text-center my-8">
-      <h4 class="text-2xl font-bold mb-2">Bem-vindo(a) ao Malams Saloon</h4>
-      <p class="mb-4">Veja abaixo tudo o que preparamos para cuidar de você.</p>
-      <button class="px-6 py-2 bg-pink-600 text-white rounded-full hover:bg-pink-700">Começar</button>
-    </section>
+<main>
+
+<!-- Seção Hero com imagem de fundo -->
+<section class="hero">
+  <div class="hero-content">
+    <h1>Bem-vindo(a) ao Malams Saloon</h1>
+    <p>Veja abaixo tudo o que preparamos para cuidar de você.</p>
+    <button class="btn-comecar">Começar</button>
+  </div>
+</section>
+
+<!-- Seção Sobre Nós -->
+<section class="sobre-nos">
+  <div id="sobre-nos" class="sobre-conteudo">
+    <div class="texto">
+      <h2>Sobre Nós</h2>
+      <p>
+        No Malams Saloon, acreditamos que a beleza começa pelo cuidado. 
+        Nossa equipe altamente qualificada está pronta para oferecer o melhor em cuidados com o cabelo, unhas e estética.
+      </p>
+      <p>
+        Atuamos com as melhores marcas do mercado e priorizamos um atendimento personalizado, acolhedor e profissional.
+      </p>
+    </div>
+    <div class="imagem">
+      <img src="/img/salao.jpg" alt="Sobre o salão">
+    </div>
+  </div>
+</section>
+<script>
+  // Seleciona o botão "Começar"
+  const btnComecar = document.querySelector('.btn-comecar');
+
+  // Adiciona um evento de clique ao botão
+  btnComecar.addEventListener('click', function () {
+    // Seleciona a seção "Sobre Nós" pelo id
+    const sobreNos = document.getElementById('sobre-nos');
+    
+    // Rola suavemente até a seção
+    sobreNos.scrollIntoView({
+      behavior: 'smooth', // Rolagem suave
+      block: 'start' // A rolagem começa no topo da seção
+    });
+  });
+</script>
 
 
-  </main>
+<!-- Seção Nossos Serviços -->
+<section class="servicos">
+  <h2>Nossos Serviços</h2>
+  <div class="cards-servicos">
+    <div class="card">
+      <h3>Cabelos</h3>
+      <ul>
+        <li>Corte Feminino/Masculino</li>
+        <li>Coloração</li>
+        <li>Hidratação</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Unhas</h3>
+      <ul>
+        <li>Manicure</li>
+        <li>Pedicure</li>
+        <li>Manicure + Pedicure</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>Estética</h3>
+      <ul>
+        <li>Limpeza de Pele</li>
+        <li>Sobrancelha (Henna, Linha, Pinça)</li>
+        <li>Extensão de Cílios</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
 
   <footer>
         <p>Faça parte da nossa família</p>
@@ -77,15 +148,5 @@
         </div>
     </footer>
 
-  <!-- Script -->
-  <script>
-    function mostrarCards(tipo) {
-      const categorias = ['cabelereiro', 'unhas', 'estetica'];
-      categorias.forEach(cat => {
-        document.getElementById('cards-' + cat).classList.add('hidden');
-      });
-      document.getElementById('cards-' + tipo).classList.remove('hidden');
-    }
-  </script>
 </body>
 </html>
