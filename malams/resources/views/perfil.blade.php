@@ -59,26 +59,30 @@ document.addEventListener('click', function(event) {
     </header>
 
 <div class="caixa-central">
-    <form class="info">
-        <h1>Informações do Cliente</h1>
+    <div class="info">
+        <form action="/clientes" method="post">
+            @csrf
 
-        <label><strong>Nome:</strong></label>
-        <input type="text" value="Bruna Silva"><br>
+            <h1>Informações do Cliente</h1>
 
-        <label><strong>Email:</strong></label>
-        <input type="email" value="bruna@email.com"><br>
+            <label><strong>Nome:</strong></label>
+            <input type="text" name="nome" id="nomeCliente" class="inputUser" required><br>
 
-        <label><strong>CPF:</strong></label>
-        <input type="text" value="123.456.789-00"><br>
+            <label><strong>Email:</strong></label>
+            <input type="email" name="email" id="emailCliente" class="inputUser" required><br>
 
-        <label><strong>Celular:</strong></label>
-        <input type="tel" value="(11) 99999-9999"><br>
+            <label><strong>CPF:</strong></label>
+            <input type="text" name="cpf" id="cpfCliente" class="inputUser" required><br>
 
-        <label><strong>Data de nascimento:</strong></label>
-        <input type="date" value="2007-10-03"><br>
+            <label><strong>Celular:</strong></label>
+            <input type="tel" name="celular" id="celularCliente" class="inputUser" required><br>
 
-        <button type="submit">Salvar Alterações</button>
-    </form>
+            <label><strong>Data de nascimento:</strong></label>
+            <input type="date" name="data" id="dataNascimento" class="inputUser" required><br>
+
+            <button onclick id="submit">Salvar Alterações</button>
+        </form>
+    </div>
 </div>
 
 
