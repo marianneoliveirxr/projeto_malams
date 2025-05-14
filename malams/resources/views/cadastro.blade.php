@@ -85,13 +85,13 @@
                                 <div class="form-group">
                                     <div class="inputBox">
                                         <label class="labelInput" for="name">Nome</label>
-                                        <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName') }}" placeholder="Ex: Maria Bonita" required>
+                                        <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName') }}" placeholder="Maria Silva" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="inputBox">
                                         <label class="labelInput" for="cpf">CPF</label>
-                                        <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf') }}" placeholder="Ex:12345678912" required>
+                                        <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf') }}" placeholder="000.000.000-00" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -103,13 +103,13 @@
                                 <div class="form-group">
                                     <div class="inputBox">
                                         <label class="labelInput" for="celular">Celular</label>
-                                        <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular') }}" placeholder="Ex: 912657845" required>
+                                        <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular') }}" placeholder="(00) 00000-0000" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <div class="inputBox">
                                         <label class="labelInput" for="email">Email</label>
-                                        <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail') }}" placeholder="Ex: maria@gmail.com" required>
+                                        <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail') }}" placeholder="mariasilva@gmail.com" required>
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -162,6 +162,63 @@
             }
             inputData.value = value;
         });
+    </script>
+
+    <!-- Script para CPF -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const cpfInput = document.getElementById('cpf');
+
+        cpfInput.addEventListener('input', function (e) {
+            let value = e.target.value;
+
+            // Remove tudo que não for número
+            value = value.replace(/\D/g, '');
+
+            // Aplica a máscara
+            if (value.length > 3) {
+                value = value.replace(/^(\d{3})(\d)/, '$1.$2');
+            }
+            if (value.length > 6) {
+                value = value.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
+            }
+            if (value.length > 9) {
+                value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+            }
+
+            // Limita a 14 caracteres (com pontos e traço)
+            value = value.substring(0, 14);
+
+            e.target.value = value;
+        });
+    });
+    </script>
+
+    <!-- Script para número de celular -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const celularInput = document.getElementById('celular');
+
+        celularInput.addEventListener('input', function (e) {
+            let value = e.target.value;
+
+            // Remove tudo que não for número
+            value = value.replace(/\D/g, '');
+
+            // Aplica a máscara
+            if (value.length > 2) {
+                value = value.replace(/^(\d{2})(\d)/, '($1) $2');
+            }
+            if (value.length > 7) {
+                value = value.replace(/^(\(\d{2}\)) (\d{5})(\d)/, '$1 $2-$3');
+            }
+
+            // Limita a 15 caracteres com formatação
+            value = value.substring(0, 15);
+
+            e.target.value = value;
+        });
+    });
     </script>
 
      <!-- SweetAlert2 Mensagens -->

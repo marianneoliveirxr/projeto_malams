@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FuncionariosController;
+use App\Http\Controllers\ServicosController;
+use App\Http\Controllers\UsuarioController;
+
 
 Route::get('/', function () {
     return view('welcome');
@@ -13,7 +17,6 @@ Route::get('/cadastro', function () {
     return view('cadastro');
 })->name('cadastro');
 
-
 Route::post('/cadastro','App\Http\Controllers\UsuarioController@store');
 
 Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->name('login-user');
@@ -21,14 +24,18 @@ Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->
 Route::post('/logout','App\Http\Controllers\UsuarioController@logoutUser')->name('logout');
 
 //Rota de Dashboard
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
-Route::get('/servicos', [ServicosController::class, 'index'])->name('servicos');
-Route::get('/funcionarios', [FuncionariosController::class, 'index'])->name('funcionarios');
-Route::get('/clientes', [ClientesController::class, 'index'])->name('clientes');
+Route::prefix('admin')->name('admin.')->group(function () {
+     // Dashboard
+     Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
-//Testes 
+     // Clientes - CRUD
+     Route::resource('clientes', UsuarioController::class);
+ 
+     // Funcionários - CRUD
+     Route::resource('funcionarios', FuncionariosController::class);
+ 
+     // Serviços - CRUD
+     Route::resource('servicos', ServicosController::class);
+ });
 
-Route::get('/home', function () {
-    return view('home');
-})->name('home');
 
