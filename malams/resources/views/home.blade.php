@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="icon" href="/img/icon.ico" />
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Merriweather:opsz,wght@18..144,900&family=Rubik:ital,wght@0,605;1,605&display=swap');
   </style>
@@ -56,81 +56,81 @@
 <main>
 
 <!-- Seção Hero com imagem de fundo -->
-<section class="hero">
-  <div class="hero-content">
-    <h1>Bem-vindo(a) ao Malams Saloon</h1>
+<div>
+  <div class="">
+    <h3>Bem-vindo(a) ao Malams Saloon</h3>
     <p>Veja abaixo tudo o que preparamos para cuidar de você.</p>
-    <button class="btn-comecar">Começar</button>
+    <button class="">Começar</button>
   </div>
-</section>
+</div>
+
+<!--Seção Nosso Espaço-->
+<div class="">
+  <div class="">
+    <h3 class="">Nosso Espaço</h3>
+    <img class="aspect-<ratio>" src="/img/espaco.jpg">
+    <p class="">Transforme sua beleza e sinta-se incrível em cada detalhe. 
+      No Malams Saloon, oferecemos um ambiente acolhedor, profissionais qualificados
+      e serviços exclusivos para realçar sua melhor versão. Agende seu horário de forma 
+      simples e prática e venha viver uma experiência única de cuidado e bem-estar.</p>
+    <p>Seu momento de beleza começa aqui. ✨</p>
+  </div>
+</div>
 
 <!-- Seção Sobre Nós -->
-<section class="sobre-nos">
-  <div id="sobre-nos" class="sobre-conteudo">
-    <div class="texto">
-      <h2>Sobre Nós</h2>
-      <p>
+<div class="">
+  <div class="">
+    <div class="">
+      <h2 class="">Sobre Nós</h2>
+      <p class="">
         No Malams Saloon, acreditamos que a beleza começa pelo cuidado. 
         Nossa equipe altamente qualificada está pronta para oferecer o melhor em cuidados com o cabelo, unhas e estética.
       </p>
-      <p>
+      <p class="">
         Atuamos com as melhores marcas do mercado e priorizamos um atendimento personalizado, acolhedor e profissional.
       </p>
     </div>
-    <div class="imagem">
+    <div class="">
       <img src="/img/salao.jpg" alt="Sobre o salão">
     </div>
   </div>
-</section>
-<script>
-  // Seleciona o botão "Começar"
-  const btnComecar = document.querySelector('.btn-comecar');
-
-  // Adiciona um evento de clique ao botão
-  btnComecar.addEventListener('click', function () {
-    // Seleciona a seção "Sobre Nós" pelo id
-    const sobreNos = document.getElementById('sobre-nos');
-    
-    // Rola suavemente até a seção
-    sobreNos.scrollIntoView({
-      behavior: 'smooth', // Rolagem suave
-      block: 'start' // A rolagem começa no topo da seção
-    });
-  });
-</script>
-
+</div>
 
 <!-- Seção Nossos Serviços -->
-<section class="servicos">
-  <h2>Nossos Serviços</h2>
-  <div class="cards-servicos">
-    <div class="card">
-      <h3>Cabelos</h3>
-      <ul>
-        <li>Corte Feminino/Masculino</li>
-        <li>Coloração</li>
-        <li>Hidratação</li>
-      </ul>
+<div id="cards-servicos" class="">
+  <h2 class="">Conheça nosso trabalho</h2>
+    <div class="luzes">
+      <h3 class="">Luzes</h3>
+      <div class="">
+        <img class="" src="/img/luzes.jpg" alt="Luzes no Cabelo">
+      </div>
     </div>
-    <div class="card">
-      <h3>Unhas</h3>
-      <ul>
-        <li>Manicure</li>
-        <li>Pedicure</li>
-        <li>Manicure + Pedicure</li>
-      </ul>
-    </div>
-    <div class="card">
-      <h3>Estética</h3>
-      <ul>
-        <li>Limpeza de Pele</li>
-        <li>Sobrancelha (Henna, Linha, Pinça)</li>
-        <li>Extensão de Cílios</li>
-      </ul>
-    </div>
-  </div>
-</section>
 
+    <div class="henna">
+      <h3 class="">Design com Henna</h3>
+      <div class="">
+        <img class="" src="/img/henna.jpg" alt="Design com Henna">
+      </div>
+    </div>
+
+    <div class="lashLifting">
+      <h3 class="">Lash Lifting</h3>
+      <div class="">
+        <img class="" src="/img/lashlifting.jpg" alt="Lash Lifting">
+      </div>
+    </div>
+
+    <div class="manicure">
+      <h3 class="">Manicure</h3>
+      <div class="">
+        <img class="" src="/img/maos.jpg" alt="Manicure">
+      </div>
+    </div>
+</div>
+
+<div class="">
+  <button class="">Quero agendar meu horário</button>
+</div>
 </main>
 
 
@@ -147,6 +147,6 @@
             </div>
         </div>
     </footer>
-
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO" crossorigin="anonymous"></script>
 </body>
 </html>

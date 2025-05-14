@@ -318,6 +318,11 @@ main {
     margin-top: 10px;
 }
 
+.form-container button:hover {
+    color:   #c48d8d;          
+    font-style: white; 
+}
+
 .image-container img {
     border-radius: 10px;
     width: 100%;
