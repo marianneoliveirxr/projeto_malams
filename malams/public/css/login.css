@@ -1,15 +1,37 @@
 @import "tailwindcss";
 @source "../views";
 
+/* =================== Estilos Globais =================== */
+body {
+  font-family: "Cal Sans", sans-serif;
+  background-color: #ffe7e3;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
 /* Cabeçalho */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #c59595;
-    padding: 15px 30px;
+    padding: 20px;
     color: white;
     font-family: 'Cal Sans';
+    flex-wrap: wrap;  /* Permite que os itens se ajustem e quebrem para a próxima linha, se necessário */
+    width: 100%;  /* Garante que o header ocupe 100% da largura */
 }
 
 .logo {
@@ -17,6 +39,7 @@ header {
     height: auto;
     object-fit: cover;
     width: 100px;
+    margin-bottom: 10px;
 }
 
 nav ul {
@@ -24,7 +47,11 @@ nav ul {
     display: flex;
     gap: 15px;
     padding: 0;
+    flex: 1 1 auto; /* Permite que o menu de navegação ocupe o espaço restante */
+    justify-content: center; /* Centraliza os itens de navegação */
+    flex-wrap: wrap; /* Permite que os itens do menu quebrem para uma nova linha se necessário */
 }
+
 
 nav ul a {
     text-decoration: none;
@@ -76,7 +103,7 @@ nav ul a:hover,
 
 /*Animação começa aqui */
 nav ul a,
-.login {
+.social-icons a {
     text-decoration: none;   /* remove sublinhado */
     color: white;            /* mantém branco */
     font-family: "Cal Sans", sans-serif;
@@ -84,19 +111,20 @@ nav ul a,
     font-style: normal;
     font-size: 22px;
     transition: all 0.3s ease;  /* transição suave no hover */
+    margin-right: 2%;
 }
 
 nav ul a:hover,
-.login:hover {
+.social-icons a:hover {
     color: #E8D6D3;          
     text-decoration: underline; 
 }
 
-.login {
+.social-icons a {
     position: relative;
 }
 
-.login::after {
+.social-icons a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -107,114 +135,11 @@ nav ul a:hover,
     transition: width 0.3s ease;
 }
 
-.login:hover::after {
+.social-icons a:hover::after {
     width: 100%;
 }
+
 /*Animação acaba aqui */
-
-/*Animação começa aqui */
-nav ul a,
-.cadastre-se {
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
-    transition: all 0.3s ease;  /* transição suave no hover */
-    margin-bottom: 22px;
-}
-
-nav ul a:hover,
-.cadastre-se:hover {
-    color: #E8D6D3;          
-    text-decoration: underline; 
-}
-
-.cadastre-se {
-    position: relative;
-}
-
-.cadastre-se::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-.cadastre-se:hover::after {
-    width: 100%;
-}
-/*Animação acaba aqui */
-
-/* Foto de perfil redonda */
-.perfil-foto {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-    cursor: pointer;
-}
-
-/* Dropdown menu escondido por padrão */
-.menu-dropdown {
-    display: none;
-    position: absolute;
-    right: 30px;
-    top: 80px;
-    background-color: #c59595;
-    border-radius: 8px;
-    padding: 10px 0;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-    z-index: 1000;
-    flex-direction: column;
-}
-
-/* Mostrar quando ativado */
-.menu-dropdown.show {
-    display: flex;
-}
-
-/* Itens do menu (com a animação que você pediu) */
-.menu-dropdown a {
-    padding: 10px 20px;
-    display: block;
-}
-
-/* Reutiliza a animação */
-.link-animado {
-    position: relative;
-    text-decoration: none;
-    color: white;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-size: 18px;
-    transition: all 0.3s ease;
-}
-
-.link-animado:hover {
-    color: #E8D6D3;
-    text-decoration: underline;
-}
-
-.link-animado::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-.link-animado:hover::after {
-    width: 100%;
-}
 
 li {
     text-decoration: none;
@@ -227,321 +152,232 @@ li {
     margin-left: 10px;
 }
 
-.cadastre-se,
-.login {
+.social-icons a{
     width: 24px;
     margin-left: 10px;
 }
 
-
-/* Definições globais */
-body {
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    background-color: #ffe7e3;
-    margin: 0;
-    padding: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+/* =================== Foto Perfil e Menu =================== */
+.perfil-foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
 }
 
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    padding: 0 0 80px 0; 
-    box-sizing: border-box;
-    margin-top: -90px;
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  background-color: #c59595;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  flex-direction: column;
 }
 
+.menu-dropdown.show {
+  display: flex;
+}
 
-/* Container principal */
+.menu-dropdown a,
+.link-animado {
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.link-animado:hover {
+  color: #e8d6d3;
+}
+
+.link-animado::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #e8d6d3;
+  transition: width 0.3s ease;
+}
+
+.link-animado:hover::after {
+  width: 100%;
+}
+
+/* =================== Formulário e Imagem =================== */
 .container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 50px;
-    flex-wrap: wrap;
-    padding: 0 15px;
-    position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  flex-wrap: wrap;
+  padding: 20px;
 }
 
-/* Formulário responsivo */
 .form-container {
-    width: 100%;
-    max-width: 320px;
-    text-align: center;
-    padding: 0 0 80px 0;
-    box-sizing:border-box;
-    margin: 0 auto;
-    
+  width: 100%;
+  max-width: 350px;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .form-container h4 {
-    color: #d19f9f;
-    margin-bottom: 20px;
-    font-size: 57px;
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 605;
-    font-style: normal;
+  color: #d19f9f;
+  margin-bottom: 20px;
+  font-size: 45px;
+  font-family: "Rubik", sans-serif;
+  font-weight: 600;
 }
 
-.form-container input {
-    width: 100%;
-    padding: 15px;
-    margin: 14px 0;
-    border: 1px solid #d19f9f;
-    border-radius: 20px;
-    font-size: 18px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+.form-container input,
+.form-container button {
+  width: 100%;
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 20px;
+  font-size: 16px;
+  border: 1px solid #d19f9f;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .form-container button {
-    width: 108%;
-    padding: 15px;
-    padding-left: 10px;
-    background-color: #cda1a1;
-    color: white;
-    border: none;
-    border-radius: 20px;
-    font-size: 18px;
-    font-family: "Rubik", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 605;
-    font-style: normal;
-    cursor: pointer;
-    margin-top: 10px;
+  background-color: #cda1a1;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .form-container button:hover {
-    color:   #c48d8d;          
-    font-style: white; 
+  color: #c48d8d;
 }
 
 .image-container img {
-    border-radius: 10px;
-    width: 100%;
-    max-width: 700px; 
-    height: auto;
-    object-fit: cover;
-    margin-left: clamp(10%, 20%, 20%);
-    display: block;
+  width: 100%;
+  max-width: 560px;
+  border-radius: 10px;
+  object-fit: cover;
+  margin-left: 15%;
 }
 
-/* Rodapé */
+/* =================== Rodapé =================== */
 footer {
-    background-color: #c59595;
-    padding: 15px 30px;
-    color: white;
-    text-align: center;
-    width: 100%;
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
-    transition: all 0.3s ease;  /* transição suave no hover */
-    position: fixed;          /* Torna o footer fixo */
-    bottom: 0;                /* Fixa o footer no final da tela */
-    left: 0;                  /* Alinha o footer ao lado esquerdo */
-}
-
-footer p {
-    margin-bottom: 15px;
-    font-size: 24px;
+  background-color: #c59595;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 20px;
+  position: relative;
+  margin-top: auto;
 }
 
 .footer-links {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 40px;
-    margin-top: 10px;
-    flex-wrap: wrap;
-    text-align: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
 }
 
-/* Animação nos links do footer (rodapé) */
 footer a {
-    text-decoration: none;
-    color: white;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-size: 22px;
-    position: relative;
-    transition: all 0.3s ease;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: all 0.3s ease;
 }
 
 footer a:hover {
-    color: #E8D6D3;
-    text-decoration: underline;
+  color: #e8d6d3;
 }
 
 footer a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #e8d6d3;
+  transition: width 0.3s ease;
 }
 
 footer a:hover::after {
-    width: 100%;
-}
-
-/* Estilos específicos para as seções Nossos Profissionais e Localização */
-footer .footer-items a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 22px;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: normal;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-footer .footer-items a a:hover {
-    color: #E8D6D3;
-    text-decoration: underline;
-}
-
-footer .footer-items a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-footer .footer-items a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 .footer-items {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-direction: row; /* garante imagem à esquerda e texto à direita */
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .footer-items img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-top: 0; /* remove espaçamento extra */
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 
-.footer-items {
-    color: white;
-    font-size: 22px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-items a:hover {
-    color: #E8D6D3;
-}
-
-
-
-/* Responsividade */
-@media (max-width: 1200px) {
-    .container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .image-container img {
-        width: 80%;
-    }
-}
-
-@media (max-width: 992px) {
-    .form-container h4 {
-        font-size: 35px;
-    }
-
-    .form-container input,
-    .form-container button {
-        font-size: 16px;
-    }
-}
-
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        gap: 30px;
-    }
-
-    .form-container {
-        max-width: 90%;
-        margin: 0 auto;
-    }
-
-    .image-container img {
-        width: 100%;
-        height: auto;
-        margin: 0 auto;
-
-    }
-
+/* =================== Responsividade =================== */
+@media (max-width: 1024px) {
     header {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+        text-align: center;
+    }
+
+    .logo {
+        width: 80px;
+        margin-bottom: 20px;  /* Adiciona um espaçamento para que a logo não fique grudada no menu */
     }
 
     nav ul {
         flex-direction: column;
-        align-items: flex-start;
         gap: 10px;
+        align-items: center;
     }
 
-    .social-icons {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        gap: 10px;
-        margin-left: 0; /* remove excesso de margem */
+    .header-right {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
     }
 
-    .social-icons img {
-        width: 24px;
-        margin-left: 10px;
-    }
-
-    .cadastre-se,
-    .login {
-        width: auto;
-        font-size: 20px;
-        margin-left: 10px; /* mantém espaçamento similar ao desktop */
+    .social-icons a,
+    .nav-links {
+        font-size: 18px; /* Ajusta o tamanho da fonte para telas menores */
     }
 }
 
-@media (max-width: 576px) {
+
+@media (max-width: 600px) {
     .form-container h4 {
-        font-size: 30px;
+        font-size: 28px;
     }
 
     .form-container input,
     .form-container button {
         font-size: 14px;
+        padding: 12px;
     }
 
-    .footer-links {
+    .logo {
+        width: 70px;
+    }
+
+    nav ul a {
+        font-size: 18px;
+    }
+
+    .footer-items {
         flex-direction: column;
-        gap: 20px;
+        gap: 5px;
     }
 }

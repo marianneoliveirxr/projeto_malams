@@ -33,7 +33,7 @@
             <!-- Se o usuário NÃO estiver autenticado -->
             <div class="social-icons">
                 <a class="cadastre-se" href="{{ url('/cadastro') }}">Cadastre-se</a>
-                <a class="login" href="{{ url('/login') }}">Login</a>
+                <a  href="{{ url('/login') }}">Login</a>
             </div>
         @endguest
 

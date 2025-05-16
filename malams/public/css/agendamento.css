@@ -8,6 +8,10 @@ body {
     margin:0;
 }
 
+img {
+    max-width: 100%;
+    height: auto;
+}
 
 /* Cabeçalho */
 header {
@@ -84,7 +88,7 @@ nav ul a:hover,
 
 /*Animação começa aqui */
 nav ul a,
-.login {
+.social-icons a {
     text-decoration: none;   /* remove sublinhado */
     color: white;            /* mantém branco */
     font-family: "Cal Sans", sans-serif;
@@ -95,16 +99,16 @@ nav ul a,
 }
 
 nav ul a:hover,
-.login:hover {
+.social-icons a:hover {
     color: #E8D6D3;          
     text-decoration: underline; 
 }
 
-.login {
+.social-icons a {
     position: relative;
 }
 
-.login::after {
+.social-icons a::after {
     content: '';
     position: absolute;
     left: 0;
@@ -115,48 +119,10 @@ nav ul a:hover,
     transition: width 0.3s ease;
 }
 
-.login:hover::after {
+.social-icons a:hover::after {
     width: 100%;
 }
-/*Animação acaba aqui */
 
-/*Animação começa aqui */
-nav ul a,
-.cadastre-se {
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
-    transition: all 0.3s ease;  /* transição suave no hover */
-    margin-bottom: 22px;
-}
-
-nav ul a:hover,
-.cadastre-se:hover {
-    color: #E8D6D3;          
-    text-decoration: underline; 
-}
-
-.cadastre-se {
-    position: relative;
-}
-
-.cadastre-se::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-.cadastre-se:hover::after {
-    width: 100%;
-}
 /*Animação acaba aqui */
 
 li {
@@ -170,8 +136,7 @@ li {
     margin-left: 10px;
 }
 
-.cadastre-se,
-.login {
+.social-icons a{
     width: 24px;
     margin-left: 10px;
 }
@@ -340,14 +305,19 @@ footer .footer-items a:hover::after {
 
     header {
         flex-direction: column;
-        align-items: flex-start;
-        padding: 20px;
+        align-items: center;
+        text-align: center;
     }
 
     nav ul {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
+    }
+
+    nav ul a {
+        font-size: 18px; /* Tamanho da fonte menor */
+        margin-bottom: 10px; /* Melhor espaçamento */
     }
 
     .social-icons {
@@ -363,12 +333,26 @@ footer .footer-items a:hover::after {
         margin-left: 10px;
     }
 
-    .cadastre-se,
-    .login {
+    .social-icons a{
         width: auto;
         font-size: 20px;
         margin-left: 10px; /* mantém espaçamento similar ao desktop */
     }
+
+    .logo {
+        max-width: 80px; /* Tamanho do logo ajustado para telas pequenas */
+    }
+
+    .flex.justify-center.gap-6 button {
+        width: 100%;  /* Botões ocupando toda a largura */
+        margin-bottom: 10px; /* Espaço entre os botões */
+    }
+
+    .grid.md\:grid-cols-3 {
+        grid-template-columns: 1fr; /* Exibir cards em uma coluna */
+        gap: 20px;
+    }
+
 }
 
 @media (max-width: 576px) {
@@ -384,5 +368,44 @@ footer .footer-items a:hover::after {
     .footer-links {
         flex-direction: column;
         gap: 20px;
+    }
+
+    footer .footer-links {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    footer .footer-items {
+        text-align: center;
+    }
+
+    footer .footer-items img {
+        width: 40px; /* Imagem do rodapé menor */
+        height: 40px;
+    }
+
+    #modalAgendamento {
+        width: 90%; /* Modal ocupando mais largura em telas pequenas */
+    }
+
+    .form-container input,
+    .form-container button {
+        font-size: 14px; /* Ajustar o tamanho da fonte para facilitar a leitura */
+        padding: 12px;
+    }
+
+    .form-container h4 {
+        font-size: 24px; /* Reduzir o tamanho do título */
+    }
+
+    .social-icons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .social-icons a {
+        width: 100%;
+        text-align: center; /* Centralizar os links */
+        padding: 12px;
     }
 }
