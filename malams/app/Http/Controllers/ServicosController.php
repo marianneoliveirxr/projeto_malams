@@ -19,7 +19,7 @@ class ServicosController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.servicos.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class ServicosController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view ('admin.servicos.update');
     }
 
     /**

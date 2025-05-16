@@ -2,34 +2,35 @@
 
 @section('content')
 <div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-semibold text-gray-800 mb-6">Adicionar Novo Serviço</h1>
+    <h1 class="text-3xl font-semibold text-gray-800 mb-6">Editar Serviço</h1>
 
-    <!-- Formulário para Adicionar Serviço -->
-    <form action="{{ route('admin.servicos.store') }}" method="POST">
+    <!-- Formulário para Editar Serviço -->
+    <form action="{{ route('admin.servicos.update', 1) }}" method="POST">
         @csrf
+        @method('PUT') <!-- Método PUT para atualização -->
         <div class="bg-white p-6 rounded-lg shadow-md">
             <!-- Nome do Serviço -->
             <div class="mb-4">
                 <label for="nome" class="block text-sm font-medium text-gray-600">Nome do Serviço</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: Corte de Cabelo" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="text" id="nome" name="nome" value="Corte de Cabelo" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
             </div>
 
             <!-- Descrição do Serviço -->
             <div class="mb-4">
                 <label for="descricao" class="block text-sm font-medium text-gray-600">Descrição</label>
-                <textarea id="descricao" name="descricao" placeholder="Ex: Corte de cabelo para todos os tipos de cabelo" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+                <textarea id="descricao" name="descricao" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>Corte de cabelo para todos os tipos de cabelo. Realizado com as melhores técnicas e produtos.</textarea>
             </div>
 
             <!-- Preço -->
             <div class="mb-4">
                 <label for="preco" class="block text-sm font-medium text-gray-600">Preço</label>
-                <input type="text" id="preco" name="preco" placeholder="Ex: R$ 50,00" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+                <input type="text" id="preco" name="preco" value="50" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
             </div>
 
             <!-- Botões -->
             <div class="flex justify-end space-x-4">
                 <a href="{{ route('admin.servicos.index') }}" class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">Cancelar</a>
-                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Salvar</button>
+                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Atualizar</button>
             </div>
         </div>
     </form>

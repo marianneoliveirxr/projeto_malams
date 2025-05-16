@@ -14,7 +14,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.clientes.index');
     }
 
     /**
@@ -22,7 +22,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.clientes.create');
     }
 
     /**
@@ -107,7 +107,7 @@ class UsuarioController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view ('admin.clientes.update');
     }
 
     /**
