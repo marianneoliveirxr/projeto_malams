@@ -14,7 +14,7 @@
   </style>
 </head>
 <body class="bg-[#ffff] text-gray-800 font-sans">
-
+<div class="content">
 <header>
         <img class="logo" src="/img/malamslogo.png" alt="logo">
         <nav>
@@ -196,6 +196,26 @@
     function fecharModal() {
       document.getElementById('modalAgendamento').classList.add('hidden');
     }
+
+    window.onload = function() {
+        mostrarCards('cabelereiro'); // Exibir "cabelereiro" por padrão
+    };
+
+    function mostrarCards(categoria) {
+        const categorias = ['cabelereiro', 'unhas', 'estetica'];
+        
+        categorias.forEach(cat => {
+            const card = document.getElementById(`cards-${cat}`);
+            card.classList.add('hidden');
+        });
+
+        const cardToShow = document.getElementById(`cards-${categoria}`);
+        cardToShow.classList.remove('hidden');
+    }
+    
+    function agendarServico(servico) {
+        window.location.href = `/agendamento/${servico}`; // Redireciona para a página de agendamento do serviço
+    }
   </script>
 
 <!-- Cards das Profissionais -->
@@ -233,29 +253,20 @@
   </div>
 </div>
 
-  <footer>
-        <p>Faça parte da nossa família</p>
-        <div class="footer-links">
-            <div class="footer-items">
-                <img src="/img/contato.jpg" alt="Contato">   
-                <a href="#">Contato</a>
-            </div>
-            <div class="footer-items">
-                <img src="/img/localizacao.png" alt="Localização">    
-                <a href="#">Localização</a>
-            </div>
+<footer>
+    <p>Faça parte da nossa família</p>
+    <div class="footer-links">
+        <div class="footer-items">
+            <img src="/img/contato.jpg" alt="Contato">   
+            <a href="#">Contato</a>
         </div>
-    </footer>
+        <div class="footer-items">
+            <img src="/img/localizacao.png" alt="Localização">    
+            <a href="#">Localização</a>
+        </div>
+    </div>
+  </footer>
 
-  <!-- Script -->
-  <script>
-    function mostrarCards(tipo) {
-      const categorias = ['cabelereiro', 'unhas', 'estetica'];
-      categorias.forEach(cat => {
-        document.getElementById('cards-' + cat).classList.add('hidden');
-      });
-      document.getElementById('cards-' + tipo).classList.remove('hidden');
-    }
-  </script>
+</div>
 </body>
 </html>

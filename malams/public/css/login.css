@@ -23,139 +23,133 @@ main {
 
 /* Cabeçalho */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #c59595;
-    padding: 20px;
-    color: white;
-    font-family: 'Cal Sans';
-    flex-wrap: wrap;  /* Permite que os itens se ajustem e quebrem para a próxima linha, se necessário */
-    width: 100%;  /* Garante que o header ocupe 100% da largura */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c59595;
+  padding: 20px 0px;
+  color: white;
+  font-family: 'Cal Sans';
 }
 
 .logo {
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-    width: 100px;
-    margin-bottom: 10px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  width: 100px;
 }
 
 nav ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-    padding: 0;
-    flex: 1 1 auto; /* Permite que o menu de navegação ocupe o espaço restante */
-    justify-content: center; /* Centraliza os itens de navegação */
-    flex-wrap: wrap; /* Permite que os itens do menu quebrem para uma nova linha se necessário */
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
 }
 
-
 nav ul a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-    font-size: 22px;
-    transition: all 0.3s ease;
-    margin-bottom: -13px;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  transition: all 0.3s ease;
+  margin-bottom: -13px;
 }
 
 /*Animação começa aqui */
 nav ul a,
 .nav-links {
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
-    font-size: 22px;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    transition: all 0.3s ease;  /* transição suave no hover */
-    margin-bottom: 22px;
+  text-decoration: none;   /* remove sublinhado */
+  color: white;            /* mantém branco */
+  font-size: 22px;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: all 0.3s ease;  /* transição suave no hover */
+  margin-bottom: 22px;
 }
 
 nav ul a:hover,
 .nav-links:hover {
-    color: #E8D6D3;          
-    text-decoration: underline; 
+  color: #E8D6D3;          
+  text-decoration: underline; 
 }
 
 .nav-links {
-    position: relative;
+  position: relative;
 }
 
 .nav-links::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -8px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 2px;
+  background-color: #E8D6D3;
+  transition: width 0.3s ease;
 }
 
 .nav-links:hover::after {
-    width: 100%;
+  width: 100%;
 }
 /*Animação acaba aqui */
 
 /*Animação começa aqui */
 nav ul a,
 .social-icons a {
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 22px;
-    transition: all 0.3s ease;  /* transição suave no hover */
-    margin-right: 2%;
+  text-decoration: none;   /* remove sublinhado */
+  color: white;            /* mantém branco */
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 22px;
+  transition: all 0.3s ease;  /* transição suave no hover */
+  margin-right: 14px;
 }
 
 nav ul a:hover,
 .social-icons a:hover {
-    color: #E8D6D3;          
-    text-decoration: underline; 
+  color: #E8D6D3;          
+  text-decoration: underline; 
 }
 
 .social-icons a {
-    position: relative;
+  position: relative;
 }
 
 .social-icons a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #E8D6D3;
+  transition: width 0.3s ease;
 }
 
 .social-icons a:hover::after {
-    width: 100%;
+  width: 100%;
 }
 
 /*Animação acaba aqui */
 
 li {
-    text-decoration: none;
-    color: white;
-    font-family: 'Cal Sans';
+  text-decoration: none;
+  color: white;
+  font-family: 'Cal Sans';
 }
 
 .social-icons img {
-    width: 24px;
-    margin-left: 10px;
+  width: 24px;
+  margin-left: 10px;
 }
 
 .social-icons a{
-    width: 24px;
-    margin-left: 10px;
+  width: 24px;
+  margin-left: 10px;
 }
+
 
 /* =================== Foto Perfil e Menu =================== */
 .perfil-foto {
@@ -275,7 +269,7 @@ footer {
   color: white;
   text-align: center;
   padding: 20px;
-  font-size: 20px;
+  font-size: 22px;
   position: relative;
   margin-top: auto;
 }

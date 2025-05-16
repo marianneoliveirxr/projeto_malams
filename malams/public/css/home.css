@@ -136,207 +136,70 @@ li {
     margin-left: 10px;
 }
 
-/* Dropdown do perfil */
-.perfil-menu {
-  position: relative;
-}
-
+/* =================== Foto Perfil e Menu =================== */
 .perfil-foto {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
+  object-fit: cover;
   cursor: pointer;
 }
 
 .menu-dropdown {
-  position: absolute;
-  right: 0;
-  top: 48px;
-  background: #c59595;
-  border-radius: 6px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   display: none;
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  background-color: #c59595;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
   flex-direction: column;
-  min-width: 180px;
-  z-index: 100;
 }
 
-.menu-dropdown a {
-  padding: 10px 15px;
-  color: white;
-  font-size: 18px;
+.menu-dropdown.show {
+  display: flex;
+}
+
+.menu-dropdown a,
+.link-animado {
+  padding: 10px 20px;
+  display: block;
   text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.menu-dropdown a:hover {
-  background-color: #E8D6D3;
-  color: #c59595;
-}
-
-/* Mostrar dropdown ao ativar (JS deve controlar essa classe) */
-.menu-dropdown.active {
-  display: flex;
-}
-
-/* Main content */
-main {
-  padding: 20px 30px;
-}
-
-/* Seção Hero */
-main > div:first-child {
-  text-align: center;
-  margin-bottom: 40px;
-}
-
-main > div:first-child h3 {
-  font-size: 32px;
-  margin-bottom: 10px;
-}
-
-main > div:first-child p {
-  font-size: 18px;
-  margin-bottom: 20px;
-}
-
-main > div:first-child button {
-  font-size: 20px;
-  padding: 10px 30px;
-  background-color: #c59595;
-  border: none;
   color: white;
-  cursor: pointer;
-  border-radius: 6px;
-  transition: background-color 0.3s ease;
-}
-
-main > div:first-child button:hover {
-  background-color: #a37373;
-}
-
-/* Seção Nosso Espaço */
-main > div:nth-child(2) {
-  max-width: 900px;
-  margin: 0 auto 60px auto;
-  text-align: center;
-}
-
-main > div:nth-child(2) h3 {
-  font-size: 28px;
-  margin-bottom: 15px;
-}
-
-main > div:nth-child(2) img {
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-  margin-bottom: 15px;
-  border-radius: 8px;
-}
-
-main > div:nth-child(2) p {
+  font-family: "Cal Sans", sans-serif;
   font-size: 18px;
-  line-height: 1.5;
-  margin-bottom: 8px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-/* Seção Sobre Nós */
-main > div:nth-child(3) {
-  max-width: 900px;
-  margin: 0 auto 60px auto;
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  align-items: center;
+.link-animado:hover {
+  color: #e8d6d3;
 }
 
-main > div:nth-child(3) > div:first-child {
-  flex: 1 1 300px;
+.link-animado::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #e8d6d3;
+  transition: width 0.3s ease;
 }
 
-main > div:nth-child(3) > div:first-child h2 {
-  font-size: 30px;
-  margin-bottom: 15px;
-}
-
-main > div:nth-child(3) > div:first-child p {
-  font-size: 18px;
-  margin-bottom: 10px;
-  line-height: 1.4;
-}
-
-main > div:nth-child(3) > div:last-child {
-  flex: 1 1 300px;
-}
-
-main > div:nth-child(3) > div:last-child img {
-  width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-}
-
-/* Seção Nossos Serviços */
-#cards-servicos {
-  max-width: 1000px;
-  margin: 0 auto 60px auto;
-}
-
-#cards-servicos h2 {
-  font-size: 30px;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-#cards-servicos > div {
-  display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-bottom: 40px;
-}
-
-#cards-servicos h3 {
-  font-size: 24px;
-  margin-bottom: 10px;
-  text-align: center;
+.link-animado:hover::after {
   width: 100%;
 }
 
-#cards-servicos img {
-  width: 250px;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
-/* Botão agendamento */
-main > div:last-child {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-main > div:last-child button {
-  font-size: 22px;
-  padding: 12px 40px;
-  background-color: #c59595;
-  border: none;
-  color: white;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-main > div:last-child button:hover {
-  background-color: #a37373;
-}
 
 footer {
     background-color: #c59595;
     color: white;
     text-align: center;
     padding: 20px;
-    font-size: 20px;
+    font-size: 22px;
     position: relative;
     margin-top: auto;
   }

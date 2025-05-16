@@ -2,10 +2,23 @@
 @source "../views";
 
 body {
-    display:flex;
+    display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin:0;
+    margin: 0;
+    padding-bottom: 100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.content {
+    flex: 1;
+    padding: 20px;
+    font-family: Arial, sans-serif;
 }
 
 img {
@@ -148,16 +161,13 @@ footer {
     color: white;
     text-align: center;
     width: 100%;
-    text-decoration: none;   /* remove sublinhado */
-    color: white;            /* mantém branco */
     font-family: "Cal Sans", sans-serif;
     font-weight: 400;
-    font-style: normal;
     font-size: 22px;
-    transition: all 0.3s ease;  
-    position: fixed;          /* Torna o footer fixo */
-    bottom: 0;                /* Fixa o footer no final da tela */
-    left: 0;                  /* Alinha o footer ao lado esquerdo */
+    position: relative; /* Alterado para relative */
+    bottom: 0;
+    left: 0;
+    z-index: 9999;
 }
 
 footer p {
@@ -206,62 +216,6 @@ footer a:hover::after {
     width: 100%;
 }
 
-/* Estilos específicos para as seções Nossos Profissionais e Localização */
-footer .footer-items a {
-    text-decoration: none;
-    color: #ffffff;
-    font-size: 22px;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: normal;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-footer .footer-items a a:hover {
-    color: #E8D6D3;
-    text-decoration: underline;
-}
-
-footer .footer-items a::after {
-    content: '';
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 0%;
-    height: 2px;
-    background-color: #E8D6D3;
-    transition: width 0.3s ease;
-}
-
-footer .footer-items a:hover::after {
-    width: 100%;
-}
-
-.footer-items {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-direction: row; /* garante imagem à esquerda e texto à direita */
-}
-
-.footer-items img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-top: 0; /* remove espaçamento extra */
-}
-
-.footer-items {
-    color: white;
-    font-size: 22px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.footer-items a:hover {
-    color: #E8D6D3;
-}
-
 /* Responsividade */
 @media (max-width: 1200px) {
     .container {
@@ -282,6 +236,15 @@ footer .footer-items a:hover::after {
     .form-container input,
     .form-container button {
         font-size: 16px;
+    }
+}
+
+@media screen and (max-height: 800px) {  /* Ajusta para telas pequenas */
+    footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
     }
 }
 
