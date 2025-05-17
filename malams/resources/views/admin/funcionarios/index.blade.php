@@ -12,49 +12,37 @@
         </a>
     </div>
 
-    <!-- Tabela de Funcionários -->
-    <div class="overflow-x-auto bg-white rounded-lg shadow-lg">
-        <table class="min-w-full table-auto">
-            <thead>
-                <tr class="bg-[#d9b0b0] text-white">
-                    <th class="px-6 py-4 text-left text-sm font-medium">Nome</th>
-                    <th class="px-6 py-4 text-left text-sm font-medium">Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                {{-- Dados fictícios para exibição temporária --}}
-                @php
-                    $funcionarios = [
-                        (object)[ 'id' => 1, 'nomeUser' => 'João Silva' ],
-                        (object)[ 'id' => 2, 'nomeUser' => 'Maria Oliveira' ],
-                        (object)[ 'id' => 3, 'nomeUser' => 'Carlos Pereira' ],
-                    ];
-                @endphp
+    <!-- Cards de Funcionários -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        {{-- Dados fictícios para exibição temporária --}}
+        @php
+            $funcionarios = [
+                (object)[ 'id' => 1, 'nomeUser' => 'João Silva' ],
+                (object)[ 'id' => 2, 'nomeUser' => 'Maria Oliveira' ],
+                (object)[ 'id' => 3, 'nomeUser' => 'Carlos Pereira' ],
+            ];
+        @endphp
 
-                @foreach ($funcionarios as $funcionario)
-                    <tr class="border-b border-gray-200 hover:bg-gray-50 transition-colors">
-                        <td class="px-6 py-4 text-sm font-medium text-gray-800">{{ $funcionario->nomeUser }}</td>
-                        <td class="px-6 py-4 text-sm font-medium text-gray-600">
-                            <div class="flex space-x-4">
-                                <!-- Botão de Editar -->
-                                <a href="{{ route('admin.funcionarios.edit', $funcionario->id) }}" class="text-blue-500 hover:text-blue-700 transition duration-200">
-                                    <i class="fas fa-edit text-xl"></i> <!-- Ícone de edição -->
-                                </a>
+        @foreach ($funcionarios as $funcionario)
+            <div class="bg-white p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+                <div class="text-lg font-semibold text-gray-800">{{ $funcionario->nomeUser }}</div>
+                <div class="mt-4 flex space-x-4 justify-center">
+                    <!-- Botão de Editar -->
+                    <a href="{{ route('admin.funcionarios.edit', $funcionario->id) }}" class="text-blue-500 hover:text-blue-700 transition duration-200">
+                        <i class="fas fa-edit text-xl"></i> <!-- Ícone de edição -->
+                    </a>
 
-                                <!-- Formulário de Excluir -->
-                                <form action="{{ route('admin.funcionarios.destroy', $funcionario->id) }}" method="POST" class="inline">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="text-red-500 hover:text-red-700 transition duration-200">
-                                        <i class="fas fa-trash-alt text-xl"></i> <!-- Ícone de lixeira -->
-                                    </button>
-                                </form>
-                            </div>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+                    <!-- Formulário de Excluir -->
+                    <form action="{{ route('admin.funcionarios.destroy', $funcionario->id) }}" method="POST" class="inline">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="text-red-500 hover:text-red-700 transition duration-200">
+                            <i class="fas fa-trash-alt text-xl"></i> <!-- Ícone de lixeira -->
+                        </button>
+                    </form>
+                </div>
+            </div>
+        @endforeach
     </div>
 
     <!-- Caso não haja funcionários -->

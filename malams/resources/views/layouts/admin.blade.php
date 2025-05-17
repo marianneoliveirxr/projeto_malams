@@ -7,6 +7,8 @@
     @vite('resources/css/app.css')
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.2/dist/alpine.min.js" defer></script>
+    <link rel="icon" href="/img/icon.ico">
+
 </head>
 <body class="bg-[#fffafa] font-sans">
 
@@ -14,7 +16,9 @@
         <!-- Cabeçalho -->
         <header class="bg-[#d9b0b0] text-white p-4 flex justify-between items-center shadow-md">
             <!-- Logo ou nome do painel (opcional) -->
-            <div class="text-2xl font-semibold">MALAMS SALOON</div>
+            <div class="flex items-center">
+                    <img src="/img/malamslogo.png" alt="Logo Malams Saloon" class="h-20 w-auto">
+            </div>
 
             <!-- Barra de navegação e perfil -->
             <div class="flex items-center space-x-6">
