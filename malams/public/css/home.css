@@ -194,15 +194,8 @@ li {
 }
 
 
-footer {
-    background-color: #c59595;
-    color: white;
-    text-align: center;
-    padding: 20px;
-    font-size: 22px;
-    position: relative;
-    margin-top: auto;
-  }
+
+/*Rodapé*/
   
   .footer-links {
     display: flex;

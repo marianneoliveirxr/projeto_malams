@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -11,118 +11,202 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Merriweather:opsz,wght@18..144,900&family=Rubik:ital,wght@0,605;1,605&display=swap');
+
+    html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #f7f1f1 !important;
+    color: #5c4a4a !important;
+  }
+
+  main {
+    background-color: #f9f2f2 !important;
+    color: #5c4a4a !important;
+  }
+
+  section, .bg-white {
+    background-color: #fdf6f6 !important;
+    color: #5c4a4a !important;
+  }
+
+  h1, h2, h3, .text-rose-600, .text-rose-500 {
+    color: #c59595 !important;
+  }
+
+  a, button {
+    background-color: #c59595 !important;
+    color: white !important;
+  }
+
+  a:hover, button:hover {
+    background-color: #a86f6f !important;
+  }
+
+  .text-gray-700, .text-gray-600 {
+    color: #7f6565 !important;
+  }
+
   </style>
+  <script>
+    // Função para rolar suavemente até a seção "Nosso Espaço"
+    function scrollToOurSpace() {
+      const element = document.getElementById('nosso-espaco');
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </head>
-<body class="bg-white text-gray-800">
+<body class="bg-gray-100 text-gray-900">
 
 <header>
-        <img class="logo" src="/img/malamslogo.png" alt="logo">
-        <nav>
-            <ul>
-                <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
-                <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
-                <li><a class="nav-links" href="#">Sobre</a></li>
-            </ul>
-        </nav>
-        
-    <!-- Parte Direita (Dependendo da Autenticação) -->
-    <div class="header-right menu-direita">
-        @guest
-            <!-- Se o usuário NÃO estiver autenticado -->
-            <div class="social-icons">
-                <a href="{{ url('/cadastro') }}">Cadastre-se</a>
-                <a href="{{ url('/login') }}">Login</a>
-            </div>
-        @endguest
-
-        @auth
-            <!-- Se o usuário ESTIVER autenticado -->
-            <div class="perfil-menu">
-                <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
-                <div class="menu-dropdown" id="menuDropdown">
-                    <a href="{{ url('/profile') }}" class="link-animado">Meu perfil</a>
-                    <a href="{{ url('/appointments') }}" class="link-animado">Meus agendamentos</a>
-                    <!-- Formulário de logout -->
-                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                        @csrf
-                    </form>
-                    <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();" class="link-animado">Sair</a>
-                </div>
-            </div>
-        @endauth
-    </div>
+  <img class="logo" src="/img/malamslogo.png" alt="logo">
+  <nav>
+    <ul>
+      <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
+      <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
+      <li><a class="nav-links" href="{{ url('/home') }}#sobre">Sobre</a></li>
+    </ul>
+  </nav>
+  
+  <div class="header-right menu-direita">
+    @guest
+      <div class="social-icons">
+        <a href="{{ url('/cadastro') }}">Cadastre-se</a>
+        <a href="{{ url('/login') }}">Login</a>
+      </div>
+    @endguest
+    @auth
+      <div class="perfil-menu">
+        <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
+        <div class="menu-dropdown" id="menuDropdown">
+          <a href="{{ url('/profile') }}" class="link-animado">Meu perfil</a>
+          <a href="{{ url('/appointments') }}" class="link-animado">Meus agendamentos</a>
+          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            @csrf
+          </form>
+          <a href="javascript:void(0);" onclick="document.getElementById('logout-form').submit();" class="link-animado">Sair</a>
+        </div>
+      </div>
+    @endauth
+  </div>
 </header>
 
-<main class="px-8 py-12">
+<main class="px-4 md:px-16 py-12 bg-white text-gray-800 font-[Cal+Sans]">
 
   <!-- Hero Section -->
-  <section class="bg-cover bg-center h-[60vh] relative" style="background-image: url('/img/hero-bg.jpg');">
-    <div class="absolute inset-0 bg-black opacity-50"></div>
-    <div class="relative z-10 text-center text-white space-y-4">
-      <h3 class="text-4xl font-bold">Bem-vindo(a) ao Malams Saloon</h3>
-      <p class="text-lg">Veja abaixo tudo o que preparamos para cuidar de você.</p>
-      <button class="bg-[#E8D6D3] text-[#c59595] py-3 px-6 rounded-full text-lg font-semibold hover:bg-[#c59595] hover:text-white transition duration-300">Começar</button>
+  <section class="relative bg-gradient-to-br from-pink-100 via-rose-100 to-rose-50 rounded-3xl p-10 mb-20 shadow-xl overflow-hidden">
+    <div class="max-w-4xl mx-auto text-center space-y-6">
+      <h1 class="text-4xl md:text-5xl font-bold text-rose-400">Bem-vindo(a) ao Malams Saloon</h1>
+      <p class="text-lg md:text-xl text-gray-700">Transforme sua beleza em experiência. Agende com facilidade e sinta-se renovada.</p>
+      <button onclick="scrollToOurSpace()" class="bg-rose-500 text-white px-6 py-3 rounded-full hover:bg-rose-600 transition">Começar</button>
     </div>
+
   </section>
 
   <!-- Nosso Espaço -->
-  <section class="mt-12 text-center">
-    <h2 class="text-3xl font-bold text-[#c59595] mb-6">Nosso Espaço</h2>
-    <img src="/img/espaco.jpg" alt="Espaço" class="w-full h-96 object-cover rounded-lg shadow-lg mb-6">
-    <p class="text-lg max-w-3xl mx-auto">Transforme sua beleza e sinta-se incrível em cada detalhe. No Malams Saloon, oferecemos um ambiente acolhedor, profissionais qualificados e serviços exclusivos para realçar sua melhor versão. Agende seu horário de forma simples e prática e venha viver uma experiência única de cuidado e bem-estar.</p>
-  </section>
+  <section id="nosso-espaco" class="mb-24 bg-rose-50 py-16 rounded-3xl shadow-inner">
+  <div class="max-w-7xl mx-auto px-6 text-center space-y-10">
+    <h2 class="text-3xl md:text-4xl font-semibold text-rose-600">Nosso Espaço</h2>
+    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Um refúgio de beleza, conforto e sofisticação. Cada canto do Malams Saloon foi pensado para que você se sinta única.</p>
 
-  <!-- Sobre Nós -->
-  <section class="mt-16 flex flex-col md:flex-row gap-8 text-center md:text-left">
-    <div class="flex-1">
-      <h2 class="text-3xl font-bold text-[#c59595] mb-4">Sobre Nós</h2>
-      <p class="text-lg">No Malams Saloon, acreditamos que a beleza começa pelo cuidado. Nossa equipe altamente qualificada está pronta para oferecer o melhor em cuidados com o cabelo, unhas e estética.</p>
-      <p class="text-lg mt-4">Atuamos com as melhores marcas do mercado e priorizamos um atendimento personalizado, acolhedor e profissional.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+      <img src="/img/salao.jpg" alt="Salão 1" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
+      <img src="/img/home3.jpg" alt="Salão 2" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
+      <img src="/img/home4.jpg" alt="Salão 3" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
     </div>
-    <div class="flex-1">
-      <img src="/img/salao.jpg" alt="Sobre o salão" class="w-full rounded-lg shadow-lg">
+
+    <a href="{{ url('/agendamento') }}" class="inline-block bg-rose-500 text-white px-6 py-3 rounded-full hover:bg-rose-600 transition">
+      Agende seu horário agora
+    </a>
+  </div>
+</section>
+
+  <!-- Sobre o Salão -->
+  <section id="sobre" class="mb-24 bg-white py-16">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
+      
+      <!-- Imagem esquerda -->
+      <div class="hidden md:block">
+        <img src="/img/salao.jpg" alt="Equipe" class="rounded-2xl shadow-lg" />
+      </div>
+
+      <!-- Texto central -->
+      <div class="text-center space-y-6 px-4">
+        <h2 class="text-3xl md:text-4xl font-bold text-rose-600">Sobre o Malams Saloon</h2>
+        <p class="text-gray-700 text-lg">
+          Aqui, beleza é mais do que aparência — é uma experiência. Com atendimento personalizado, técnicas inovadoras e um ambiente acolhedor, o Malams Saloon eleva sua autoestima enquanto cuida de você com carinho.
+        </p>
+        <p class="text-gray-700 text-lg">
+          Nossa missão é oferecer muito mais do que serviços de beleza: oferecemos momentos que encantam e transformam.
+        </p>
+      </div>
+
+      <!-- Imagem direita -->
+      <div class="hidden md:block">
+        <img src="/img/home3.jpg" alt="Ambiente" class="rounded-2xl shadow-lg" />
+      </div>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Nossos Serviços -->
-  <section id="cards-servicos" class="mt-16">
-    <h2 class="text-3xl font-bold text-[#c59595] text-center mb-8">Conheça nossos serviços</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      <div class="text-center">
-        <h3 class="text-xl font-semibold text-[#c59595] mb-4">Luzes</h3>
-        <img src="/img/luzes.jpg" alt="Luzes no Cabelo" class="w-full h-64 object-cover rounded-lg shadow-lg">
+  <section class="mb-20">
+    <div class="max-w-7xl mx-auto text-center space-y-10">
+      <h2 class="text-3xl md:text-4xl font-semibold text-rose-600">Nossos Serviços</h2>
+
+      <div class="grid gap-8 md:grid-cols-3 text-left mt-8">
+        <!-- Card 1 -->
+        <div class="bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden">
+          <img src="/img/luzes.jpg" alt="Luzes" class="h-72 w-full object-cover" />
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-rose-500">Luzes</h3>
+            <p class="text-gray-600 mt-2">Realce o brilho natural do seu cabelo com técnicas de luzes personalizadas.</p>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden">
+          <img src="/img/henna.jpg" alt="Henna" class="h-72 w-full object-cover" />
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-rose-500">Design com Henna</h3>
+            <p class="text-gray-600 mt-2">Sobrancelhas perfeitas e marcantes com produtos de alta qualidade.</p>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-xl shadow hover:shadow-xl transition overflow-hidden">
+          <img src="/img/lashlifting.jpg" alt="Lash Lifting" class="h-72 w-full object-cover" />
+          <div class="p-5">
+            <h3 class="text-xl font-semibold text-rose-500">Lash Lifting</h3>
+            <p class="text-gray-600 mt-2">Curvatura e volume natural para seus cílios, sem extensões.</p>
+          </div>
+        </div>
       </div>
-      <div class="text-center">
-        <h3 class="text-xl font-semibold text-[#c59595] mb-4">Design com Henna</h3>
-        <img src="/img/henna.jpg" alt="Design com Henna" class="w-full h-64 object-cover rounded-lg shadow-lg">
-      </div>
-      <div class="text-center">
-        <h3 class="text-xl font-semibold text-[#c59595] mb-4">Lash Lifting</h3>
-        <img src="/img/lashlifting.jpg" alt="Lash Lifting" class="w-full h-64 object-cover rounded-lg shadow-lg">
-      </div>
+
+      <a href="{{ url('/agendamento') }}" class="inline-block bg-rose-500 text-white px-6 py-3 rounded-full hover:bg-rose-600 transition">
+        Agende seu horário agora
+      </a>
     </div>
   </section>
 
-  <!-- Botão Agendar -->
-  <div class="text-center mt-12">
-    <button class="bg-[#c59595] text-white py-3 px-8 rounded-full text-lg font-semibold hover:bg-[#a37373] transition duration-300">Quero agendar meu horário</button>
-  </div>
 </main>
 
 
-
-  <footer>
-        <p>Faça parte da nossa família</p>
-        <div class="footer-links">
-            <div class="footer-items">
-                <img src="/img/contato.jpg" alt="Contato">   
-                <a href="#">Contato</a>
-            </div>
-            <div class="footer-items">
-                <img src="/img/localizacao.png" alt="Localização">    
-                <a href="#">Localização</a>
-            </div>
+<footer class="bg-[#c59595] text-white text-center py-8">
+    <p class="text-2xl">Faça parte da nossa família</p>
+    <div class="footer-links flex justify-center mt-6">
+        <div class="footer-items mx-6 ">
+            <img src="/img/contato.jpg" alt="Contato" class="w-12 h-12 rounded-full">   
+            <a href="#" class="text-2xl">Contato</a>
         </div>
-    </footer>
+        <div class="footer-items mx-6">
+            <img src="/img/localizacao.png" alt="Localização" class="w-12 h-12 rounded-full">    
+            <a href="#" class="text-2xl">Localização</a>
+        </div>
+    </div>
+</footer>
+
 </body>
 </html>

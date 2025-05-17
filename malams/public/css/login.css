@@ -247,7 +247,7 @@ li {
 .form-container button {
   background-color: #cda1a1;
   color: white;
-  font-weight: 600;
+  
   cursor: pointer;
 }
 
@@ -264,16 +264,8 @@ li {
 }
 
 /* =================== Rodapé =================== */
-footer {
-  background-color: #c59595;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  font-size: 22px;
-  position: relative;
-  margin-top: auto;
-}
-
+/*Rodapé*/
+  
 .footer-links {
   display: flex;
   justify-content: center;

@@ -155,20 +155,6 @@ li {
 }
 
 /* Rodapé */
-footer {
-    background-color: #c59595;
-    padding: 18px 36px;
-    color: white;
-    text-align: center;
-    width: 100%;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-size: 22px;
-    position: relative; /* Alterado para relative */
-    bottom: 0;
-    left: 0;
-    z-index: 9999;
-}
 
 footer p {
     margin-bottom: 15px;

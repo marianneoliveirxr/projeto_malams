@@ -10,11 +10,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="icon" href="/img/icon.ico">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
 <body>
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Merriweather:opsz,wght@18..144,900&family=Rubik:ital,wght@0,605;1,605&display=swap');
+    
+    html {
+    scroll-behavior: smooth;
+  }
     </style>
 
     <header>
@@ -23,7 +28,7 @@
             <ul>
                 <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
                 <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
-                <li><a class="nav-links" href="#">Sobre</a></li>
+                <li><a class="nav-links" href="{{ url('/home') }}#sobre">Sobre</a></li>
             </ul>
         </nav>
         
@@ -109,19 +114,19 @@
     </main>
 
     <!-- Rodapé -->
-    <footer>
-        <p>Faça parte da nossa família</p>
-        <div class="footer-links">
-            <div class="footer-items">
-                <img src="/img/contato.jpg" alt="Contato">   
-                <a href="#">Contato</a>
-            </div>
-            <div class="footer-items">
-                <img src="/img/localizacao.png" alt="Localização">    
-                <a href="#">Localização</a>
-            </div>
+    <footer class="bg-[#c59595] text-white text-center py-8">
+    <p class="text-2xl">Faça parte da nossa família</p>
+    <div class="footer-links flex justify-center mt-6">
+        <div class="footer-items mx-6 ">
+            <img src="/img/contato.jpg" alt="Contato" class="w-12 h-12 rounded-full">   
+            <a href="#" class="text-2xl">Contato</a>
         </div>
-    </footer>
+        <div class="footer-items mx-6">
+            <img src="/img/localizacao.png" alt="Localização" class="w-12 h-12 rounded-full">    
+            <a href="#" class="text-2xl">Localização</a>
+        </div>
+    </div>
+</footer>
 
 </body>
 
