@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('agendamentos', function (Blueprint $table) {
             $table->id();
+            $table->date('dataAgendamento');
+            $table->time('hora');
+            $table->string('statusAgendamento');
+            $table->enum('sim', 'nao');
+            $table->foreingId('idServico')->constrained('servicos');
+            $table->foreingId('idFuncionario')->constrained('funcionarios');
+            $table->foreingId('IdUser')->constrained('users');
             $table->timestamps();
         });
     }

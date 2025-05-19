@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('servicos', function (Blueprint $table) {
             $table->id();
             $table->int('preco');
+            $table->string('servico');
             $table->foreingId('idCategoria')->constrained('categorias');
             $table->timestamps();
         });
