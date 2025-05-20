@@ -115,79 +115,63 @@
     </main>
 
 <!-- Rodapé -->
-<!-- Rodapé -->
-<footer class="bg-[#c59595] text-white text-center py-6">
-  <p class="text-[28px] mb-3 ">Faça parte da nossa família</p>
-  <div class="footer-links flex justify-center gap-12 mt-3">
-    <div class="footer-items flex items-center gap-3 cursor-pointer select-none" id="contato-section">
+<footer onclick="resetarFooter(event)" class="bg-[#c59595] text-white text-center py-6 transition-all duration-500">
+  <p class="text-[28px] mb-3">Faça parte da nossa família</p>
+
+  <!-- Bloco de Links -->
+  <div id="footer-default" class="footer-links flex justify-center gap-12 mt-3 transition-opacity duration-300">
+    <div onclick="mostrarFooter('contato')" class="footer-items flex items-center gap-3 cursor-pointer group">
       <img src="/img/contato.jpg" alt="Contato" class="w-9 h-9 rounded-full" />
-      <a href="#" class="text-[28px] font-medium" id="contato-link">Contato</a>
+      <span class="footer-hover text-[28px] font-medium relative cursor-pointer">Contato</span>
     </div>
-    <div class="footer-items flex items-center gap-3 cursor-pointer select-none" id="localizacao-section">
+    <div onclick="mostrarFooter('localizacao')" class="footer-items flex items-center gap-3 cursor-pointer group">
       <img src="/img/localizacao.png" alt="Localização" class="w-9 h-9 rounded-full" />
-      <a href="#" class="text-[28px] font-medium" id="localizacao-link">Localização</a>
+      <span class="footer-hover text-[28px] font-medium relative cursor-pointer">Localização</span>
     </div>
+  </div>
+
+  <!-- Conteúdo de Contato -->
+  <div id="footer-contato" class="hidden opacity-0 flex flex-col items-center gap-2 transition-opacity duration-500">
+    <a href="https://www.instagram.com/eteccamargoaranha" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@eteccamargoaranha</a>
+    <a href="https://www.instagram.com/n3rds" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@n3rds</a>
+  </div>
+
+  <!-- Conteúdo de Localização -->
+  <div id="footer-localizacao" class="hidden opacity-0 flex flex-col items-center gap-2 transition-opacity duration-500">
+    <a href="https://www.google.com/maps/place/R.+Marcial,+25+-+Mooca,+São+Paulo+-+SP,+03169-040" target="_blank" class="text-[22px] hover:underline transition-all duration-200">
+      R. Marcial, 25 - Mooca, São Paulo - SP, 03169-040
+    </a>
   </div>
 </footer>
 
-<!-- Conteúdo extra fica numa div fora do footer -->
-<div id="footer-info-container" 
-     class="bg-[#c59595] text-white text-center py-6 overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out">
-  <!-- Conteúdo extra será inserido aqui via JS -->
-</div>
-
 <script>
-  const contatoSection = document.getElementById('contato-section');
-  const localizacaoSection = document.getElementById('localizacao-section');
-  const infoContainer = document.getElementById('footer-info-container');
+  function mostrarFooter(tipo) {
+    // Oculta tudo
+    document.getElementById("footer-default").classList.add("hidden");
+    document.getElementById("footer-contato").classList.add("hidden", "opacity-0");
+    document.getElementById("footer-localizacao").classList.add("hidden", "opacity-0");
 
-  const contatoContent = `
-    <div class="space-y-1 text-lg max-w-md mx-auto">
-      <a href="https://instagram.com/eteccamargoaranha" target="_blank" rel="noopener" class="block hover:underline">@eteccamargoaranha</a>
-      <a href="https://instagram.com/n3rds" target="_blank" rel="noopener" class="block hover:underline">@n3rds</a>
-    </div>
-  `;
+    // Mostra o conteúdo com transição
+    const target = document.getElementById(`footer-${tipo}`);
+    target.classList.remove("hidden");
+    setTimeout(() => target.classList.remove("opacity-0"), 50);
+  }
 
-  const localizacaoContent = `
-    <div class="text-lg max-w-md mx-auto">
-      <a href="https://maps.app.goo.gl/GpnGc9jKidV1iCub7" target="_blank" rel="noopener" class="hover:underline">
-        R.Marcial, 25 - Mooca, São Paulo - SP, 03169-040
-      </a>
-    </div>
-  `;
+  function resetarFooter(event) {
+    // Garante que só funcione ao clicar no fundo, e não nos elementos clicáveis
+    const ignorarClique = event.target.closest('.footer-items') || event.target.tagName === 'A';
+    if (ignorarClique) return;
 
-    const footer = document.querySelector('footer');
-
-    function showContent(content) {
-    const isOpen = infoContainer.innerHTML === content;
-
-    // Alterna conteúdo
-    infoContainer.innerHTML = isOpen ? '' : content;
-    infoContainer.style.maxHeight = isOpen ? '0' : infoContainer.scrollHeight + 32 + 'px';
-
-    // Aplica ou remove shrink
-    footer.classList.toggle('shrink', !isOpen);
-
-    // Rola suavemente para o conteúdo extra
-    if (!isOpen) {
-        setTimeout(() => {
-        infoContainer.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
-    }
-    }
-
-    document.addEventListener('click', (e) => {
-    if (
-        !contatoSection.contains(e.target) &&
-        !localizacaoSection.contains(e.target) &&
-        !infoContainer.contains(e.target)
-    ) {
-        infoContainer.style.maxHeight = '0';
-        infoContainer.innerHTML = '';
-        footer.classList.remove('shrink');
-    }
-    });
+    // Reseta: oculta conteúdo extra e mostra o padrão
+    document.getElementById("footer-contato").classList.add("opacity-0");
+    document.getElementById("footer-localizacao").classList.add("opacity-0");
+    setTimeout(() => {
+      document.getElementById("footer-contato").classList.add("hidden");
+      document.getElementById("footer-localizacao").classList.add("hidden");
+      document.getElementById("footer-default").classList.remove("hidden");
+    }, 300); // espera a transição de opacidade terminar
+  }
 </script>
-</body>
 
+</body>
 </html>

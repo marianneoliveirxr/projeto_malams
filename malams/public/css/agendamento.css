@@ -54,8 +54,9 @@ header {
     max-width: 100%;
     height: auto;
     object-fit: cover;
-    width: 100px;
-  }
+    width: 80px;
+    margin-left: 20px;
+  }  
   
   nav ul {
     list-style: none;
@@ -168,67 +169,94 @@ header {
     margin-left: 10px;
   }
 
-/* Rodapé */
+/*Rodapé*/
 footer {
     background-color: #c59595;
     padding: 10px 0px; /* padrão similar ao novo header */
     color: white;
     font-family: 'Cal Sans', sans-serif;
     text-align: center;
-    transition: height 0.5s ease;
-    height: 120px; /* exemplo de altura normal menor */
-    overflow: hidden;
+    transition: padding 0.3s ease;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .footer-hover {
+    position: relative;
+    color: white;
+    transition: all 0.3s ease;
+  }
+  
+  .footer-hover:hover {
+    color: #E8D6D3;          
+    text-decoration: underline; 
+  }
+  
+  .footer-hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 0;
+    height: 2px;
+    background-color: #e8d6d3;
+    transition: width 0.3s ease;
+  }
+  
+  .footer-hover:hover::after {
+    width: 100%;
   }
   
   footer.shrink {
-    height: 60px; /* altura menor ao clicar */
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
-  
-footer p {
-    margin-bottom: 15px;
-    font-size: 24px;
-}
-
-.footer-links {
+    
+  .footer-links {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
-    margin-top: 10px;
+    gap: 30px;
     flex-wrap: wrap;
-    text-align: left;
-}
-
-/* Animação nos links do footer (rodapé) */
-footer a {
-    text-decoration: none;
+  }
+  
+  footer a {
     color: white;
-    font-family: "Cal Sans", sans-serif;
-    font-weight: 400;
-    font-size: 22px;
+    text-decoration: none;
     position: relative;
     transition: all 0.3s ease;
-}
-
-footer a:hover {
-    color: #E8D6D3;
-    text-decoration: underline;
-}
-
-footer a::after {
+  }
+  
+  footer a:hover {
+    color: #e8d6d3;
+  }
+  
+  footer a::after {
     content: '';
     position: absolute;
     left: 0;
     bottom: -3px;
-    width: 0%;
+    width: 0;
     height: 2px;
-    background-color: #E8D6D3;
+    background-color: #e8d6d3;
     transition: width 0.3s ease;
-}
-
-footer a:hover::after {
+  }
+  
+  footer a:hover::after {
     width: 100%;
-}
+  }
+  
+  .footer-items {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .footer-items img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
 
 /* Responsividade */
 @media (max-width: 1200px) {
@@ -317,7 +345,7 @@ footer a:hover::after {
     }
 
     .logo {
-        max-width: 80px; /* Tamanho do logo ajustado para telas pequenas */
+        max-width: 60px; /* Tamanho do logo ajustado para telas pequenas */
     }
 
     .flex.justify-center.gap-6 button {

@@ -49,7 +49,8 @@ header nav ul {
   max-width: 100%;
   height: auto;
   object-fit: cover;
-  width: 100px;
+  width: 80px;
+  margin-left: 20px;
 }
 
 nav ul {
@@ -332,6 +333,32 @@ footer {
   transition: padding 0.3s ease;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.footer-hover {
+  position: relative;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.footer-hover:hover {
+  color: #E8D6D3;          
+  text-decoration: underline; 
+}
+
+.footer-hover::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: #e8d6d3;
+  transition: width 0.3s ease;
+}
+
+.footer-hover:hover::after {
+  width: 100%;
 }
 
 footer.shrink {
