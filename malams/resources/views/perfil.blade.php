@@ -75,25 +75,25 @@
 
 <div class="caixa-central">
     <div class="info">
-        <form action="/perfil" method="POST">
+        <form action="/perfil" method="GET">
             @csrf
 
             <h1>Informações do Cliente</h1>
 
             <label><strong>Nome:</strong></label>
-            <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName') }}" placeholder="Maria Silva" required>
-
-            <label><strong>Email:</strong></label>
-            <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail') }}" placeholder="mariasilva@gmail.com" required>
+            <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName', $user->nomeUser) }}" placeholder="{{ old('txtName', $user->nomeUser) }}" required>
 
             <label><strong>CPF:</strong></label>
-            <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf') }}" placeholder="000.000.000-00" required>
-
-            <label><strong>Celular:</strong></label>
-            <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular') }}" placeholder="(00) 00000-0000" required>
+            <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf', $user->cpfUser) }}" placeholder="{{ old('txtCpf', $user->cpfUser) }}" required>
 
             <label><strong>Data de nascimento:</strong></label>
-            <input type="text" id="nascimento" name="txtDatNascimento" class="inputUser" value="{{ old('txtDatNascimento') }}" required placeholder="dd/mm/aaaa" pattern="\d{2}/\d{2}/\d{4}">
+            <input type="text" id="nascimento" name="txtDatNascimento" class="inputUser" value="{{ old('txtDatNascimento', \Carbon\Carbon::parse($user->dataNascimento)->format('d/m/Y')) }}" required placeholder="{{ old('txtDatNascimento', \Carbon\Carbon::parse($user->dataNascimento)->format('d/m/Y')) }}" pattern="\d{2}/\d{2}/\d{4}">
+
+            <label><strong>Celular:</strong></label>
+            <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular', $user->celularUser) }}" placeholder="{{ old('txtCelular', $user->celularUser) }}" required>
+
+            <label><strong>Email:</strong></label>
+            <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail', $user->email) }}" placeholder="{{ old('txtEmail', $user->email) }}" required>
 
             <label><strong>Senha:</strong></label>
             <input type="password" id="password" name="password" class="inputUser" placeholder="Mínimo de 6 caracteres" required>
@@ -101,10 +101,11 @@
             <label class="labelInput" for="password_confirmation">Confirmar Senha:</label>
             <input type="password" id="password_confirmation" name="password_confirmation" class="inputUser" required>
 
-            <button onclick id="submit">Salvar Alterações</button>
+            <button id="submit">Salvar Alterações</button>
         </form>
     </div>
 </div>
+
 
 
 
