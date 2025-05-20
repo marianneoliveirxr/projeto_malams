@@ -1,64 +1,108 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-semibold text-gray-800 mb-6">Adicionar Novo Serviço</h1>
+<div class="container mx-auto px-4 py-8 max-w-3xl">
+    <h1 class="text-5xl font-extrabold text-black mb-10 tracking-wide">Adicionar Novo Serviço</h1>
 
-    <!-- Formulário para Adicionar Serviço -->
-    <form action="{{ route('admin.servicos.store') }}" method="POST">
+    <form action="{{ route('admin.servicos.store') }}" method="POST" class="bg-white rounded-2xl p-10
+        transition-shadow duration-300 ease-in-out"
+        style="box-shadow: 0 4px 20px rgba(217, 176, 176, 0.4);"
+        onmouseover="this.style.boxShadow='0 8px 32px rgba(217, 176, 176, 0.6)'"
+        onmouseout="this.style.boxShadow='0 4px 20px rgba(217, 176, 176, 0.4)'"
+    >
         @csrf
-        <div class="bg-white p-6 rounded-lg shadow-md">
+
+        <div class="space-y-8">
             <!-- Nome do Serviço -->
-            <div class="mb-4">
-                <label for="nome" class="block text-sm font-medium text-gray-600">Nome do Serviço</label>
-                <input type="text" id="nome" name="nome" placeholder="Ex: Corte de Cabelo" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            <div>
+                <label for="nome" class="block text-lg font-semibold text-black mb-2">Nome do Serviço</label>
+                <input type="text" id="nome" name="nome"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    placeholder="Ex: Corte de Cabelo"
+                    required
+                >
             </div>
 
-            <!-- Descrição do Serviço -->
-            <div class="mb-4">
-                <label for="descricao" class="block text-sm font-medium text-gray-600">Descrição</label>
-                <textarea id="descricao" name="descricao" placeholder="Ex: Corte de cabelo para todos os tipos de cabelo" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required></textarea>
+            <!-- Descrição -->
+            <div>
+                <label for="descricao" class="block text-lg font-semibold text-black mb-2">Descrição</label>
+                <textarea id="descricao" name="descricao" rows="4"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition resize-none"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    placeholder="Ex: Corte de cabelo para todos os tipos de cabelo"
+                    required
+                ></textarea>
             </div>
 
             <!-- Preço -->
-            <div class="mb-4">
-                <label for="preco" class="block text-sm font-medium text-gray-600">Preço</label>
-                <input type="text" id="preco" name="preco" placeholder="Ex: R$ 50,00" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" required>
+            <div>
+                <label for="preco" class="block text-lg font-semibold text-black mb-2">Preço</label>
+                <input type="text" id="preco" name="preco"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    placeholder="Ex: 50,00"
+                    required
+                >
             </div>
+        </div>
 
-            <!-- Botões -->
-            <div class="flex justify-end space-x-4">
-                <a href="{{ route('admin.servicos.index') }}" class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">Cancelar</a>
-                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Salvar</button>
-            </div>
+        <!-- Botões -->
+        <div class="flex justify-end space-x-6 mt-12">
+            <a href="{{ route('admin.servicos.index') }}" 
+               class="px-10 py-4 rounded-lg font-semibold bg-gray-700 text-white hover:bg-gray-800 transition"
+            >
+                Cancelar
+            </a>
+            <button type="submit"
+                class="px-10 py-4 rounded-lg font-semibold bg-blue-600 text-white shadow-md hover:bg-blue-700 transition"
+            >
+                Salvar
+            </button>
         </div>
     </form>
 </div>
 
-<!-- Script para Formatação de Preço -->
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const precoInput = document.getElementById('preco');
+document.addEventListener('DOMContentLoaded', () => {
+    const precoInput = document.getElementById('preco');
 
-        precoInput.addEventListener('input', function (e) {
-            let value = e.target.value;
+    precoInput.addEventListener('input', e => {
+        let val = e.target.value;
 
-            // Remove tudo o que não for número ou ponto
-            value = value.replace(/\D/g, '');
+        // Remove tudo que não for número ou vírgula
+        val = val.replace(/[^0-9,]/g, '');
 
-            // Aplica a formatação
-            value = value.replace(/(\d)(\d{2})$/, '$1,$2'); // Coloca a vírgula antes dos dois últimos dígitos
+        // Permite só uma vírgula
+        const parts = val.split(',');
+        if (parts.length > 2) {
+            val = parts[0] + ',' + parts[1];
+        }
 
-            // Formata para o padrão "R$ 00,00"
-            if (value.length > 2) {
-                value = 'R$ ' + value.replace(/(\d)(\d{3})(\d)/, '$1$2.$3'); // Adiciona o ponto de milhar
-            }
+        // Limita casas decimais a 2
+        if (parts[1]?.length > 2) {
+            parts[1] = parts[1].substring(0, 2);
+            val = parts.join(',');
+        }
 
-            // Limita o valor a 15 caracteres (ex: "R$ 999.999.999,99")
-            value = value.substring(0, 15);
+        // Limita inteiro a 3 dígitos
+        if (parts[0].length > 3) {
+            parts[0] = parts[0].substring(0, 3);
+            val = parts.join(',');
+        }
 
-            e.target.value = value;
-        });
+        e.target.value = val;
     });
+});
 </script>
+
 @endsection

@@ -40,6 +40,9 @@ Route::prefix('admin')->name('admin.')->group(function () {
  
      // Serviços - CRUD
      Route::resource('servicos', ServicosController::class);
+
+     // Categorias - CRUD
+     Route::resource('categorias', CategoriaController::class);
  });
 
 

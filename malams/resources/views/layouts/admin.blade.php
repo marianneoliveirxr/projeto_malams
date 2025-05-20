@@ -63,6 +63,14 @@
                         </li>
                         <li>
                             <a
+                                href="{{ route('admin.categorias.index') }}"
+                                class="flex items-center gap-2 py-2 px-4 bg-white border-3 border-[#d9b0b0] rounded-lg text-black hover:bg-[#d9b0b0] hover:text-white transition"
+                            >
+                                <i class="fas fa-layer-group"></i> Categorias
+                            </a>
+                        </li>
+                        <li>
+                            <a
                                 href="{{ route('admin.servicos.index') }}"
                                 class="flex items-center gap-2 py-2 px-4 bg-white border-3 border-[#d9b0b0] rounded-lg text-black hover:bg-[#d9b0b0] hover:text-white transition"
                             >
@@ -75,7 +83,7 @@
                 <div class="mt-8">
                     <a
                         href="{{ route('logout') }}"
-                        class="flex items-center justify-center gap-2 py-2 px-4 bg-white border border-red-400 text-black hover:bg-red-500 hover:text-white font-semibold rounded-lg transition"
+                        class="flex items-center justify-center gap-2 py-2 px-4 bg-white border-3 border-red-400 text-black hover:bg-red-500 hover:text-white font-semibold rounded-lg transition"
                     >
                         <i class="fas fa-sign-out-alt"></i> Sair
                     </a>

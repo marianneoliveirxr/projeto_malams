@@ -69,6 +69,7 @@ class UsuarioController extends Controller
         $user->celularUser = $request->txtCelular;
         $user->email = $request->txtEmail;
         $user->password = Hash::make($request->password);
+        $user->idPermissao = 1;
         $user->save();
     
         return redirect()->route('cadastro')->with('success', 'Usuário cadastrado com sucesso!');

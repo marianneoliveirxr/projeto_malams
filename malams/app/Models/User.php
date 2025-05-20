@@ -28,6 +28,7 @@ class User extends Authenticatable
         'celularUser',
         'email',
         'password',
+        'idPermissao',
     ];
 
     /**
@@ -52,4 +53,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function permissao()
+    {
+        // 'idPermissao' é FK na tabela users
+        // 'idPermissao' é PK na tabela permissoes
+        return $this->belongsTo(Permissao::class, 'idPermissao', 'idPermissao');
+    }
+
+    
 }

@@ -123,27 +123,36 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        // Máscara CPF
         const cpfInput = document.getElementById('cpf');
         cpfInput.addEventListener('input', function (e) {
-            let value = e.target.value;
-            value = value.replace(/\D/g, '');
-            if (value.length > 3) value = value.replace(/^(\d{3})(\d)/, '$1.$2');
-            if (value.length > 6) value = value.replace(/^(\d{3})\.(\d{3})(\d)/, '$1.$2.$3');
-            if (value.length > 9) value = value.replace(/^(\d{3})\.(\d{3})\.(\d{3})(\d)/, '$1.$2.$3-$4');
+            let value = e.target.value.replace(/\D/g, ''); // Remove tudo que não for número
+            value = value.substring(0, 11); // Limita a 11 dígitos
+
+            if (value.length > 9) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})$/, '$1.$2.$3-$4');
+            } else if (value.length > 6) {
+                value = value.replace(/^(\d{3})(\d{3})(\d{1,3})$/, '$1.$2.$3');
+            } else if (value.length > 3) {
+                value = value.replace(/^(\d{3})(\d{1,3})$/, '$1.$2');
+            }
+
             e.target.value = value;
         });
 
+        // Máscara Celular
         const celularInput = document.getElementById('celular');
         celularInput.addEventListener('input', function (e) {
-            let value = e.target.value;
-            value = value.replace(/\D/g, '');
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 11) value = value.substring(0, 11); // Limita a 11 dígitos também
+
             if (value.length > 2) value = value.replace(/^(\d{2})(\d)/, '($1) $2');
             if (value.length > 7) value = value.replace(/^(\(\d{2}\)) (\d{5})(\d)/, '$1 $2-$3');
-            e.target.value = value;
-        });
 
-        const inputData = document.getElementById('nascimento');
-        inputData.addEventListener('input', () => {
+            e.target.value = value;
+
+            const inputData = document.getElementById('nascimento');
+            inputData.addEventListener('input', () => {
             let value = inputData.value.replace(/\D/g, '');
             if (value.length > 2 && value.length <= 4) {
                 value = value.slice(0, 2) + '/' + value.slice(2);
@@ -151,6 +160,7 @@
                 value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
             }
             inputData.value = value;
+        });
         });
     });
 </script>

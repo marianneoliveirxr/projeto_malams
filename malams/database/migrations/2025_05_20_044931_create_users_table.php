@@ -13,14 +13,20 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nomeUser');
-            $table->string('cpfUser')->unique();
+            $table->unsignedBigInteger('idPermissao'); // FK para permissoes
+            $table->string('nomeUser', 100);
+            $table->string('cpfUser', 20)->unique();
             $table->date('dataNascimento');
-            $table->string('celularUser')->unique();
+            $table->string('celularUser', 20)->unique();
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+
+            $table->foreign('idPermissao')
+                  ->references('idPermissao')
+                  ->on('permissoes')
+                  ->onDelete('cascade');
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

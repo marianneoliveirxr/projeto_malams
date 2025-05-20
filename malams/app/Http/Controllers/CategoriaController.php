@@ -3,27 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Servico;
-use App\Models\User; 
-use Carbon\Carbon;
 
-class DashboardController extends Controller
+class CategoriaController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.dashboard', [
-    'totalUsers' => 150,
-    'totalOrders' => 42,
-    'pendingTasks' => 5,
-    'recentActivities' => [
-        'Usuário João Silva cadastrado.',
-        'Pedido #234 confirmado.',
-        'Estoque do produto XYZ abaixo do limite.',
-    ],
-]);
+        return view('admin.categorias.index');
+
     }
 
     /**
