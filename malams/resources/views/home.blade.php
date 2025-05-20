@@ -56,6 +56,17 @@
       element.scrollIntoView({ behavior: 'smooth' });
     }
   </script>
+  <script>
+    function mostrarContato() {
+      document.getElementById('contato-section').classList.remove('hidden');
+      document.getElementById('localizacao-section').classList.add('hidden');
+    }
+
+    function mostrarLocalizacao() {
+      document.getElementById('localizacao-section').classList.remove('hidden');
+      document.getElementById('contato-section').classList.add('hidden');
+    }
+  </script>
 </head>
 <body class="bg-gray-100 text-gray-900">
 
@@ -194,19 +205,19 @@
 </main>
 
 
-<footer class="bg-[#c59595] text-white text-center py-8">
-    <p class="text-2xl">Faça parte da nossa família</p>
-    <div class="footer-links flex justify-center mt-6">
-        <div class="footer-items mx-6 ">
-            <img src="/img/contato.jpg" alt="Contato" class="w-12 h-12 rounded-full">   
-            <a href="#" class="text-2xl">Contato</a>
-        </div>
-        <div class="footer-items mx-6">
-            <img src="/img/localizacao.png" alt="Localização" class="w-12 h-12 rounded-full">    
-            <a href="#" class="text-2xl">Localização</a>
-        </div>
+<!-- Rodapé -->
+<footer class="bg-[#c59595] text-white text-center py-6">
+  <p class="text-[28px] mb-3 ">Faça parte da nossa família</p>
+  <div class="footer-links flex justify-center gap-12 mt-3">
+    <div class="footer-items flex items-center gap-3">
+      <img src="/img/contato.jpg" alt="Contato" class="w-9 h-9 rounded-full" />
+      <a href="#" class="text-[28px] font-medium">Contato</a>
     </div>
+    <div class="footer-items flex items-center gap-3">
+      <img src="/img/localizacao.png" alt="Localização" class="w-9 h-9 rounded-full" />
+      <a href="#" class="text-[28px] font-medium">Localização</a>
+    </div>
+  </div>
 </footer>
-
 </body>
 </html>

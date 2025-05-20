@@ -225,7 +225,7 @@
 
 <!-- Cards das Profissionais -->
 <div class="max-w-7xl mx-auto mt-16 px-4 sm:px-6 lg:px-8 mb-16">
-  <h2 class="text-4xl font-bold text-center text-[#c59595] mb-8">Nossas Profissionais</h2>
+  <h2 class="text-5xl font-bold text-center text-[#c59595] mb-8">Nossas Profissionais</h2>
 
   <!-- Grid Responsivo, Centralizado -->
   <div class="flex flex-wrap justify-center gap-8">
@@ -233,8 +233,8 @@
     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105 w-full sm:w-80">
       <img src="/img/fernanda.jpg" alt="Profissional 1" class="w-full h-40 object-cover">
       <div class="p-4 text-center">
-        <h3 class="text-xl font-semibold text-[#c59595]">Fernanda</h3>
-        <p class="mt-2 text-sm text-gray-600">Unhas, Estética</p>
+        <h3 class="text-2xl font-semibold text-[#c59595]">Fernanda</h3>
+        <p class="mt-2 text-x1 text-gray-600">Unhas, Estética</p>
       </div>
     </div>
 
@@ -242,8 +242,8 @@
     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105 w-full sm:w-80">
       <img src="/img/camila.jpg" alt="Profissional 2" class="w-full h-40 object-cover">
       <div class="p-4 text-center">
-        <h3 class="text-xl font-semibold text-[#c59595]">Camila</h3>
-        <p class="mt-2 text-sm text-gray-600">Cabelos, Unhas</p>
+        <h3 class="text-2xl font-semibold text-[#c59595]">Camila</h3>
+        <p class="mt-2 text-x1 text-gray-600">Cabelos, Unhas</p>
       </div>
     </div>
 
@@ -251,25 +251,26 @@
     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105 w-full sm:w-80">
       <img src="/img/juliana.jpg" alt="Profissional 3" class="w-full h-40 object-cover">
       <div class="p-4 text-center">
-        <h3 class="text-xl font-semibold text-[#c59595]">Juliana</h3>
-        <p class="mt-2 text-sm text-gray-600">Estética, Cabelos</p>
+        <h3 class="text-2xl font-semibold text-[#c59595]">Juliana</h3>
+        <p class="mt-2 text-x1 text-gray-600">Estética, Cabelos</p>
       </div>
     </div>
   </div>
 </div>
 
-<footer class="bg-[#c59595] text-white text-center py-8">
-    <p class="text-2xl">Faça parte da nossa família</p>
-    <div class="footer-links flex justify-center mt-6">
-        <div class="footer-items mx-6 ">
-            <img src="/img/contato.jpg" alt="Contato" class="w-12 h-12 rounded-full">   
-            <a href="#" class="text-2xl">Contato</a>
-        </div>
-        <div class="footer-items mx-6">
-            <img src="/img/localizacao.png" alt="Localização" class="w-12 h-12 rounded-full">    
-            <a href="#" class="text-2xl">Localização</a>
-        </div>
+<!-- Rodapé -->
+<footer class="bg-[#c59595] text-white text-center py-6">
+  <p class="text-[28px] mb-3 ">Faça parte da nossa família</p>
+  <div class="footer-links flex justify-center gap-12 mt-3">
+    <div class="footer-items flex items-center gap-3">
+      <img src="/img/contato.jpg" alt="Contato" class="w-9 h-9 rounded-full" />
+      <a href="#" class="text-[28px] font-medium">Contato</a>
     </div>
+    <div class="footer-items flex items-center gap-3">
+      <img src="/img/localizacao.png" alt="Localização" class="w-9 h-9 rounded-full" />
+      <a href="#" class="text-[28px] font-medium">Localização</a>
+    </div>
+  </div>
 </footer>
 
 </div>

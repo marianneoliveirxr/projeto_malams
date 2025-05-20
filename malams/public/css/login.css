@@ -27,9 +27,22 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: #c59595;
-  padding: 20px 0px;
+  padding: 12px 0px;
   color: white;
   font-family: 'Cal Sans';
+  position: relative;
+}
+
+header nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+header nav ul {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 .logo {
@@ -60,7 +73,7 @@ nav ul a,
 .nav-links {
   text-decoration: none;   /* remove sublinhado */
   color: white;            /* mantém branco */
-  font-size: 22px;
+  font-size: 30px;
   font-family: "Cal Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -102,7 +115,7 @@ nav ul a,
   font-family: "Cal Sans", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 22px;
+  font-size: 30px;
   transition: all 0.3s ease;  /* transição suave no hover */
   margin-right: 14px;
 }
@@ -213,22 +226,26 @@ li {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 50px;
+  gap: 60px;
   flex-wrap: wrap;
   padding: 20px;
+  margin-left: 180px;
+  width: 100%;
+  max-width: 1200px;
+
 }
 
 .form-container {
   width: 100%;
-  max-width: 350px;
+  max-width: 500px;
+  min-width: 300px;
   text-align: center;
-  margin: 0 auto;
 }
 
 .form-container h4 {
   color: #d19f9f;
   margin-bottom: 20px;
-  font-size: 45px;
+  font-size: 60px;
   font-family: "Rubik", sans-serif;
   font-weight: 600;
 }
@@ -236,12 +253,48 @@ li {
 .form-container input,
 .form-container button {
   width: 100%;
-  padding: 15px;
+  padding: 18px;
   margin: 12px 0;
+
   border-radius: 20px;
-  font-size: 16px;
+  font-size: 20px;
   border: 1px solid #d19f9f;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.frase {
+  text-decoration: none;   
+  color: #c59595;            
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 17px;
+  transition: all 0.3s ease;  
+  margin-right: 14px;
+}
+
+.frase:hover {
+  color: #aa8888;          
+  text-decoration: underline; 
+}
+
+.frase {
+  position: relative;
+}
+
+.frase::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #aa8888;
+  transition: width 0.3s ease;
+}
+
+.frase:hover::after {
+  width: 100%;
 }
 
 .form-container button {
@@ -255,16 +308,36 @@ li {
   color: #c48d8d;
 }
 
+.image-container {
+  flex: 1;
+}
+
 .image-container img {
   width: 100%;
-  max-width: 560px;
+  max-width: 750px; /* era 600px */
   border-radius: 10px;
   object-fit: cover;
-  margin-left: 15%;
+  margin: 0 auto;
+  display: block;
 }
 
 /* =================== Rodapé =================== */
 /*Rodapé*/
+footer {
+  background-color: #c59595;
+  padding: 10px 0px; /* padrão similar ao novo header */
+  color: white;
+  font-family: 'Cal Sans', sans-serif;
+  text-align: center;
+  transition: padding 0.3s ease;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+footer.shrink {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
   
 .footer-links {
   display: flex;
@@ -366,4 +439,25 @@ footer a:hover::after {
         flex-direction: column;
         gap: 5px;
     }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .form-container {
+    max-width: 100%;
+  }
+
+  .image-container {
+    max-width: 100%;
+    margin-top: 20px;
+  }
+
+  .image-container img {
+    max-width: 100%;
+    margin: 0 auto;
+  }
 }

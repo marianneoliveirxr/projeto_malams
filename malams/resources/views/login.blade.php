@@ -88,6 +88,7 @@
                     <input type="email" name="txtEmail" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Senha" required>
                     <button type="submit">Acessar</button>
+                    <a type="text" class="frase" href="{{ url('/cadastro') }}">Ainda não tenho cadastro</a>
                 </form>
             </div>
 
@@ -113,21 +114,80 @@
         </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="bg-[#c59595] text-white text-center py-8">
-    <p class="text-2xl">Faça parte da nossa família</p>
-    <div class="footer-links flex justify-center mt-6">
-        <div class="footer-items mx-6 ">
-            <img src="/img/contato.jpg" alt="Contato" class="w-12 h-12 rounded-full">   
-            <a href="#" class="text-2xl">Contato</a>
-        </div>
-        <div class="footer-items mx-6">
-            <img src="/img/localizacao.png" alt="Localização" class="w-12 h-12 rounded-full">    
-            <a href="#" class="text-2xl">Localização</a>
-        </div>
+<!-- Rodapé -->
+<!-- Rodapé -->
+<footer class="bg-[#c59595] text-white text-center py-6">
+  <p class="text-[28px] mb-3 ">Faça parte da nossa família</p>
+  <div class="footer-links flex justify-center gap-12 mt-3">
+    <div class="footer-items flex items-center gap-3 cursor-pointer select-none" id="contato-section">
+      <img src="/img/contato.jpg" alt="Contato" class="w-9 h-9 rounded-full" />
+      <a href="#" class="text-[28px] font-medium" id="contato-link">Contato</a>
     </div>
+    <div class="footer-items flex items-center gap-3 cursor-pointer select-none" id="localizacao-section">
+      <img src="/img/localizacao.png" alt="Localização" class="w-9 h-9 rounded-full" />
+      <a href="#" class="text-[28px] font-medium" id="localizacao-link">Localização</a>
+    </div>
+  </div>
 </footer>
 
+<!-- Conteúdo extra fica numa div fora do footer -->
+<div id="footer-info-container" 
+     class="bg-[#c59595] text-white text-center py-6 overflow-hidden max-h-0 transition-[max-height] duration-500 ease-in-out">
+  <!-- Conteúdo extra será inserido aqui via JS -->
+</div>
+
+<script>
+  const contatoSection = document.getElementById('contato-section');
+  const localizacaoSection = document.getElementById('localizacao-section');
+  const infoContainer = document.getElementById('footer-info-container');
+
+  const contatoContent = `
+    <div class="space-y-1 text-lg max-w-md mx-auto">
+      <a href="https://instagram.com/eteccamargoaranha" target="_blank" rel="noopener" class="block hover:underline">@eteccamargoaranha</a>
+      <a href="https://instagram.com/n3rds" target="_blank" rel="noopener" class="block hover:underline">@n3rds</a>
+    </div>
+  `;
+
+  const localizacaoContent = `
+    <div class="text-lg max-w-md mx-auto">
+      <a href="https://maps.app.goo.gl/GpnGc9jKidV1iCub7" target="_blank" rel="noopener" class="hover:underline">
+        R.Marcial, 25 - Mooca, São Paulo - SP, 03169-040
+      </a>
+    </div>
+  `;
+
+    const footer = document.querySelector('footer');
+
+    function showContent(content) {
+    const isOpen = infoContainer.innerHTML === content;
+
+    // Alterna conteúdo
+    infoContainer.innerHTML = isOpen ? '' : content;
+    infoContainer.style.maxHeight = isOpen ? '0' : infoContainer.scrollHeight + 32 + 'px';
+
+    // Aplica ou remove shrink
+    footer.classList.toggle('shrink', !isOpen);
+
+    // Rola suavemente para o conteúdo extra
+    if (!isOpen) {
+        setTimeout(() => {
+        infoContainer.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+    }
+    }
+
+    document.addEventListener('click', (e) => {
+    if (
+        !contatoSection.contains(e.target) &&
+        !localizacaoSection.contains(e.target) &&
+        !infoContainer.contains(e.target)
+    ) {
+        infoContainer.style.maxHeight = '0';
+        infoContainer.innerHTML = '';
+        footer.classList.remove('shrink');
+    }
+    });
+</script>
 </body>
 
 </html>
