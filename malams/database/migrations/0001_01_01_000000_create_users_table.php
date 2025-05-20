@@ -23,6 +23,17 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('funcionarios', function (Blueprint $table) {
+            $table->id();
+            $table->string('nomeFuncionario');
+            $table->string('emailFuncionario')->unique();
+            $table->string('celularFuncionario')->unique();
+            $table->string('cpfFuncionario')->unique();
+            $table->string('senhaFuncionario');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+
         Schema::create('password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
