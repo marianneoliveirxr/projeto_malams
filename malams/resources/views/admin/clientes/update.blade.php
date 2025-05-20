@@ -1,69 +1,127 @@
 @extends('layouts.admin')
 
 @section('content')
-<div class="container mx-auto px-4 py-8">
-    <h1 class="text-3xl font-semibold text-gray-800 mb-6">Editar Cliente</h1>
+<div class="container mx-auto px-4 py-8 max-w-3xl">
+    <h1 class="text-5xl font-extrabold text-black mb-10 tracking-wide">Editar Cliente</h1>
 
     <!-- Formulário para Editar Cliente -->
-    <form action="{{ route('admin.clientes.update', 1) }}" method="POST">
+    <form action="{{ route('admin.clientes.update', 1) }}" method="POST" class="bg-white rounded-2xl p-10
+        transition-shadow duration-300 ease-in-out"
+        style="box-shadow: 0 4px 20px rgba(217, 176, 176, 0.4);"
+        onmouseover="this.style.boxShadow='0 8px 32px rgba(217, 176, 176, 0.6)'"
+        onmouseout="this.style.boxShadow='0 4px 20px rgba(217, 176, 176, 0.4)'"
+    >
         @csrf
         @method('PUT')
 
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <!-- Nome do Cliente -->
-            <div class="mb-4">
-                <label for="nome" class="block text-sm font-medium text-gray-600">Nome</label>
-                <input type="text" id="nome" name="nome" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="João Silva" required>
+        <div class="space-y-8">
+            <!-- Nome -->
+            <div>
+                <label for="nome" class="block text-lg font-semibold text-black mb-2">Nome</label>
+                <input type="text" id="nome" name="nome" 
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    value="João Silva" required
+                >
             </div>
 
             <!-- CPF -->
-            <div class="mb-4">
-                <label for="cpf" class="block text-sm font-medium text-gray-600">CPF</label>
-                <input type="text" id="cpf" name="cpf" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="123.456.789-00" required>
+            <div>
+                <label for="cpf" class="block text-lg font-semibold text-black mb-2">CPF</label>
+                <input type="text" id="cpf" name="cpf"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    value="123.456.789-00" required
+                >
             </div>
 
             <!-- Data de Nascimento -->
-            <div class="mb-4">
-                <label for="nascimento" class="block text-sm font-medium text-gray-600">Data de Nascimento</label>
-                <input type="text" id="nascimento" name="nascimento" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="01/01/1990" required>
+            <div>
+                <label for="nascimento" class="block text-lg font-semibold text-black mb-2">Data de Nascimento</label>
+                <input type="text" id="nascimento" name="nascimento"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    value="01/01/1990" required
+                >
             </div>
 
             <!-- Celular -->
-            <div class="mb-4">
-                <label for="celular" class="block text-sm font-medium text-gray-600">Celular</label>
-                <input type="text" id="celular" name="celular" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="(11) 98765-4321" required>
+            <div>
+                <label for="celular" class="block text-lg font-semibold text-black mb-2">Celular</label>
+                <input type="text" id="celular" name="celular"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    value="(11) 98765-4321" required
+                >
             </div>
 
             <!-- Email -->
-            <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-600">Email</label>
-                <input type="email" id="email" name="email" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" value="joao.silva@email.com" required>
+            <div>
+                <label for="email" class="block text-lg font-semibold text-black mb-2">Email</label>
+                <input type="email" id="email" name="email"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    value="joao.silva@email.com" required
+                >
             </div>
 
             <!-- Senha -->
-            <div class="mb-4">
-                <label for="senha" class="block text-sm font-medium text-gray-600">Senha</label>
-                <input type="password" id="senha" name="senha" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <div>
+                <label for="senha" class="block text-lg font-semibold text-black mb-2">Senha</label>
+                <input type="password" id="senha" name="senha"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                >
             </div>
 
-            <!-- Confirmação de Senha -->
-            <div class="mb-4">
-                <label for="senha_confirmation" class="block text-sm font-medium text-gray-600">Confirmar Senha</label>
-                <input type="password" id="senha_confirmation" name="senha_confirmation" class="mt-1 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <!-- Confirmar Senha -->
+            <div>
+                <label for="senha_confirmation" class="block text-lg font-semibold text-black mb-2">Confirmar Senha</label>
+                <input type="password" id="senha_confirmation" name="senha_confirmation"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                >
             </div>
+        </div>
 
-            <!-- Botões -->
-            <div class="flex justify-end space-x-4">
-                <a href="{{ route('admin.clientes.index') }}" class="px-6 py-2 bg-gray-500 text-white rounded-lg hover:bg-gray-600">Cancelar</a>
-                <button type="submit" class="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600">Salvar</button>
-            </div>
+        <!-- Botões -->
+        <div class="flex justify-end space-x-6 mt-12">
+            <a href="{{ route('admin.clientes.index') }}"
+               class="px-10 py-4 rounded-lg font-semibold bg-gray-700 text-white hover:bg-gray-800 transition"
+            >
+                Cancelar
+            </a>
+            <button type="submit"
+                class="px-10 py-4 rounded-lg font-semibold bg-blue-600 text-white shadow-md hover:bg-blue-700 transition"
+            >
+                Salvar
+            </button>
         </div>
     </form>
 </div>
 
-<!-- Scripts de Máscara de CPF, Celular, etc. -->
 <script>
-    // Script para CPF
     document.addEventListener('DOMContentLoaded', function () {
         const cpfInput = document.getElementById('cpf');
         cpfInput.addEventListener('input', function (e) {
@@ -75,7 +133,6 @@
             e.target.value = value;
         });
 
-        // Script para Celular
         const celularInput = document.getElementById('celular');
         celularInput.addEventListener('input', function (e) {
             let value = e.target.value;
@@ -85,7 +142,6 @@
             e.target.value = value;
         });
 
-        // Script para Data de Nascimento
         const inputData = document.getElementById('nascimento');
         inputData.addEventListener('input', () => {
             let value = inputData.value.replace(/\D/g, '');
