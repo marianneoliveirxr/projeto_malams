@@ -5,16 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Agendamento;
 use Illuminate\Support\Facades\Auth;
 
-class AgendamentoClienteController extends Controller
+class AgendamentoUserController extends Controller
 {
     public function index()
     {
-        $clienteId = Auth::id(); // ID do cliente logado
+        $userId = Auth::id(); // ID do user logado
 
-        $agendamentos = Agendamento::with(['servico', 'funcionario'])
-            ->where('idUser', $clienteId)
-            ->get();
+        $agendamentos = Agendamento::with(['servicos', 'funcionarios'])->where('idUser', $userId)->get();
 
-        return view('cliente.agendamentos.index', compact('agendamentos'));
+        return view('users.agendamentos.index', compact('agendamentos'));
     }
 }

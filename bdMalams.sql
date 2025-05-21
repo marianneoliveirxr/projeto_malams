@@ -47,6 +47,7 @@ create table funcionarios(
 idFuncionario int auto_increment not null, -- Cria um número de ID automático e não nulo
 idPermissao int not null, -- Insere o ID de uma tabela que faz conexão com a tabela atual, FK
 idCategoria int not null, -- Insere o ID de uma tabela que faz conexão com a tabela atual, FK
+idServico int not null, -- Insere o ID de uma tabela que faz conexão com a tabela atual, FK
 nomeFuncionario varchar(50) not null, -- Identificação de um funcionário
 emailFuncionario varchar(50) not null,  -- Confirmação de cadastro do sistema e comunicação com o funcionário com atualizações na plataforma ou avisos do salão
 celularFuncionario varchar(20), -- Confirmação de cadastro e contato com o cliente caso seja necessário
@@ -54,7 +55,8 @@ cpfFuncionario varchar(20), -- O registro do CPF evita que o sistema crie funcio
 senhaFuncionario varbinary(255) not null, -- Proteção do login do funcionário
 primary key (idFuncionario), -- Definindo o que o idFuncionario é uma PK
 foreign key (idPermissao) references permissoes(idPermissao), -- Definindo que o idPermissoes é uma FK nesta tabela
-foreign key (idCategoria) references categorias(idCategoria) -- Definindo que o idCategoria é uma FK nesta tabela
+foreign key (idCategoria) references categorias(idCategoria), -- Definindo que o idCategoria é uma FK nesta tabela
+foreign key (idServico) references servicos(idServico) -- Definindo que o idPermissoes é uma FK nesta tabela
 );
 
 -- Criação da tabela com informações úteis e necessárias para cadastro do formato de agendamentos
@@ -95,7 +97,10 @@ delete from users where idUser = 1;
 insert into categorias (categoria) values
 ('Cabelo'),
 ('Penteado'),
-('Manicure e Pedicure');
+('Pedicure'),
+('Manicure'),
+('Maquiagem'),
+('Depilação');
 select * from categorias where idCategoria = 1;
 update categorias set categoria = '' where idCategoria = 2;
 delete from categorias where idCategoria = 1;
@@ -110,12 +115,12 @@ update servicos set preco = '' where idServicos = 2;
 delete from servicos where idServicos = 1;
 
 -- CRUD de funcionarios
-insert into funcionarios (idPermissao, idCategoria, nomeFuncionario, emailFuncionario, celularFuncionario, cpfFuncionario, senhaFuncionario) values
-(2, 1, 'Carlos Souza', 'carlos@email.com', '91996666666', '23456789012', binary 'funcionario123'),
-(2, 2, 'Ana Pereira', 'ana@email.com', '91995555555', '22334455667', binary 'funcionario456'),
-(3, 3, 'Lucia Almeida', 'lucia@email.com', '91994444444', '22334455678', binary 'admin123'),
-(3, 3, 'Julia Almeida', 'julia@email.com', '91994444444', '22334455678', binary 'admin123'),
-(2, 3, 'Joana', 'joana@email.com', '91994444444', '22334455678', binary 'admin123');
+insert into funcionarios (idPermissao, idCategoria, idServico, nomeFuncionario, emailFuncionario, celularFuncionario, cpfFuncionario, senhaFuncionario) values
+(2, 1, 1, 'Carlos Souza', 'carlos@email.com', '91996666666', '23456789012', binary 'funcionario123'),
+(2, 2, 3, 'Ana Pereira', 'ana@email.com', '91995555555', '22334455667', binary 'funcionario456'),
+(3, 3, 1, 'Lucia Almeida', 'lucia@email.com', '91994444444', '22334455678', binary 'admin123'),
+(3, 3, 2, 'Julia Almeida', 'julia@email.com', '91994444444', '22334455678', binary 'admin123'),
+(2, 3, 2, 'Joana', 'joana@email.com', '91994444444', '22334455678', binary 'admin123');
 select * from funcionarios; -- where idFuncionario = 1;
 update funcionarios set nomeFuncionario = '' where idFuncionario = 2;
 delete from funcionarios where idFuncionario = 1;

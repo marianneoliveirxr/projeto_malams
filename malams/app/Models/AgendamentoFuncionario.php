@@ -6,31 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class AgendamentoFuncionario extends Model
-{protected $table = 'agendamentos';
+{
+    protected $table = 'agendamentos';
     protected $primaryKey = 'idAgendamento';
-    public $timestamps = false;
+    public $timestamps = true;
 
-    protected $fillable = [
-        'idServico',
-        'idFuncionario',
-        'idUser',
-        'dataAgendamento',
-        'hora',
-        'statusAgendamento',
-        'confirmacao',
-    ];
+    protected $fillable = ['idServico', 'idFuncionario', 'idUser', 'dataAgendamento', 'hora', 'statusAgendamento', 'confirmacao'];
 
-    public function cliente(): BelongsTo
+    public function users(): BelongsTo
     {
         return $this->belongsTo(User::class, 'idUser', 'idUser');
     }
 
-    public function funcionario(): BelongsTo
+    public function funcionarios(): BelongsTo
     {
         return $this->belongsTo(Funcionario::class, 'idFuncionario', 'idFuncionario');
     }
 
-    public function servico(): BelongsTo
+    public function servicos(): BelongsTo
     {
         return $this->belongsTo(Servico::class, 'idServico', 'idServico');
     }

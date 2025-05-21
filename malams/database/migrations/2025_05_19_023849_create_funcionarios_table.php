@@ -18,8 +18,9 @@ return new class extends Migration
             $table->string('celularFuncionario');
             $table->string('cpfFuncionario');
             $table->varbinary('senha');
-            $table->foreingId('idPermissao')->constrained('permissoes');
             $table->foreingId('idCategoria')->constrained('categorias');
+            $table->foreingId('idServico')->constrained('servicos');
+            $table->foreingId('idPermissao')->constrained('permissoes');
             $table->timestamps();
         });
     }
