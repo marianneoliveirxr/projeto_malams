@@ -26,7 +26,7 @@
             <ul>
                 <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
                 <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
-                <li><a class="nav-links" href="{{ url('/home') }}#sobre"">Sobre</a></li>
+                <li><a class="nav-links" href="{{ url('/home') }}#sobre">Sobre</a></li>
             </ul>
         </nav>
         
@@ -71,27 +71,24 @@
     <!-- Serviços - Cabelereiro -->
     <div id="cards-cabelereiro" class="hidden grid md:grid-cols-3 gap-6 mb-10">
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/corte.jpg" class="w-full h-40 object-cover" alt="Corte">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Corte</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Corte</h3>
           <p><strong>Tempo:</strong> 1 hora</p>
           <p><strong>Preço:</strong> R$ 80,00</p>
           <button onclick="abrirModal('Corte')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/tintura.jpg" class="w-full h-40 object-cover" alt="Tintura">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Tintura</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Tintura</h3>
           <p><strong>Tempo:</strong> 1h30</p>
           <p><strong>Preço:</strong> R$ 120,00</p>
           <button onclick="abrirModal('Tintura')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/escova.jpg" class="w-full h-40 object-cover" alt="Escova">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Escova</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Escova</h3>
           <p><strong>Tempo:</strong> 30 minutos</p>
           <p><strong>Preço:</strong> R$ 50,00</p>
           <button onclick="abrirModal('Escova')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
@@ -102,27 +99,24 @@
     <!-- Serviços - Unhas -->
     <div id="cards-unhas" class="hidden grid md:grid-cols-3 gap-6 mb-10">
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/manicure.jpg" class="w-full h-40 object-cover" alt="Manicure">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Manicure</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Manicure</h3>
           <p><strong>Tempo:</strong> 30 minutos</p>
           <p><strong>Preço:</strong> R$ 30,00</p>
           <button onclick="abrirModal('Manicure')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/pedicure.jpg" class="w-full h-40 object-cover" alt="Pedicure">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Pedicure</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Pedicure</h3>
           <p><strong>Tempo:</strong> 40 minutos</p>
           <p><strong>Preço:</strong> R$ 30,00</p>
           <button onclick="abrirModal('Pedicure')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/unhascompletas.jpg" class="w-full h-40 object-cover" alt="Manicure + Pedicure">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Manicure + Pedicure</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Manicure + Pedicure</h3>
           <p><strong>Tempo:</strong> 1h20</p>
           <p><strong>Preço:</strong> R$ 55,00</p>
           <button onclick="abrirModal('Manicure + Pedicure')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
@@ -133,27 +127,24 @@
     <!-- Serviços - Estética -->
     <div id="cards-estetica" class="hidden grid md:grid-cols-3 gap-6 mb-10">
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/cilios.jpg" class="w-full h-40 object-cover" alt="Cílios">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Extensão de Cílios</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Extensão de Cílios</h3>
           <p><strong>Tempo:</strong> 2 horas</p>
           <p><strong>Preço:</strong> R$ 100,00</p>
           <button onclick="abrirModal('Extensão de Cílios')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/sombrancelha.jpg" class="w-full h-40 object-cover" alt="Sombrancelha">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Design de Sobrancelhas</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Design de Sobrancelhas</h3>
           <p><strong>Tempo:</strong> 1h20</p>
           <p><strong>Preço:</strong> R$ 50,00</p>
           <button onclick="abrirModal('Design de Sobrancelhas')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
         </div>
       </div>
       <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition">
-        <img src="/img/limpezaPele.jpg" class="w-full h-40 object-cover" alt="Limpeza de Pele">
         <div class="p-4">
-          <h3 class="text-lg font-semibold text-[#c59595]">Limpeza de Pele</h3>
+          <h3 class="text-lg font-semibold text-[#a86f6f]">Limpeza de Pele</h3>
           <p><strong>Tempo:</strong> 1 hora</p>
           <p><strong>Preço:</strong> R$ 70,00</p>
           <button onclick="abrirModal('Limpeza de Pele')" class="mt-4 w-full bg-[#c59595] text-white py-2 rounded-lg hover:bg-[#a67878]">Agendar agora</button>
@@ -225,33 +216,30 @@
 
 <!-- Cards das Profissionais -->
 <div class="max-w-7xl mx-auto mt-16 px-4 sm:px-6 lg:px-8 mb-16">
-  <h2 class="text-5xl font-bold text-center text-[#c59595] mb-8">Nossas Profissionais</h2>
+  <h2 class="text-5xl font-bold text-center text-[#a86f6f] mb-8">Nossas Profissionais</h2>
 
   <!-- Grid Responsivo, Centralizado -->
   <div class="flex flex-wrap justify-center gap-8">
     <!-- Card da Profissional 1 -->
     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105 w-full sm:w-80">
-      <img src="/img/fernanda.jpg" alt="Profissional 1" class="w-full h-40 object-cover">
       <div class="p-4 text-center">
-        <h3 class="text-2xl font-semibold text-[#c59595]">Fernanda</h3>
+      <h3 class="text-2xl font-semibold text-[#a86f6f]">Fernanda</h3>
         <p class="mt-2 text-x1 text-gray-600">Unhas, Estética</p>
       </div>
     </div>
 
     <!-- Card da Profissional 2 -->
     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105 w-full sm:w-80">
-      <img src="/img/camila.jpg" alt="Profissional 2" class="w-full h-40 object-cover">
       <div class="p-4 text-center">
-        <h3 class="text-2xl font-semibold text-[#c59595]">Camila</h3>
+        <h3 class="text-2xl font-semibold text-[#a86f6f]">Camila</h3>
         <p class="mt-2 text-x1 text-gray-600">Cabelos, Unhas</p>
       </div>
     </div>
 
     <!-- Card da Profissional 3 -->
     <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-transform transform hover:scale-105 w-full sm:w-80">
-      <img src="/img/juliana.jpg" alt="Profissional 3" class="w-full h-40 object-cover">
       <div class="p-4 text-center">
-        <h3 class="text-2xl font-semibold text-[#c59595]">Juliana</h3>
+        <h3 class="text-2xl font-semibold text-[#a86f6f]">Juliana</h3>
         <p class="mt-2 text-x1 text-gray-600">Estética, Cabelos</p>
       </div>
     </div>

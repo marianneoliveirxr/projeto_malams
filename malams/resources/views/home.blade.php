@@ -10,45 +10,58 @@
   <link rel="icon" href="/img/icon.ico" />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cal+Sans&family=Merriweather:opsz,wght@18..144,900&family=Rubik:ital,wght@0,605;1,605&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Cal+Sans:wght@600;700&family=Merriweather:opsz,wght@18..144,900&family=Rubik:ital,wght@0,605;1,605&display=swap');
 
-    html {
+  html {
     scroll-behavior: smooth;
   }
 
   body {
-    background-color: #f7f1f1 !important;
-    color: #5c4a4a !important;
+    background-color: #faf1f0 !important;
+    color: #6d4c4c !important;
+    font-family: 'Cal Sans', sans-serif;
+    font-weight: 600; /* mais gordinho por padrão */
   }
 
   main {
-    background-color: #f9f2f2 !important;
-    color: #5c4a4a !important;
+    background-color: #faf1f0 !important;
+    color: #6d4c4c !important;
   }
 
-  section, .bg-white {
-    background-color: #fdf6f6 !important;
-    color: #5c4a4a !important;
+  section {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
   }
 
   h1, h2, h3, .text-rose-600, .text-rose-500 {
-    color: #c59595 !important;
+    color: #a86f6f !important;
+    font-weight: 700 !important;
   }
 
   a, button {
     background-color: #c59595 !important;
     color: white !important;
+    font-weight: 700 !important;
+    transition: background-color 0.3s ease;
   }
 
   a:hover, button:hover {
     background-color: #a86f6f !important;
   }
 
-  .text-gray-700, .text-gray-600 {
-    color: #7f6565 !important;
+  .bold-hover-suave {
+    font-weight: 700 !important;
+    transition: color 0.3s ease, transform 0.3s ease;
   }
 
-  </style>
+  .bold-hover-suave:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+  }
+</style>
   <script>
     // Função para rolar suavemente até a seção "Nosso Espaço"
     function scrollToOurSpace() {
@@ -103,69 +116,69 @@
   </div>
 </header>
 
-<main class="px-4 md:px-16 py-12 bg-white text-gray-800 font-[Cal+Sans]">
+<main class="px-4 md:px-16 py-12 bg-[#ffe7e3] text-gray-800 font-[Cal+Sans]">
 
   <!-- Hero Section -->
-  <section class="relative bg-gradient-to-br from-pink-100 via-rose-100 to-rose-50 rounded-3xl p-10 mb-20 shadow-xl overflow-hidden">
+<section class="relative rounded-3xl p-10 overflow-hidden pb-6">
+
     <div class="max-w-4xl mx-auto text-center space-y-6">
-      <h1 class="text-4xl md:text-5xl font-bold text-rose-400">Bem-vindo(a) ao Malams Saloon</h1>
-      <p class="text-lg md:text-xl text-gray-700">Transforme sua beleza em experiência. Agende com facilidade e sinta-se renovada.</p>
-      <button onclick="scrollToOurSpace()" class="bg-rose-500 text-white px-6 py-3 rounded-full hover:bg-rose-600 transition">Começar</button>
+      <h1 class="text-6xl md:text-7xl font-bold">Bem-vindo(a) ao Malams Saloon</h1>
+      <p class="text-x1 md:text-3xl text-[ #6d4c4c]">Transforme sua beleza em experiência. Agende com facilidade e sinta-se renovada.</p>
+      <button onclick="scrollToOurSpace()" class="text-lg bg-rose-500 text-white px-12 py-4 rounded-full">Começar</button>
     </div>
 
   </section>
 
   <!-- Nosso Espaço -->
-  <section id="nosso-espaco" class="mb-24 bg-rose-50 py-16 rounded-3xl shadow-inner">
+<section id="nosso-espaco" class="relative rounded-3xl p-10 overflow-hidden pt-4">
   <div class="max-w-7xl mx-auto px-6 text-center space-y-10">
-    <h2 class="text-3xl md:text-4xl font-semibold text-rose-600">Nosso Espaço</h2>
-    <p class="text-gray-600 text-lg max-w-3xl mx-auto">Um refúgio de beleza, conforto e sofisticação. Cada canto do Malams Saloon foi pensado para que você se sinta única.</p>
-
+    <h2 class="text-5xl md:text-6xl font-bold">Nosso Espaço</h2>
+    <p class="text-x1 md:text-2xl text-[ #6d4c4c]">Um refúgio de beleza, conforto e sofisticação. Cada canto do Malams Saloon foi pensado para que você se sinta única.</p>
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
-      <img src="/img/salao.jpg" alt="Salão 1" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
-      <img src="/img/home3.jpg" alt="Salão 2" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
-      <img src="/img/home4.jpg" alt="Salão 3" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
+      <img src="/img/nossoespaco1.jpg" alt="Salão 1" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
+      <img src="/img/nossoespaco2.jpg" alt="Salão 2" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
+      <img src="/img/nossoespaco3.jpg" alt="Salão 3" class="rounded-xl shadow-md hover:scale-105 transition duration-300" />
     </div>
 
-    <a href="{{ url('/agendamento') }}" class="inline-block bg-rose-500 text-white px-6 py-3 rounded-full hover:bg-rose-600 transition">
+    <a href="{{ url('/agendamento') }}" class="text-lg inline-block text-white px-12 py-4 rounded-full">
       Agende seu horário agora
     </a>
   </div>
 </section>
 
   <!-- Sobre o Salão -->
-  <section id="sobre" class="mb-24 bg-white py-16">
+  <section id="sobre" class="relative rounded-3xl p-10 overflow-hidden">
   <div class="max-w-7xl mx-auto px-6">
     <div class="grid grid-cols-1 md:grid-cols-3 items-center gap-8">
       
       <!-- Imagem esquerda -->
       <div class="hidden md:block">
-        <img src="/img/salao.jpg" alt="Equipe" class="rounded-2xl shadow-lg" />
+      <img src="/img/esquerda.jpg" alt="Equipe" class="mr-10 w-full h-[500px] object-cover rounded-2xl shadow-lg" />
       </div>
 
       <!-- Texto central -->
       <div class="text-center space-y-6 px-4">
-        <h2 class="text-3xl md:text-4xl font-bold text-rose-600">Sobre o Malams Saloon</h2>
-        <p class="text-gray-700 text-lg">
+      <h2 class="text-4xl md:text-5xl font-bold text-rose-600">Sobre Malams Saloon</h2>
+      <p class="text-gray-700 text-xl leading-relaxed">
           Aqui, beleza é mais do que aparência — é uma experiência. Com atendimento personalizado, técnicas inovadoras e um ambiente acolhedor, o Malams Saloon eleva sua autoestima enquanto cuida de você com carinho.
         </p>
-        <p class="text-gray-700 text-lg">
+        <p class="text-gray-700 text-xl leading-relaxed">
           Nossa missão é oferecer muito mais do que serviços de beleza: oferecemos momentos que encantam e transformam.
         </p>
       </div>
 
       <!-- Imagem direita -->
       <div class="hidden md:block">
-        <img src="/img/home3.jpg" alt="Ambiente" class="rounded-2xl shadow-lg" />
+      <img src="/img/salao.jpg" alt="Ambiente" class="ml-10 w-full h-[500px] object-cover rounded-2xl shadow-lg" />
       </div>
     </div>
   </div>
 </section>
 
   <!-- Nossos Serviços -->
-  <section class="mb-20">
+  <section class="relative rounded-3xl p-10 overflow-hidden">
     <div class="max-w-7xl mx-auto text-center space-y-10">
-      <h2 class="text-3xl md:text-4xl font-semibold text-rose-600">Nossos Serviços</h2>
+      <h2 class="text-4xl md:text-5xl font-semibold text-rose-600">Nossos Serviços</h2>
 
       <div class="grid gap-8 md:grid-cols-3 text-left mt-8">
         <!-- Card 1 -->
@@ -196,7 +209,7 @@
         </div>
       </div>
 
-      <a href="{{ url('/agendamento') }}" class="inline-block bg-rose-500 text-white px-6 py-3 rounded-full hover:bg-rose-600 transition">
+      <a href="{{ url('/agendamento') }}" class="inline-block bg-rose-500 text-white px-12 py-4 rounded-full">
         Agende seu horário agora
       </a>
     </div>
@@ -211,11 +224,11 @@
   <div id="footer-default" class="footer-links flex justify-center gap-12 mt-3 transition-opacity duration-300">
     <div onclick="mostrarFooter('contato')" class="footer-items flex items-center gap-3 cursor-pointer group">
       <img src="/img/contato.jpg" alt="Contato" class="w-9 h-9 rounded-full" />
-      <span class="footer-hover text-[28px] font-medium relative cursor-pointer">Contato</span>
+      <span class="text-[28px] relative cursor-pointer bold-hover-suave">Contato</span>
     </div>
     <div onclick="mostrarFooter('localizacao')" class="footer-items flex items-center gap-3 cursor-pointer group">
       <img src="/img/localizacao.png" alt="Localização" class="w-9 h-9 rounded-full" />
-      <span class="footer-hover text-[28px] font-medium relative cursor-pointer">Localização</span>
+      <span class="text-[28px] relative cursor-pointer bold-hover-suave">Localização</span>
     </div>
   </div>
 
