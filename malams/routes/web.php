@@ -5,6 +5,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\FuncionariosController;
 use App\Http\Controllers\ServicosController;
 use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\AdministradorController;
+
+
 
 
 Route::get('/', function () {
@@ -28,7 +32,7 @@ Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->
 Route::post('/logout','App\Http\Controllers\UsuarioController@logoutUser')->name('logout');
 
 //Rota de Dashboard
-Route::prefix('admin')->name('admin.')->group(function () {
+Route::middleware(['auth:admin'])->prefix('admin')->name('admin.')->group(function () {
      // Dashboard
      Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -45,4 +49,10 @@ Route::prefix('admin')->name('admin.')->group(function () {
      Route::resource('categorias', CategoriaController::class);
  });
 
+//Rotas para login de admin-funcionario
+Route::get('/admin/login', function () {
+    return view('login-admin');
+})->name('admin.login');
 
+Route::post('/admin/login', [AdministradorController::class, 'login'])->name('admin.login.verify');
+Route::post('/admin/logout', [AdministradorController::class, 'logout'])->name('admin.logout');

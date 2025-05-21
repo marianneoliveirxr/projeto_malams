@@ -14,7 +14,9 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        return view('admin.clientes.index');
+        $clientes = User::where('idPermissao', 1)->get();
+
+        return view('admin.clientes.index', compact('clientes'));
     }
 
     /**
@@ -22,7 +24,6 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('admin.clientes.create');
     }
 
     /**
@@ -99,16 +100,18 @@ class UsuarioController extends Controller
      * Display the specified resource.
      */
     public function show(string $id)
-    {
-        //
-    }
+{
+    $cliente = User::findOrFail($id);
+
+    return view('admin.clientes.show', compact('cliente'));
+}
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        return view ('admin.clientes.update');
     }
 
     /**
@@ -123,7 +126,10 @@ class UsuarioController extends Controller
      * Remove the specified resource from storage.
      */
     public function destroy(string $id)
-    {
-        //
-    }
+{
+    $cliente = User::findOrFail($id);
+    $cliente->delete();
+
+    return redirect()->route('admin.clientes.index')->with('success', 'Cliente excluído com sucesso.');
+}
 }

@@ -4,7 +4,7 @@
 <div class="container mx-auto px-4 py-8 max-w-3xl">
     <h1 class="text-5xl font-extrabold text-black mb-10 tracking-wide">Editar Serviço</h1>
 
-    <form action="{{ route('admin.servicos.update', 1) }}" method="POST" class="bg-white rounded-2xl p-10
+    <form action="{{ route('admin.servicos.update', $servico->idServico) }}" method="POST" class="bg-white rounded-2xl p-10
         transition-shadow duration-300 ease-in-out"
         style="box-shadow: 0 4px 20px rgba(217, 176, 176, 0.4);"
         onmouseover="this.style.boxShadow='0 8px 32px rgba(217, 176, 176, 0.6)'"
@@ -14,30 +14,37 @@
         @method('PUT')
 
         <div class="space-y-8">
+            <!-- Categoria -->
+            <div>
+                <label for="idCategoria" class="block text-lg font-semibold text-black mb-2">Categoria</label>
+                <select id="idCategoria" name="idCategoria"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg"
+                    style="border-color:#d9b0b0;"
+                    required
+                >
+                    <option value="">Selecione uma categoria</option>
+                    @foreach ($categorias as $categoria)
+                        <option value="{{ $categoria->idCategoria }}"
+                            {{ old('idCategoria', $servico->idCategoria) == $categoria->idCategoria ? 'selected' : '' }}>
+                            {{ $categoria->categoria }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Nome do Serviço -->
             <div>
-                <label for="nome" class="block text-lg font-semibold text-black mb-2">Nome do Serviço</label>
-                <input type="text" id="nome" name="nome"
+                <label for="servico" class="block text-lg font-semibold text-black mb-2">Nome do Serviço</label>
+                <input type="text" id="servico" name="servico"
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
                     focus:outline-none transition"
                     style="border-color:#d9b0b0;"
                     onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
                     onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
-                    value="Corte de Cabelo" required
-                >
-            </div>
-
-            <!-- Descrição -->
-            <div>
-                <label for="descricao" class="block text-lg font-semibold text-black mb-2">Descrição</label>
-                <textarea id="descricao" name="descricao" rows="4"
-                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
-                    focus:outline-none transition resize-none"
-                    style="border-color:#d9b0b0;"
-                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
-                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    placeholder="Ex: Corte de Cabelo"
+                    value="{{ old('servico', $servico->servico) }}"
                     required
-                >Corte de cabelo para todos os tipos de cabelo. Realizado com as melhores técnicas e produtos.</textarea>
+                >
             </div>
 
             <!-- Preço -->
@@ -49,7 +56,9 @@
                     style="border-color:#d9b0b0;"
                     onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
                     onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
-                    value="50,00" required
+                    placeholder="Ex: 50,00"
+                    value="{{ old('preco', number_format($servico->preco, 2, ',', '.')) }}"
+                    required
                 >
             </div>
         </div>

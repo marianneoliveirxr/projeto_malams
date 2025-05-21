@@ -12,6 +12,7 @@
     />
     <link rel="icon" href="/img/icon.ico" />
 </head>
+
 <body class="bg-[#f3f4f6] font-roboto text-gray-800">
     <div class="flex h-screen flex-col">
         <!-- Cabeçalho -->

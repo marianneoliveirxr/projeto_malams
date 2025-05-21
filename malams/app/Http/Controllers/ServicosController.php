@@ -2,63 +2,78 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Servicos;
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class ServicosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-         return view('admin.servicos.index');
+        // Pega todos os serviços com suas categorias (eager loading)
+        $servicos = Servicos::with('categoria')->get();
+
+        return view('admin.servicos.index', compact('servicos'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-        return view('admin.servicos.create');
+        $categorias = Categoria::all();
+        return view('admin.servicos.create', compact('categorias'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'idCategoria' => 'required|exists:categorias,idCategoria',
+            'servico' => 'required|string|max:100',
+            'preco' => 'required|regex:/^\d{1,3},\d{2}$/',
+        ]);
+
+        // Converte preço para formato decimal para salvar (ex: "50,00" -> 50.00)
+        $preco = str_replace(',', '.', str_replace('.', '', $request->preco));
+
+        Servicos::create([
+            'idCategoria' => $request->idCategoria,
+            'servico' => $request->servico,
+            'preco' => $preco,
+        ]);
+
+        return redirect()->route('admin.servicos.index')->with('success', 'Serviço criado com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function edit($id)
     {
-        //
+        $servico = Servicos::findOrFail($id);
+        $categorias = Categoria::all();
+        return view('admin.servicos.edit', compact('servico', 'categorias'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, $id)
     {
-        return view ('admin.servicos.update');
+        $request->validate([
+            'idCategoria' => 'required|exists:categorias,idCategoria',
+            'servico' => 'required|string|max:100',
+            'preco' => 'required|regex:/^\d{1,3},\d{2}$/',
+        ]);
+
+        $servico = Servicos::findOrFail($id);
+        $preco = str_replace(',', '.', str_replace('.', '', $request->preco));
+
+        $servico->update([
+            'idCategoria' => $request->idCategoria,
+            'servico' => $request->servico,
+            'preco' => $preco,
+        ]);
+
+        return redirect()->route('admin.servicos.index')->with('success', 'Serviço atualizado com sucesso!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy($id)
     {
-        //
-    }
+        $servico = Servicos::findOrFail($id);
+        $servico->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('admin.servicos.index')->with('success', 'Serviço excluído com sucesso!');
     }
 }

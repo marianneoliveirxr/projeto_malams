@@ -2,64 +2,78 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Categoria;
 use Illuminate\Http\Request;
 
 class CategoriaController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Exibe a lista de categorias.
      */
     public function index()
     {
-        return view('admin.categorias.index');
-
+        $categorias = Categoria::all();
+        return view('admin.categorias.index', compact('categorias'));
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Mostra o formulário para criar nova categoria.
      */
     public function create()
     {
-        //
+        return view('admin.categorias.create');
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Armazena a nova categoria no banco.
      */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'categoria' => 'required|string|max:255|unique:categorias,categoria',
+        ]);
+
+        Categoria::create([
+            'categoria' => $validated['categoria'],
+        ]);
+
+        return redirect()->route('admin.categorias.index')->with('success', 'Categoria criada com sucesso!');
     }
 
     /**
-     * Display the specified resource.
+     * Mostra o formulário para editar uma categoria existente.
      */
-    public function show(string $id)
+    public function edit($id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+        return view('admin.categorias.edit', compact('categoria'));
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Atualiza a categoria no banco.
      */
-    public function edit(string $id)
+    public function update(Request $request, $id)
     {
-        //
+        $categoria = Categoria::findOrFail($id);
+
+        $validated = $request->validate([
+            'categoria' => "required|string|max:255|unique:categorias,categoria,{$id},idCategoria",
+        ]);
+
+        $categoria->categoria = $validated['categoria'];
+        $categoria->save();
+
+        return redirect()->route('admin.categorias.index')->with('success', 'Categoria atualizada com sucesso!');
     }
 
     /**
-     * Update the specified resource in storage.
+     * Remove a categoria do banco.
      */
-    public function update(Request $request, string $id)
+    public function destroy($id)
     {
-        //
-    }
+        $categoria = Categoria::findOrFail($id);
+        $categoria->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('admin.categorias.index')->with('success', 'Categoria excluída com sucesso!');
     }
 }

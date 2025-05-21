@@ -19,34 +19,36 @@
         <table class="min-w-full table-auto border-collapse border border-gray-300">
             <thead>
                 <tr class="bg-[#d9b0b0] text-white">
-                    <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Nome</th>
+                    <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Categoria</th>
+                    <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Serviço</th>
+                    <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Preço</th>
                     <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold w-48">Ações</th>
                 </tr>
             </thead>
             <tbody>
-                {{-- Dados fictícios para exibição temporária --}}
-                @php
-                    $servicos = [
-                        (object)[ 'id' => 1, 'nome' => 'Design Gráfico' ],
-                        (object)[ 'id' => 2, 'nome' => 'Desenvolvimento Web' ],
-                        (object)[ 'id' => 3, 'nome' => 'Consultoria de TI' ],
-                    ];
-                @endphp
-
-                @foreach ($servicos as $servico)
+                @forelse ($servicos as $servico)
                     <tr class="border-b border-gray-300 hover:bg-gray-200 transition-colors">
-                        <td class="border border-gray-300 px-6 py-4 text-base font-medium text-gray-800">{{ $servico->nome }}</td>
-                        <td class="border border-gray-300 px-6 py-4 text-base font-medium text-gray-600">
+                        <td class="border border-gray-300 px-6 py-4 text-base text-gray-800">
+                            {{ $servico->categoria->categoria ?? 'Sem Categoria' }}
+                        </td>
+                        <td class="border border-gray-300 px-6 py-4 text-base text-gray-800">
+                            {{ $servico->servico }}
+                        </td>
+                        <td class="border border-gray-300 px-6 py-4 text-base text-gray-800">
+                            R$ {{ number_format($servico->preco, 2, ',', '.') }}
+                        </td>
+                        <td class="border border-gray-300 px-6 py-4 text-base text-gray-600">
                             <div class="flex space-x-6">
                                 <!-- Botão de Editar -->
-                                <a href="{{ route('admin.servicos.edit', $servico->id) }}" 
+                                <a href="{{ route('admin.servicos.edit', $servico->idServico) }}" 
                                    class="flex items-center gap-2 text-blue-500 hover:text-blue-700 transition duration-200 text-base font-medium">
                                     <i class="fas fa-edit text-xl"></i>
                                     <span>Editar</span>
                                 </a>
 
                                 <!-- Formulário de Excluir -->
-                                <form action="{{ route('admin.servicos.destroy', $servico->id) }}" method="POST" class="inline">
+                                <form action="{{ route('admin.servicos.destroy', $servico->idServico) }}" method="POST" class="inline"
+                                      onsubmit="return confirm('Tem certeza que deseja excluir este serviço?');">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" 
@@ -58,14 +60,13 @@
                             </div>
                         </td>
                     </tr>
-                @endforeach
+                @empty
+                    <tr>
+                        <td colspan="4" class="text-center py-6 text-gray-500">Nenhum serviço encontrado.</td>
+                    </tr>
+                @endforelse
             </tbody>
         </table>
     </div>
-
-    <!-- Caso não haja serviços -->
-    @if (empty($servicos))
-        <div class="mt-4 text-center text-gray-500 text-base">Nenhum serviço encontrado.</div>
-    @endif
 </div>
 @endsection

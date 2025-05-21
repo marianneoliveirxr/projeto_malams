@@ -51,7 +51,6 @@
                     onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
                     onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     placeholder="(00) 00000-0000"
-                    required
                 >
             </div>
 
@@ -81,6 +80,42 @@
                     placeholder="Digite a senha"
                     required
                 >
+            </div>
+
+            <!-- Select Categoria -->
+            <div>
+                <label for="idCategoria" class="block text-lg font-semibold text-black mb-2">Categoria</label>
+                <select id="idCategoria" name="idCategoria" 
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    required
+                >
+                    <option value="" disabled selected>Selecione a categoria</option>
+                    @foreach($categorias as $categoria)
+                        <option value="{{ $categoria->idCategoria }}">{{ $categoria->categoria }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <!-- Select Serviço -->
+            <div>
+                <label for="idServico" class="block text-lg font-semibold text-black mb-2">Serviço</label>
+                <select id="idServico" name="idServico"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
+                    focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
+                    required
+                >
+                    <option value="" disabled selected>Selecione o serviço</option>
+                    @foreach($servicos as $servico)
+                        <option value="{{ $servico->idServico }}">{{ $servico->servico }}</option>
+                    @endforeach
+                </select>
             </div>
         </div>
 
@@ -120,17 +155,21 @@
             e.target.value = value;
         });
 
-        // Máscara Celular
+        // Máscara Celular (opcional)
         const celularInput = document.getElementById('celular');
         celularInput.addEventListener('input', function (e) {
-            let value = e.target.value.replace(/\D/g, '');
-            if (value.length > 11) value = value.substring(0, 11); // Limita a 11 dígitos também
-
-            if (value.length > 2) value = value.replace(/^(\d{2})(\d)/, '($1) $2');
-            if (value.length > 7) value = value.replace(/^(\(\d{2}\)) (\d{5})(\d)/, '$1 $2-$3');
-
-            e.target.value = value;
+            let v = e.target.value.replace(/\D/g, '');
+            v = v.substring(0, 11);
+            if (v.length > 6) {
+                v = v.replace(/^(\d{2})(\d{5})(\d{0,4})$/, '($1) $2-$3');
+            } else if (v.length > 2) {
+                v = v.replace(/^(\d{2})(\d{1,5})$/, '($1) $2');
+            } else if (v.length > 0) {
+                v = v.replace(/^(\d{1,2})$/, '($1');
+            }
+            e.target.value = v;
         });
     });
 </script>
+
 @endsection

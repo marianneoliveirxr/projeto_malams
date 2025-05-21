@@ -2,65 +2,102 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Funcionarios;
+use App\Models\Categoria;
+use App\Models\Servicos;
 
 class FuncionariosController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
-         return view('admin.funcionarios.index');
+        $funcionarios = Funcionarios::with(['categoria', 'servico'])->get();
+        return view('admin.funcionarios.index', compact('funcionarios'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
-    
-        return view('admin.funcionarios.create');
-    
+        $categorias = Categoria::all();
+        $servicos = Servicos::all();
+
+        return view('admin.funcionarios.create', compact('categorias', 'servicos'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'nomeUser' => 'required|string|max:50',
+            'email' => 'required|email|max:50|unique:funcionarios,emailFuncionario',
+            'celularUser' => 'nullable|string|max:20',
+            'cpfUser' => 'required|string|max:20|unique:funcionarios,cpfFuncionario',
+            'password' => 'required|string|min:6',
+            'idCategoria' => 'required|exists:categorias,idCategoria',
+            'idServico' => 'required|exists:servicos,idServico',
+        ]);
+
+        Funcionarios::create([
+            'nomeFuncionario' => $validated['nomeUser'],
+            'emailFuncionario' => $validated['email'],
+            'celularFuncionario' => $validated['celularUser'] ?? null,
+            'cpfFuncionario' => $validated['cpfUser'],
+            'senhaFuncionario' => bcrypt($validated['password']),
+            'idPermissao' => 2, // fixo como você pediu
+            'idCategoria' => $validated['idCategoria'],
+            'idServico' => $validated['idServico'],
+        ]);
+
+        return redirect()->route('admin.funcionarios.index')->with('success', 'Funcionário criado com sucesso!');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+     public function edit($id)
     {
-        //
+        $funcionario = Funcionarios::findOrFail($id);
+        $categorias = Categoria::all();
+        $servicos = Servicos::all();
+
+        return view('admin.funcionarios.edit', compact('funcionario', 'categorias', 'servicos'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function update(Request $request, $id)
     {
-        return view('admin.funcionarios.update');
+        $funcionario = Funcionarios::findOrFail($id);
+
+        // Validação
+        $request->validate([
+            'nomeFuncionario' => 'required|string|max:50',
+            'emailFuncionario' => 'required|email|max:50',
+            'celularFuncionario' => 'nullable|string|max:20',
+            'cpfFuncionario' => 'required|string|max:20',
+            'idCategoria' => 'required|exists:categorias,idCategoria',
+            'idServico' => 'required|exists:servicos,idServico',
+            'senhaFuncionario' => 'nullable|string|min:6|confirmed',
+        ]);
+
+        // Atualiza os dados
+        $funcionario->nomeFuncionario = $request->nomeFuncionario;
+        $funcionario->emailFuncionario = $request->emailFuncionario;
+        $funcionario->celularFuncionario = $request->celularFuncionario;
+        $funcionario->cpfFuncionario = $request->cpfFuncionario;
+        $funcionario->idCategoria = $request->idCategoria;
+        $funcionario->idServico = $request->idServico;
+
+        // Atualiza senha apenas se o campo foi preenchido
+        if ($request->filled('senhaFuncionario')) {
+            $funcionario->senhaFuncionario = Hash::make($request->senhaFuncionario);
+        }
+
+        $funcionario->save();
+
+        return redirect()->route('admin.funcionarios.index')->with('success', 'Funcionário atualizado com sucesso!');
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function destroy($id)
     {
-        //
-    }
+        $funcionario = Funcionarios::findOrFail($id);
+        $funcionario->delete();
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
+        return redirect()->route('admin.funcionarios.index')->with('success', 'Funcionário deletado com sucesso!');
     }
 }

@@ -13,32 +13,31 @@
         @csrf
 
         <div class="space-y-8">
+            <!-- Categoria -->
+            <div>
+                <label for="idCategoria" class="block text-lg font-semibold text-black mb-2">Categoria</label>
+                <select id="idCategoria" name="idCategoria"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    required
+                >
+                    <option value="">Selecione uma categoria</option>
+                    @foreach ($categorias as $categoria)
+                        <option value="{{ $categoria->idCategoria }}">{{ $categoria->categoria }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <!-- Nome do Serviço -->
             <div>
-                <label for="nome" class="block text-lg font-semibold text-black mb-2">Nome do Serviço</label>
-                <input type="text" id="nome" name="nome"
+                <label for="servico" class="block text-lg font-semibold text-black mb-2">Nome do Serviço</label>
+                <input type="text" id="servico" name="servico"
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
                     focus:outline-none transition"
                     style="border-color:#d9b0b0;"
-                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
-                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     placeholder="Ex: Corte de Cabelo"
                     required
                 >
-            </div>
-
-            <!-- Descrição -->
-            <div>
-                <label for="descricao" class="block text-lg font-semibold text-black mb-2">Descrição</label>
-                <textarea id="descricao" name="descricao" rows="4"
-                    class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
-                    focus:outline-none transition resize-none"
-                    style="border-color:#d9b0b0;"
-                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
-                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
-                    placeholder="Ex: Corte de cabelo para todos os tipos de cabelo"
-                    required
-                ></textarea>
             </div>
 
             <!-- Preço -->
@@ -48,8 +47,6 @@
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
                     focus:outline-none transition"
                     style="border-color:#d9b0b0;"
-                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
-                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     placeholder="Ex: 50,00"
                     required
                 >
@@ -79,22 +76,18 @@ document.addEventListener('DOMContentLoaded', () => {
     precoInput.addEventListener('input', e => {
         let val = e.target.value;
 
-        // Remove tudo que não for número ou vírgula
         val = val.replace(/[^0-9,]/g, '');
 
-        // Permite só uma vírgula
         const parts = val.split(',');
         if (parts.length > 2) {
             val = parts[0] + ',' + parts[1];
         }
 
-        // Limita casas decimais a 2
         if (parts[1]?.length > 2) {
             parts[1] = parts[1].substring(0, 2);
             val = parts.join(',');
         }
 
-        // Limita inteiro a 3 dígitos
         if (parts[0].length > 3) {
             parts[0] = parts[0].substring(0, 3);
             val = parts.join(',');
@@ -104,5 +97,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 </script>
-
 @endsection
