@@ -154,27 +154,51 @@
   </div>
 
   <!-- Modal Agendamento -->
-  <div id="modalAgendamento" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center hidden z-50">
-    <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
-      <h2 class="text-xl font-bold text-[#c59595] mb-4">Agendar: <span id="servicoSelecionado"></span></h2>
+<div id="modalAgendamento" class="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center hidden z-50">
+  <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
+    <h2 class="text-xl font-bold text-[#c59595] mb-4">Agendar: <span id="servicoSelecionado"></span></h2>
+
+    <form action="{{ route('agendamento.store') }}" method="POST">
+      @csrf
+
+      <input type="hidden" id="servicoSelecionadoInput" name="servico">
+
       <label class="block mb-3">
         <span class="text-sm">Escolha a data:</span>
-        <input type="date" class="w-full mt-1 border border-gray-300 rounded p-2" />
+        <input type="date" id="dataAgendamento" name="data" class="w-full mt-1 border border-gray-300 rounded p-2" />
       </label>
+
       <label class="block mb-4">
-        <span class="text-sm">Selecione o profissional:</span>
-        <select class="w-full mt-1 border border-gray-300 rounded p-2">
-          <option>Fernanda</option>
-          <option>Camila</option>
-          <option>Juliana</option>
+        <span class="text-sm">Escolha o horário:</span>
+        <select id="horaAgendamento" name="hora" class="w-full mt-1 border border-gray-300 rounded p-2" required>
+          <option value="" disabled selected>Selecione um horário</option>
+          <option value="09:00">09:00</option>
+          <option value="09:30">09:30</option>
+          <option value="10:00">10:00</option>
+          <option value="10:30">10:30</option>
+          <option value="11:00">11:00</option>
+          <option value="11:30">11:30</option>
         </select>
       </label>
+
+      <label class="block mb-4">
+        <span class="text-sm">Selecione o profissional:</span>
+        <select id="profissionalSelecionado" name="profissional" class="w-full mt-1 border border-gray-300 rounded p-2">
+          <option value="Fernanda">Fernanda</option>
+          <option value="Camila">Camila</option>
+          <option value="Juliana">Juliana</option>
+        </select>
+      </label>
+
       <div class="flex justify-end gap-2">
-        <button onclick="fecharModal()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancelar</button>
-        <button class="px-4 py-2 bg-[#c59595] text-white rounded hover:bg-[#a67878]">Agendar</button>
+        <button type="button" onclick="fecharModal()" class="px-4 py-2 bg-gray-300 rounded hover:bg-gray-400">Cancelar</button>
+        <button type="submit" class="px-4 py-2 bg-[#c59595] text-white rounded hover:bg-[#a67878]">Agendar</button>
       </div>
-    </div>
+    </form>
   </div>
+</div>
+
+
 
   <script>
     function mostrarCards(categoria) {
@@ -212,6 +236,12 @@
     function agendarServico(servico) {
         window.location.href = `/agendamento/${servico}`; // Redireciona para a página de agendamento do serviço
     }
+
+    function abrirModal(servico) {
+  document.getElementById('modalAgendamento').classList.remove('hidden');
+  document.getElementById('servicoSelecionado').innerText = servico;
+  document.getElementById('servicoSelecionadoInput').value = servico;
+}
   </script>
 
 <!-- Cards das Profissionais -->
@@ -265,7 +295,7 @@
   <!-- Conteúdo de Contato -->
   <div id="footer-contato" class="hidden opacity-0 flex flex-col items-center gap-2 transition-opacity duration-500">
     <a href="https://www.instagram.com/eteccamargoaranha" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@eteccamargoaranha</a>
-    <a href="https://www.instagram.com/n3rds" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@n3rds</a>
+    <a href="https://www.instagram.com/n3rds.ca" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@n3rds.ca</a>
   </div>
 
   <!-- Conteúdo de Localização -->

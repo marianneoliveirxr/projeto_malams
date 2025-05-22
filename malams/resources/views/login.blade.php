@@ -133,7 +133,7 @@
   <!-- Conteúdo de Contato -->
   <div id="footer-contato" class="hidden opacity-0 flex flex-col items-center gap-2 transition-opacity duration-500">
     <a href="https://www.instagram.com/eteccamargoaranha" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@eteccamargoaranha</a>
-    <a href="https://www.instagram.com/n3rds" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@n3rds</a>
+    <a href="https://www.instagram.com/n3rds.ca" target="_blank" class="text-[22px] hover:underline transition-all duration-200">@n3rds.ca</a>
   </div>
 
   <!-- Conteúdo de Localização -->

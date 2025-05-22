@@ -22,3 +22,7 @@ Route::get('/agendamento', function () {
 });
 Route::post('/login-user','App\Http\Controllers\UsuarioController@verifyUser')->name('login-user');
 
+use App\Http\Controllers\AgendamentoController;
+
+Route::post('/agendamento', [AgendamentoController::class, 'store'])->name('agendamento.store');
+
