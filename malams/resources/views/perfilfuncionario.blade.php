@@ -78,24 +78,22 @@
 </script>
     </header>
 
-<div class="caixa-central">
+    <div class="caixa-central">
     <div class="info">
-        <form action="/perfilfuncionario" method="GET">
-            @csrf
-
-            <h1>Informações do Funcionario</h1>
+        <form action="#" method="GET">
+            <h1>Informações do Funcionário</h1>
 
             <label><strong>Nome:</strong></label>
-            <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName', $user->nomeFuncionario) }}" placeholder="{{ old('txtName', $user->nomeUser) }}" required>
+            <input type="text" id="name" name="txtName" class="inputUser" placeholder="Digite o nome" required>
 
             <label><strong>Email:</strong></label>
-            <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail', $user->emailFuncionario) }}" placeholder="{{ old('txtEmail', $user->email) }}" required>
+            <input type="email" id="email" name="txtEmail" class="inputUser" placeholder="exemplo@email.com" required>
 
             <label><strong>Celular:</strong></label>
-            <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular', $user->celularFuncionario) }}" placeholder="{{ old('txtCelular', $user->celularUser) }}" required>
+            <input type="text" id="celular" name="txtCelular" class="inputUser" placeholder="(00) 00000-0000" required>
 
             <label><strong>CPF:</strong></label>
-            <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf', $user->cpfFuncionario) }}" placeholder="{{ old('txtCpf', $user->cpfUser) }}" required>
+            <input type="text" id="cpf" name="txtCpf" class="inputUser" placeholder="000.000.000-00" required>
 
             <label><strong>Senha:</strong></label>
             <input type="password" id="password" name="senhaFuncionario" class="inputUser" placeholder="Mínimo de 6 caracteres" required>
@@ -107,6 +105,7 @@
         </form>
     </div>
 </div>
+
 
 
 

@@ -81,24 +81,22 @@
 <div class="caixa-central">
     <div class="info">
         <form action="/perfil" method="GET">
-            @csrf
-
             <h1>Informações do Cliente</h1>
 
             <label><strong>Nome:</strong></label>
-            <input type="text" id="name" name="txtName" class="inputUser" value="{{ old('txtName', $user->nomeUser) }}" placeholder="{{ old('txtName', $user->nomeUser) }}" required>
+            <input type="text" id="name" name="txtName" class="inputUser" placeholder="Digite seu nome" required>
 
             <label><strong>CPF:</strong></label>
-            <input type="text" id="cpf" name="txtCpf" class="inputUser" value="{{ old('txtCpf', $user->cpfUser) }}" placeholder="{{ old('txtCpf', $user->cpfUser) }}" required>
+            <input type="text" id="cpf" name="txtCpf" class="inputUser" placeholder="000.000.000-00" required>
 
             <label><strong>Data de nascimento:</strong></label>
-            <input type="text" id="nascimento" name="txtDatNascimento" class="inputUser" value="{{ old('txtDatNascimento', \Carbon\Carbon::parse($user->dataNascimento)->format('d/m/Y')) }}" required placeholder="{{ old('txtDatNascimento', \Carbon\Carbon::parse($user->dataNascimento)->format('d/m/Y')) }}" pattern="\d{2}/\d{2}/\d{4}">
+            <input type="text" id="nascimento" name="txtDatNascimento" class="inputUser" placeholder="dd/mm/aaaa" required pattern="\d{2}/\d{2}/\d{4}">
 
             <label><strong>Celular:</strong></label>
-            <input type="text" id="celular" name="txtCelular" class="inputUser" value="{{ old('txtCelular', $user->celularUser) }}" placeholder="{{ old('txtCelular', $user->celularUser) }}" required>
+            <input type="text" id="celular" name="txtCelular" class="inputUser" placeholder="(00) 00000-0000" required>
 
             <label><strong>Email:</strong></label>
-            <input type="email" id="email" name="txtEmail" class="inputUser" value="{{ old('txtEmail', $user->email) }}" placeholder="{{ old('txtEmail', $user->email) }}" required>
+            <input type="email" id="email" name="txtEmail" class="inputUser" placeholder="exemplo@email.com" required>
 
             <label><strong>Senha:</strong></label>
             <input type="password" id="password" name="password" class="inputUser" placeholder="Mínimo de 6 caracteres" required>
@@ -110,6 +108,7 @@
         </form>
     </div>
 </div>
+
 
 
 

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Cliente extends Model
 {
+    /*
     use HasFactory;
 
     protected $table = 'users'; // Nome da tabela
@@ -14,4 +15,5 @@ class Cliente extends Model
     public $fillable = ['id', 'txtName', 'txtCpf', 'txtDatNascimento', 'txtCelular', 'txtEmail', 'senhaUser'];
 
     public $timestamps = false;
+    */
 }

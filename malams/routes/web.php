@@ -9,8 +9,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/perfil', [PerfilController::class, 'index'])->name('perfil');
-
+Route::get('/perfil', function () {
+    return view('perfil');
+});
 
 Route::get('/perfilfuncionario', function () {
     return view('perfilfuncionario');

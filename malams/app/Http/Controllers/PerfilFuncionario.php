@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User; 
 
 class PerfilFuncionario extends Controller
-{
+{ /*
     // Método para exibir o perfil
     public function index()
 {
@@ -62,5 +62,6 @@ class PerfilFuncionario extends Controller
         // Redireciona após o cadastro com uma mensagem de sucesso
         return redirect()->route('perfil')->with('success', 'Informações alteradas com sucesso!');
     }
+    */
 }
 
