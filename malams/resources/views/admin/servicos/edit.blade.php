@@ -61,6 +61,18 @@
                     required
                 >
             </div>
+
+            <!-- Duração -->
+            <div>
+                <label for="duracao" class="block text-lg font-semibold text-black mb-2">Duração</label>
+                <input type="time" id="duracao" name="duracao"
+                    class="w-full rounded-lg border px-6 py-4 text-black text-lg focus:outline-none transition"
+                    style="border-color:#d9b0b0;"
+                    value="{{ old('duracao', $servico->duracao) }}"
+                    required
+                >
+                <p class="text-sm text-gray-500 mt-2">Informe o tempo aproximado do serviço (formato HH:MM).</p>
+            </div>
         </div>
 
         <!-- Botões -->

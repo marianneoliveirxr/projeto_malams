@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Servicos;
+use App\Models\Servico;
 use App\Models\Categoria;
 use Illuminate\Http\Request;
 
@@ -10,9 +10,7 @@ class ServicosController extends Controller
 {
     public function index()
     {
-        // Pega todos os serviços com suas categorias (eager loading)
-        $servicos = Servicos::with('categoria')->get();
-
+        $servicos = Servico::with('categoria')->get();
         return view('admin.servicos.index', compact('servicos'));
     }
 
@@ -27,16 +25,18 @@ class ServicosController extends Controller
         $request->validate([
             'idCategoria' => 'required|exists:categorias,idCategoria',
             'servico' => 'required|string|max:100',
-            'preco' => 'required|regex:/^\d{1,3},\d{2}$/',
+            'preco' => 'required|regex:/^\d{1,3}(?:\.\d{3})*,\d{2}$/',
+            'duracao' => 'nullable|string|max:10',
         ]);
 
-        // Converte preço para formato decimal para salvar (ex: "50,00" -> 50.00)
+        // Converte "1.234,56" para "1234.56"
         $preco = str_replace(',', '.', str_replace('.', '', $request->preco));
 
-        Servicos::create([
+        Servico::create([
             'idCategoria' => $request->idCategoria,
             'servico' => $request->servico,
             'preco' => $preco,
+            'duracao' => $request->duracao,
         ]);
 
         return redirect()->route('admin.servicos.index')->with('success', 'Serviço criado com sucesso!');
@@ -44,7 +44,7 @@ class ServicosController extends Controller
 
     public function edit($id)
     {
-        $servico = Servicos::findOrFail($id);
+        $servico = Servico::findOrFail($id);
         $categorias = Categoria::all();
         return view('admin.servicos.edit', compact('servico', 'categorias'));
     }
@@ -54,16 +54,18 @@ class ServicosController extends Controller
         $request->validate([
             'idCategoria' => 'required|exists:categorias,idCategoria',
             'servico' => 'required|string|max:100',
-            'preco' => 'required|regex:/^\d{1,3},\d{2}$/',
+            'preco' => 'required|regex:/^\d{1,3}(?:\.\d{3})*,\d{2}$/',
+            'duracao' => 'nullable|string|max:10',
         ]);
 
-        $servico = Servicos::findOrFail($id);
+        $servico = Servico::findOrFail($id);
         $preco = str_replace(',', '.', str_replace('.', '', $request->preco));
 
         $servico->update([
             'idCategoria' => $request->idCategoria,
             'servico' => $request->servico,
             'preco' => $preco,
+            'duracao' => $request->duracao,
         ]);
 
         return redirect()->route('admin.servicos.index')->with('success', 'Serviço atualizado com sucesso!');
@@ -71,7 +73,7 @@ class ServicosController extends Controller
 
     public function destroy($id)
     {
-        $servico = Servicos::findOrFail($id);
+        $servico = Servico::findOrFail($id);
         $servico->delete();
 
         return redirect()->route('admin.servicos.index')->with('success', 'Serviço excluído com sucesso!');

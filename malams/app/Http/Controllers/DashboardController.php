@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Servico;
 use App\Models\User; 
-use App\Models\Funcionarios; 
+use App\Models\Funcionario; 
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -18,7 +18,7 @@ class DashboardController extends Controller
         // Total de usuários (clientes + funcionários)
         $totalUsers = User::count();
 
-         $totalFuncionarios = Funcionarios::count();
+         $totalFuncionarios = Funcionario::count();
 
         // Agendamentos do dia atual
         //$pendingTasks = Agendamento::whereDate('data_agendamento', now()->format('Y-m-d'))->count();

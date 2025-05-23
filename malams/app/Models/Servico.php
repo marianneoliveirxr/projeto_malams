@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Servicos extends Model
+class Servico extends Model
 {
     protected $table = 'servicos';
     protected $primaryKey = 'idServico';
@@ -14,6 +14,7 @@ class Servicos extends Model
         'idCategoria',
         'servico',
         'preco',
+        'duracao',
     ];
 
     // Relação com Categoria

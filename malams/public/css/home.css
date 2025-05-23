@@ -1,0 +1,423 @@
+/* =================== IMPORTAÇÕES =================== */
+@import "tailwindcss";
+
+/* =================== FONTE PADRÃO =================== */
+body, header, nav, footer, li, a, button {
+  font-family: 'Cal Sans', sans-serif;
+}
+
+/* =================== CABEÇALHO =================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c59595;
+  padding: 12px 0px;
+  color: white;
+  font-family: 'Cal Sans';
+  position: relative;
+}
+
+.logo {
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  width: 80px;
+  margin-left: 20px;
+}
+
+/* =================== NAVEGAÇÃO =================== */
+header nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  padding: 0;
+}
+
+nav ul a {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  font-size: 22px;
+  transition: all 0.3s ease;
+  margin-bottom: -13px;
+}
+
+/* =================== ANIMAÇÕES DE LINKS =================== */
+/* Geral - nav links */
+nav ul a,
+.nav-links {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  transition: all 0.3s ease;
+  margin-bottom: 22px;
+}
+
+nav ul a:hover,
+.nav-links:hover {
+  color: #E8D6D3 !important;
+  text-decoration: underline;
+  background-color: transparent !important;
+}
+
+.nav-links {
+  position: relative;
+}
+
+.nav-links::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 2px;
+  background-color: #E8D6D3 !important;
+  transition: width 0.3s ease;
+}
+
+.nav-links:hover::after {
+  width: 100%;
+}
+
+/* Social links */
+nav ul a,
+.social-icons a {
+  text-decoration: none;
+  color: white;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 30px;
+  transition: all 0.3s ease;
+  margin-right: 14px;
+}
+
+nav ul a:hover,
+.social-icons a:hover {
+  color: #E8D6D3;
+  text-decoration: underline;
+}
+
+.social-icons a {
+  position: relative;
+}
+
+.social-icons a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #E8D6D3;
+  transition: width 0.3s ease;
+}
+
+.social-icons a:hover::after {
+  width: 100%;
+}
+
+/* =================== LISTA =================== */
+li {
+  text-decoration: none;
+  color: white;
+  font-family: 'Cal Sans';
+}
+
+/* =================== ÍCONES SOCIAIS =================== */
+.social-icons img {
+  width: 24px;
+  margin-left: 10px;
+}
+
+.social-icons a {
+  width: 24px;
+  margin-left: 10px;
+}
+
+/* =================== FOTO DE PERFIL E MENU =================== */
+.perfil-foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  background-color: #c59595;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.menu-dropdown.show {
+  display: flex;
+}
+
+.menu-dropdown a,
+.link-animado {
+  padding: 10px 20px !important;
+  display: block;
+  text-decoration: none !important;
+  color: white !important;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 18px;
+  font-weight: 600 !important;
+  background-color: transparent !important; /* remove bg rosa */
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.menu-dropdown a:hover,
+.link-animado:hover {
+  color: #e8d6d3 !important;
+  text-decoration: none !important;
+  background-color: transparent !important;
+}
+
+.link-animado::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #e8d6d3;
+  transition: width 0.3s ease;
+}
+
+.link-animado:hover::after {
+  width: 100%;
+}
+
+
+
+/* =================== RESPONSIVIDADE =================== */
+
+/* ----- 1200px ↓ Tablets/laptops grandes ----- */
+@media (max-width: 1200px) {
+  #cards-servicos > div {
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+
+  #cards-servicos img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+}
+
+/* ----- 992px ↓ Tablets/dispositivos médios ----- */
+@media (max-width: 992px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  nav ul {
+    gap: 10px;
+  }
+
+  nav ul a,
+  .login,
+  .cadastre-se {
+    font-size: 18px;
+  }
+
+  main > div:nth-child(3) {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  main > div:nth-child(3) > div {
+    flex: 1 1 100%;
+    text-align: center;
+  }
+
+  main > div:nth-child(2) img,
+  main > div:nth-child(3) > div:last-child img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+  }
+
+  #cards-servicos img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+  }
+
+  footer {
+    font-size: 18px;
+    padding: 15px;
+  }
+}
+
+/* ----- 768px ↓ Mobile médio ----- */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  nav ul a,
+  .login,
+  .cadastre-se {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  .social-icons {
+    justify-content: flex-start;
+  }
+
+  main > div:first-child h3 {
+    font-size: 24px;
+  }
+
+  main > div:first-child button {
+    font-size: 18px;
+    padding: 10px 20px;
+  }
+
+  #cards-servicos > div {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  #cards-servicos img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+  }
+
+  main > div:last-child button {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  footer {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+/* ----- 576px ↓ Mobile pequeno ----- */
+@media (max-width: 576px) {
+  nav ul a,
+  .login,
+  .cadastre-se {
+    font-size: 14px;
+  }
+
+  main > div:first-child h3 {
+    font-size: 22px;
+  }
+
+  main > div:first-child button {
+    font-size: 16px;
+    padding: 8px 18px;
+  }
+
+  footer {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .footer-items a,
+  .footer-items {
+    font-size: 14px;
+  }
+
+  main > div:nth-child(2) img,
+  main > div:nth-child(3) > div:last-child img {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+  }
+
+  #cards-servicos img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+}
+
+footer h3 {
+  color: white !important;
+}
+
+html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: #faf1f0 !important;
+    color: #6d4c4c !important;
+    font-family: 'Cal Sans', sans-serif;
+    font-weight: 600; /* mais gordinho por padrão */
+  }
+
+  main {
+    background-color: #faf1f0 !important;
+    color: #6d4c4c !important;
+  }
+
+  section {
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  h1, h2, h3, .text-rose-600, .text-rose-500 {
+    color: #a86f6f !important;
+    font-weight: 700 !important;
+  }
+
+  a , button {
+    background-color: #c59595 !important;
+    color: white !important;
+    font-weight: 700 !important;
+    transition: background-color 0.3s ease;
+  }
+
+  a:hover, button:hover {
+    background-color: #a86f6f !important;
+  }
+
+  .bold-hover-suave {
+    font-weight: 700 !important;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .bold-hover-suave:hover {
+    color: #ffffff;
+    transform: scale(1.05);
+  }

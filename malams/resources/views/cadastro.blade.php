@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastrar Usuário</title>
+    @vite('resources/css/app.css')
     <link rel="icon" href="/img/icon.ico">
     <link rel="stylesheet" href="/css/cadastro.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -21,8 +22,8 @@
         <nav>
             <ul>
                 <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
-                <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
-                <li><a class="nav-links" href="{{ url('/sobre') }}">Sobre</a></li>
+                <li><a class="nav-links" href="{{ url('/agendamentos/create') }}">Agendamento</a></li>
+                <li><a class="nav-links" href="{{ url('/home') }}#sobre">Sobre</a></li>
             </ul>
         </nav>
         
@@ -138,33 +139,25 @@
         </div>
     </div>
 
-    <footer>
-        <p>Faça parte da nossa família</p>
-        <div class="footer-links">
-            <div class="footer-items">
-                <img src="/img/contato.jpg" alt="Contato">   
-                <a href="#">Contato</a>
-            </div>
-            <div class="footer-items">
-                <img src="/img/localizacao.png" alt="Localização">    
-                <a href="#">Localização</a>
-            </div>
+<!-- Rodapé -->
+<footer style="background:#c59595; color:white; padding:20px; display:flex; justify-content:center; gap:80px; font-family: 'Rubik', sans-serif;">
+    <div style="display:flex; align-items:center; gap:15px; text-align:center;">
+        <img src="/img/contato.jpg" alt="Contato" style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <h3 style="margin:0 0 6px 0; font-weight:700; font-size:1.3rem;">Contato</h3>
+            <p style="margin:0; font-size:1.1rem;">@eteccamargoaranha</p>
+            <p style="margin:2px 0 0 0; font-size:1.1rem;">@n3rds.ca</p>
         </div>
-    </footer>
-    
-      <!-- Script para Data de Nascimento -->
-    <script>
-        const inputData = document.getElementById('nascimento');
-        inputData.addEventListener('input', () => {
-            let value = inputData.value.replace(/\D/g, '');
-            if (value.length > 2 && value.length <= 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2);
-            } else if (value.length > 4) {
-                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
-            }
-            inputData.value = value;
-        });
-    </script>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:15px; text-align:center;">
+        <img src="/img/localizacao.png" alt="Localização" style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <h3 style="margin:0 0 6px 0; font-weight:700; font-size:1.3rem;">Localização</h3>
+            <p style="margin:0; font-size:1.1rem;">R. Marcial, 25 - Mooca, São Paulo</p>
+        </div>
+    </div>
+</footer>
 
     <!-- Script para CPF -->
     <script>
@@ -221,6 +214,19 @@
             e.target.value = value;
         });
     });
+    </script>
+
+     <script>
+        const inputData = document.getElementById('nascimento');
+        inputData.addEventListener('input', () => {
+            let value = inputData.value.replace(/\D/g, '');
+            if (value.length > 2 && value.length <= 4) {
+                value = value.slice(0, 2) + '/' + value.slice(2);
+            } else if (value.length > 4) {
+                value = value.slice(0, 2) + '/' + value.slice(2, 4) + '/' + value.slice(4, 8);
+            }
+            inputData.value = value;
+        });
     </script>
 
      <!-- SweetAlert2 Mensagens -->

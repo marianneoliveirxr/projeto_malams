@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Funcionarios extends Model
+class Funcionario extends Model
 {
     use HasFactory;
 
@@ -32,6 +32,6 @@ class Funcionarios extends Model
 
     public function servico()
     {
-        return $this->belongsTo(Servicos::class, 'idServico', 'idServico');
+        return $this->belongsTo(servico::class, 'idServico', 'idServico');
     }
 }

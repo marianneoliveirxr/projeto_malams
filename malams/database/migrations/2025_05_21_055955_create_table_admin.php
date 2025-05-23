@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->unsignedBigInteger('idPermissao')->default(3); 
-            $table->timestamps();
 
             $table->foreign('idPermissao')
                   ->references('idPermissao')

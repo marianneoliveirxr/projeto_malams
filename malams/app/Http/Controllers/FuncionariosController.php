@@ -4,22 +4,22 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\Funcionarios;
+use App\Models\Funcionario;
 use App\Models\Categoria;
-use App\Models\Servicos;
+use App\Models\Servico;
 
 class FuncionariosController extends Controller
 {
     public function index()
     {
-        $funcionarios = Funcionarios::with(['categoria', 'servico'])->get();
+        $funcionarios = Funcionario::with(['categoria', 'servico'])->get();
         return view('admin.funcionarios.index', compact('funcionarios'));
     }
 
     public function create()
     {
         $categorias = Categoria::all();
-        $servicos = Servicos::all();
+        $servicos = Servico::all();
 
         return view('admin.funcionarios.create', compact('categorias', 'servicos'));
     }
@@ -37,7 +37,7 @@ class FuncionariosController extends Controller
             'idServico' => 'required|exists:servicos,idServico',
         ]);
 
-        Funcionarios::create([
+        Funcionario::create([
             'nomeFuncionario' => $validated['nomeUser'],
             'emailFuncionario' => $validated['email'],
             'celularFuncionario' => $validated['celularUser'] ?? null,
@@ -53,16 +53,16 @@ class FuncionariosController extends Controller
 
      public function edit($id)
     {
-        $funcionario = Funcionarios::findOrFail($id);
+        $funcionario = Funcionario::findOrFail($id);
         $categorias = Categoria::all();
-        $servicos = Servicos::all();
+        $servicos = Servico::all();
 
         return view('admin.funcionarios.edit', compact('funcionario', 'categorias', 'servicos'));
     }
 
     public function update(Request $request, $id)
     {
-        $funcionario = Funcionarios::findOrFail($id);
+        $funcionario = Funcionario::findOrFail($id);
 
         // Validação
         $request->validate([
@@ -95,7 +95,7 @@ class FuncionariosController extends Controller
 
     public function destroy($id)
     {
-        $funcionario = Funcionarios::findOrFail($id);
+        $funcionario = Funcionario::findOrFail($id);
         $funcionario->delete();
 
         return redirect()->route('admin.funcionarios.index')->with('success', 'Funcionário deletado com sucesso!');

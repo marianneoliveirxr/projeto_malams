@@ -7,6 +7,7 @@
     <title>Login - Salão de Beleza</title>
     <link rel="icon" href="/img/icon.ico">
     <link rel="stylesheet" href="/css/login.css">
+    @vite('resources/css/app.css')
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -22,8 +23,8 @@
         <nav>
             <ul>
                 <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
-                <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
-                <li><a class="nav-links" href="#">Sobre</a></li>
+                <li><a class="nav-links" href="{{ url('/agendamentos/create') }}">Agendamento</a></li>
+                <li><a class="nav-links" href="{{ url('/home') }}#sobre">Sobre</a></li>
             </ul>
         </nav>
         
@@ -83,6 +84,7 @@
                     <input type="email" name="txtEmail" placeholder="Email" required>
                     <input type="password" name="password" placeholder="Senha" required>
                     <button type="submit">Acessar</button>
+                    <a type="text" class="frase" href="{{ url('/cadastro') }}">Ainda não tenho cadastro</a>
                 </form>
             </div>
 
@@ -108,20 +110,27 @@
         </div>
     </main>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>Faça parte da nossa família</p>
-        <div class="footer-links">
-            <div class="footer-items">
-                <img src="/img/contato.jpg" alt="Contato">   
-                <a href="#">Contato</a>
-            </div>
-            <div class="footer-items">
-                <img src="/img/localizacao.png" alt="Localização">    
-                <a href="#">Localização</a>
-            </div>
+       <!-- Rodapé -->
+<footer style="background:#c59595; color:white; padding:20px; display:flex; justify-content:center; gap:80px; font-family: 'Rubik', sans-serif;">
+    <div style="display:flex; align-items:center; gap:15px; text-align:center;">
+        <img src="/img/contato.jpg" alt="Contato" style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <h3 style="margin:0 0 6px 0; font-weight:700; font-size:1.3rem;">Contato</h3>
+            <p style="margin:0; font-size:1.1rem;">@eteccamargoaranha</p>
+            <p style="margin:2px 0 0 0; font-size:1.1rem;">@n3rds.ca</p>
         </div>
-    </footer>
+    </div>
+
+    <div style="display:flex; align-items:center; gap:15px; text-align:center;">
+        <img src="/img/localizacao.png" alt="Localização" style="width:60px; height:60px; border-radius:8px; object-fit:cover;">
+        <div style="display:flex; flex-direction:column; align-items:center;">
+            <h3 style="margin:0 0 6px 0; font-weight:700; font-size:1.3rem;">Localização</h3>
+            <p style="margin:0; font-size:1.1rem;">R. Marcial, 25 - Mooca, São Paulo </p>
+        </div>
+    </div>
+</footer>
+
+
 
 </body>
 

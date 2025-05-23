@@ -22,6 +22,7 @@
                     <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Categoria</th>
                     <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Serviço</th>
                     <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Preço</th>
+                    <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold">Duração</th>
                     <th class="border border-gray-300 px-6 py-4 text-left text-lg font-semibold w-48">Ações</th>
                 </tr>
             </thead>
@@ -36,6 +37,9 @@
                         </td>
                         <td class="border border-gray-300 px-6 py-4 text-base text-gray-800">
                             R$ {{ number_format($servico->preco, 2, ',', '.') }}
+                        </td>
+                        <td class="border border-gray-300 px-6 py-4 text-base text-gray-800">
+                            {{ \Carbon\Carbon::createFromFormat('H:i:s', $servico->duracao)->format('H\hi') }}
                         </td>
                         <td class="border border-gray-300 px-6 py-4 text-base text-gray-600">
                             <div class="flex space-x-6">
@@ -62,7 +66,7 @@
                     </tr>
                 @empty
                     <tr>
-                        <td colspan="4" class="text-center py-6 text-gray-500">Nenhum serviço encontrado.</td>
+                        <td colspan="5" class="text-center py-6 text-gray-500">Nenhum serviço encontrado.</td>
                     </tr>
                 @endforelse
             </tbody>

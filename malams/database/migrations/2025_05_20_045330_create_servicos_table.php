@@ -6,13 +6,14 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-   public function up(): void
+    public function up(): void
     {
         Schema::create('servicos', function (Blueprint $table) {
             $table->id('idServico'); 
             $table->unsignedBigInteger('idCategoria'); 
             $table->string('servico', 100); 
             $table->decimal('preco', 5, 2); 
+            $table->time('duracao'); 
 
             $table->primary('idServico');
 
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->foreign('idCategoria')
                   ->references('idCategoria')
                   ->on('categorias')
-                  ->onDelete('cascade'); // Deleta serviços se a categoria for removida
+                  ->onDelete('cascade');
         });
     }
 

@@ -1,0 +1,233 @@
+@import "tailwindcss";
+
+/* ========== GERAL ========== */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffe7e3;
+  font-family: "Rubik", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+legend {
+  border: none;
+  font-size: 18px;
+  color: #d19f9f;
+  font-weight: bold;
+  padding: 5px 10px;
+}
+
+/* ========== CABEÇALHO ========== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #c59595;
+  padding: 12px 0px;
+  color: white;
+  font-family: 'Cal Sans';
+  position: relative;
+}
+
+.logo {
+  width: 80px;
+  margin-left: 20px;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+header nav {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 0;
+  margin: 0;
+}
+
+/* ========== ANIMAÇÃO LINKS DO MENU CENTRAL ========== */
+nav ul a,
+.nav-links {
+  text-decoration: none;
+  color: white;
+  font-size: 30px;
+  font-family: "Cal Sans", sans-serif;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  margin-bottom: 22px;
+  position: relative;
+}
+
+nav ul a:hover,
+.nav-links:hover {
+  color: #E8D6D3;
+  text-decoration: underline;
+}
+
+.nav-links::after,
+nav ul a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 2px;
+  background-color: #E8D6D3;
+  transition: width 0.3s ease;
+}
+
+.nav-links:hover::after,
+nav ul a:hover::after {
+  width: 100%;
+}
+
+/* ========== ANIMAÇÃO SOCIAL ICONS ========== */
+.social-icons a {
+  text-decoration: none;
+  color: white;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  transition: all 0.3s ease;
+  margin-right: 14px;
+  position: relative;
+}
+
+.social-icons a:hover {
+  color: #E8D6D3;
+  text-decoration: underline;
+}
+
+.social-icons a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0%;
+  height: 2px;
+  background-color: #E8D6D3;
+  transition: width 0.3s ease;
+}
+
+.social-icons a:hover::after {
+  width: 100%;
+}
+
+.social-icons img {
+  width: 24px;
+  margin-left: 10px;
+}
+
+.social-icons a {
+  width: 24px;
+  margin-left: 10px;
+}
+
+/* ========== LISTA ========== */
+li {
+  text-decoration: none;
+  color: white;
+  font-family: 'Cal Sans';
+}
+
+/* ========== FOTO DE PERFIL E DROPDOWN ========== */
+.perfil-foto {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.menu-dropdown {
+  display: none;
+  position: absolute;
+  right: 30px;
+  top: 80px;
+  background-color: #c59595;
+  border-radius: 8px;
+  padding: 10px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+  flex-direction: column;
+}
+
+.menu-dropdown.show {
+  display: flex;
+}
+
+.menu-dropdown a,
+.link-animado {
+  padding: 10px 20px;
+  display: block;
+  text-decoration: none;
+  color: white;
+  font-family: "Cal Sans", sans-serif;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.menu-dropdown a:hover,
+.link-animado:hover {
+  color: #e8d6d3;
+}
+
+.link-animado::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 0;
+  height: 2px;
+  background-color: #e8d6d3;
+  transition: width 0.3s ease;
+}
+
+.link-animado:hover::after {
+  width: 100%;
+}
+
+/* Estrutura principal da página */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* Conteúdo principal ocupa o restante da tela */
+.min-h-screen {
+    flex: 1;
+    z-index: 1;
+    position: relative;
+}
+
+/* Garantir que o formulário esteja acima de tudo visualmente */
+form {
+    position: relative;
+    z-index: 10;
+}
+
+/* Rodapé estilizado corretamente */
+footer {
+    z-index: 2;
+    position: relative;
+}

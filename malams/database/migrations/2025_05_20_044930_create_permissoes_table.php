@@ -14,7 +14,6 @@ return new class extends Migration
     Schema::create('permissoes', function (Blueprint $table) {
         $table->id('idPermissao');
         $table->enum('permissao', ['cliente', 'funcionario', 'administrador']);
-        $table->timestamps(); 
     });
 }
 
