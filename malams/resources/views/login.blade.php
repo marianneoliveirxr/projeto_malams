@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - Salão de Beleza</title>
+    <title>Login </title>
     <link rel="icon" href="/img/icon.ico">
     <link rel="stylesheet" href="/css/login.css">
     @vite('resources/css/app.css')
