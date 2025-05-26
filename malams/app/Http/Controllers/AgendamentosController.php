@@ -57,8 +57,7 @@ class AgendamentosController extends Controller
         return response()->json($funcionarios);
     }
 
-   // Retorna horários disponíveis para um funcionário numa data específica, considerando a duração do serviço
-public function horariosDisponiveis(Request $request)
+   public function horariosDisponiveis(Request $request)
 {
     $request->validate([
         'idFuncionario' => 'required|exists:funcionarios,idFuncionario',
@@ -93,9 +92,24 @@ public function horariosDisponiveis(Request $request)
         return $hh * 60 + $mm;
     }, $agendamentos);
 
+    // Obter data atual e hora atual em minutos para filtro
+    $hoje = date('Y-m-d');
+    $agoraMinutos = (int) (date('H') * 60 + date('i'));
+
     // Gerar todos os horários possíveis no expediente
     $todosHorarios = [];
     for ($minutos = $inicio; $minutos <= $fim; $minutos += $intervalo) {
+        // Se a data for hoje, exclui horários anteriores ao atual
+        if ($dataAgendamento == $hoje && $minutos < $agoraMinutos) {
+            continue;
+        }
+
+        // Excluir horário de almoço: das 12:00 (720 min) até 13:00 (780 min)
+        // Como o horário é início do atendimento, vamos ignorar os horários que iniciam dentro desse intervalo
+        if ($minutos >= 720 && $minutos < 780) {
+            continue;
+        }
+
         $todosHorarios[] = $minutos;
     }
 
@@ -106,7 +120,6 @@ public function horariosDisponiveis(Request $request)
         // Verifica se algum agendamento conflita com o período do serviço a partir desse horário
         $conflito = false;
         foreach ($horariosOcupadosMin as $ocupado) {
-            // Se o horário disponível começa antes que um horário agendado termine, ou vice-versa, tem conflito
             $fimHorario = $inicioHorario + $duracaoMinutos;
             $fimOcupado = $ocupado + $duracaoMinutos;
 
@@ -130,5 +143,6 @@ public function horariosDisponiveis(Request $request)
 
     return response()->json(array_values($disponiveisFormatados));
 }
+
 
 }

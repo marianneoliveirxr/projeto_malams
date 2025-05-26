@@ -70,72 +70,96 @@ class AgendasDashController extends Controller
         return response()->json($funcionarios);
     }
 
-    public function horariosDisponiveis(Request $request)
-    {
-        $request->validate([
-            'idFuncionario' => 'required|exists:funcionarios,idFuncionario',
-            'dataAgendamento' => 'required|date',
-            'idServico' => 'required|exists:servicos,idServico',
-        ]);
+   public function horariosDisponiveis(Request $request)
+{
+    $request->validate([
+        'idFuncionario' => 'required|exists:funcionarios,idFuncionario',
+        'dataAgendamento' => 'required|date',
+        'idServico' => 'required|exists:servicos,idServico',
+    ]);
 
-        $idFuncionario = $request->idFuncionario;
-        $dataAgendamento = $request->dataAgendamento;
-        $idServico = $request->idServico;
+    $idFuncionario = $request->idFuncionario;
+    $dataAgendamento = $request->dataAgendamento;
+    $idServico = $request->idServico;
 
-        $servico = Servico::find($idServico);
-        if (!$servico) {
-            return response()->json(['erro' => 'Serviço não encontrado'], 404);
-        }
-
-        $duracaoStr = $servico->duracao;
-        list($h, $m, $s) = explode(':', $duracaoStr);
-        $duracaoMinutos = $h * 60 + $m;
-
-        $inicio = 9 * 60;  // 09:00
-        $fim = 17 * 60;    // 17:00
-        $intervalo = 30;
-
-        $agendamentos = Agendamento::where('idFuncionario', $idFuncionario)
-            ->where('dataAgendamento', $dataAgendamento)
-            ->pluck('hora')
-            ->toArray();
-
-        $horariosOcupadosMin = array_map(function ($hora) {
-            list($hh, $mm, $ss) = explode(':', $hora);
-            return $hh * 60 + $mm;
-        }, $agendamentos);
-
-        $todosHorarios = [];
-        for ($minutos = $inicio; $minutos <= $fim; $minutos += $intervalo) {
-            $todosHorarios[] = $minutos;
-        }
-
-        $disponiveis = [];
-
-        foreach ($todosHorarios as $inicioHorario) {
-            $conflito = false;
-            foreach ($horariosOcupadosMin as $ocupado) {
-                $fimHorario = $inicioHorario + $duracaoMinutos;
-                $fimOcupado = $ocupado + $duracaoMinutos;
-
-                if (!($fimHorario <= $ocupado || $inicioHorario >= $fimOcupado)) {
-                    $conflito = true;
-                    break;
-                }
-            }
-            if (!$conflito) {
-                $disponiveis[] = $inicioHorario;
-            }
-        }
-
-        $disponiveisFormatados = array_map(function ($minutos) {
-            $h = floor($minutos / 60);
-            $m = $minutos % 60;
-            return sprintf('%02d:%02d', $h, $m);
-        }, $disponiveis);
-
-        return response()->json(array_values($disponiveisFormatados));
+    $servico = Servico::find($idServico);
+    if (!$servico) {
+        return response()->json(['erro' => 'Serviço não encontrado'], 404);
     }
+
+    $duracaoStr = $servico->duracao;
+    list($h, $m, $s) = explode(':', $duracaoStr);
+    $duracaoMinutos = $h * 60 + $m;
+
+    $inicio = 9 * 60;  // 09:00
+    $fim = 17 * 60;    // 17:00
+    $intervalo = 30;
+
+    $agendamentos = Agendamento::where('idFuncionario', $idFuncionario)
+        ->where('dataAgendamento', $dataAgendamento)
+        ->pluck('hora')
+        ->toArray();
+
+    $horariosOcupadosMin = array_map(function ($hora) {
+        list($hh, $mm, $ss) = explode(':', $hora);
+        return $hh * 60 + $mm;
+    }, $agendamentos);
+
+    $todosHorarios = [];
+    for ($minutos = $inicio; $minutos <= $fim; $minutos += $intervalo) {
+        $todosHorarios[] = $minutos;
+    }
+
+    $disponiveis = [];
+
+    foreach ($todosHorarios as $inicioHorario) {
+        $conflito = false;
+        foreach ($horariosOcupadosMin as $ocupado) {
+            $fimHorario = $inicioHorario + $duracaoMinutos;
+            $fimOcupado = $ocupado + $duracaoMinutos;
+
+            if (!($fimHorario <= $ocupado || $inicioHorario >= $fimOcupado)) {
+                $conflito = true;
+                break;
+            }
+        }
+        if (!$conflito) {
+            $disponiveis[] = $inicioHorario;
+        }
+    }
+
+    // Aplicar filtro das regras do admin
+
+    // Obter data atual
+    $agora = new \DateTime('now');
+    $hoje = $agora->format('Y-m-d');
+    $horaAtual = $agora->format('H:i');
+    list($horaAtualH, $horaAtualM) = explode(':', $horaAtual);
+    $horaAtualMinutos = intval($horaAtualH) * 60 + intval($horaAtualM);
+
+    $disponiveisFiltrados = array_filter($disponiveis, function ($minutos) use ($dataAgendamento, $hoje, $horaAtualMinutos) {
+        // Excluir horário entre 12:00 e 13:00
+        if ($minutos >= 12 * 60 && $minutos < 13 * 60) {
+            return false;
+        }
+
+        // Se for hoje, excluir horários anteriores ou iguais ao horário atual
+        if ($dataAgendamento === $hoje && $minutos <= $horaAtualMinutos) {
+            return false;
+        }
+
+        return true;
+    });
+
+    $disponiveisFormatados = array_map(function ($minutos) {
+        $h = floor($minutos / 60);
+        $m = $minutos % 60;
+        return sprintf('%02d:%02d', $h, $m);
+    }, $disponiveisFiltrados);
+
+    return response()->json(array_values($disponiveisFormatados));
+}
+
 
     public function store(Request $request)
     {

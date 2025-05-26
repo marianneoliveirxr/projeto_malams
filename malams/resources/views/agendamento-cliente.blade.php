@@ -49,53 +49,61 @@
 </header>
 
 <main class="flex-grow flex justify-center items-center p-6">
-    <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0_6px_20px_rgba(0,0,0,0.4)] p-10 max-w-5xl w-full font-['Rubik',sans-serif]">
-        <h2 class="text-4xl font-semibold text-[#d19f9f] mb-6 text-center">Meus Agendamentos</h2>
+    <div class="bg-white/90 backdrop-blur-md rounded-2xl shadow-[0_6px_20px_rgba(0,0,0,0.4)] p-10 max-w-6xl w-full font-['Rubik',sans-serif]">
+        <h2 class="text-4xl font-semibold text-[#d19f9f] mb-10 text-center">Meus Agendamentos</h2>
 
-        @if ($agendamentos->isEmpty())
-            <p class="text-center text-gray-700 text-lg">Nenhum agendamento encontrado.</p>
+        {{-- AGENDAMENTOS ATIVOS --}}
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Agendamentos Ativos</h3>
+        @if ($agendamentosAtivos->isEmpty())
+            <p class="text-gray-700 mb-8">Você não possui agendamentos ativos no momento.</p>
         @else
-            <div class="overflow-x-auto">
-                <table class="w-full text-left border-collapse">
-                    <thead class="bg-[#cda1a1] text-white">
-                        <tr>
-                            <th class="px-4 py-3 rounded-tl-xl">Data</th>
-                            <th class="px-4 py-3">Horário</th>
-                            <th class="px-4 py-3">Serviço</th>
-                            <th class="px-4 py-3">Funcionário</th>
-                            <th class="px-4 py-3 rounded-tr-xl">Ações</th>
-                        </tr>
-                    </thead>
-                    <tbody class="text-gray-800 bg-white divide-y divide-gray-200">
-                        @foreach ($agendamentos as $agendamento)
-                            <tr>
-                                <td class="px-4 py-3">{{ \Carbon\Carbon::parse($agendamento->dataAgendamento)->format('d/m/Y') }}</td>
-                                <td class="px-4 py-3">{{ $agendamento->hora }}</td>
-                                <td class="px-4 py-3">{{ $agendamento->servico->servico }}</td>
-                                <td class="px-4 py-3">{{ $agendamento->funcionario->nomeFuncionario }}</td>
-                                <td class="px-4 py-3 flex gap-2 items-center">
-                                    @if ($agendamento->confirmacao === 'sim')
-                                        <span class="text-green-600 font-semibold">Confirmado</span>
-                                    @else
-                                        <form id="confirmar-form-{{ $agendamento->idAgendamento }}" action="{{ route('agendamentos.confirmar', $agendamento->idAgendamento) }}" method="POST" style="display: inline;">
-                                            @csrf
-                                            <button type="button" onclick="confirmarAgendamento({{ $agendamento->idAgendamento }})" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-xl text-sm">
-                                                Confirmar
-                                            </button>
-                                        </form>
-                                    @endif
-                                    <form action="{{ route('agendamentos.destroy', $agendamento->idAgendamento) }}" method="POST" onsubmit="return confirmarCancelamento(event)">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-xl text-sm">
-                                            Cancelar
-                                        </button>
-                                    </form>
-                                </td>
-                            </tr>
-                        @endforeach
-                    </tbody>
-                </table>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+                @foreach ($agendamentosAtivos as $agendamento)
+                   <div class="bg-white border-2 border-[#d19f9f] rounded-2xl shadow-md hover:shadow-[0_6px_20px_rgba(0,0,0,0.3)] transform hover:scale-[1.03] transition-all duration-300 p-6">
+                        <h3 class="text-xl font-semibold text-[#000] mb-2">{{ $agendamento->servico->servico }}</h3>
+                        <p><span class="font-medium">Data:</span> {{ \Carbon\Carbon::parse($agendamento->dataAgendamento)->format('d/m/Y') }}</p>
+                        <p><span class="font-medium">Horário:</span> {{ $agendamento->hora }}</p>
+                        <p><span class="font-medium">Funcionário:</span> {{ $agendamento->funcionario->nomeFuncionario }}</p>
+                        <div class="mt-4 flex flex-wrap gap-2">
+                            @if ($agendamento->confirmacao === 'sim')
+                                <span class="text-green-600 font-semibold">Confirmado</span>
+                            @else
+                                <form id="confirmar-form-{{ $agendamento->idAgendamento }}" action="{{ route('agendamentos.confirmar', $agendamento->idAgendamento) }}" method="POST">
+                                    @csrf
+                                    <button type="button" onclick="confirmarAgendamento({{ $agendamento->idAgendamento }})" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-xl text-sm">
+                                        Confirmar
+                                    </button>
+                                </form>
+                            @endif
+
+                            <form action="{{ route('agendamentos.destroy', $agendamento->idAgendamento) }}" method="POST" onsubmit="return confirmarCancelamento(event)">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-xl text-sm">
+                                    Cancelar
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+        {{-- AGENDAMENTOS FINALIZADOS --}}
+        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Agendamentos Finalizados</h3>
+        @if ($agendamentosFinalizados->isEmpty())
+            <p class="text-gray-700">Você ainda não possui agendamentos finalizados.</p>
+        @else
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                @foreach ($agendamentosFinalizados as $agendamento)
+                    <div class="bg-gray-100 rounded-2xl shadow-inner p-6">
+                        <h3 class="text-xl font-semibold text-gray-700 mb-2">{{ $agendamento->servico->servico }}</h3>
+                        <p><span class="font-medium">Data:</span> {{ \Carbon\Carbon::parse($agendamento->dataAgendamento)->format('d/m/Y') }}</p>
+                        <p><span class="font-medium">Horário:</span> {{ $agendamento->hora }}</p>
+                        <p><span class="font-medium">Funcionário:</span> {{ $agendamento->funcionario->nomeFuncionario }}</p>
+                        <span class="text-gray-600 font-semibold block mt-4">Status: Finalizado</span>
+                    </div>
+                @endforeach
             </div>
         @endif
     </div>

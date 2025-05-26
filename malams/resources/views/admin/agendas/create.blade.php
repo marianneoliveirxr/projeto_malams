@@ -115,7 +115,7 @@
 
         <!-- Botões -->
         <div class="flex justify-end space-x-6 mt-12">
-            <a href="{{ url()->previous() }}"
+            <a href="{{ route('admin.agendas.index') }}" 
                class="px-10 py-4 rounded-lg font-semibold bg-gray-700 text-white hover:bg-gray-800 transition"
             >
                 Cancelar
