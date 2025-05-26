@@ -66,7 +66,7 @@ nav ul a,
 nav ul a:hover,
 .nav-links:hover {
   color: #E8D6D3 !important;
-  text-decoration: underline;
+  text-decoration: underline !important;
   background-color: transparent !important;
 }
 
@@ -104,8 +104,9 @@ nav ul a,
 
 nav ul a:hover,
 .social-icons a:hover {
-  color: #E8D6D3;
-  text-decoration: underline;
+  color: #E8D6D3 !important;
+  text-decoration: underline !important;
+  background-color: transparent !important;
 }
 
 .social-icons a {
@@ -116,7 +117,7 @@ nav ul a:hover,
   content: '';
   position: absolute;
   left: 0;
-  bottom: -3px;
+  bottom: -8px;
   width: 0%;
   height: 2px;
   background-color: #E8D6D3;

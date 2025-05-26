@@ -77,6 +77,14 @@
                             >
                                 <i class="fas fa-scissors"></i> Serviços
                             </a>
+                            <li>
+                            <a
+                                href="{{ route('admin.agendas.index') }}"
+                                class="flex items-center gap-2 py-2 px-4 bg-white border-3 border-[#d9b0b0] rounded-lg text-black hover:bg-[#d9b0b0] hover:text-white transition"
+                            >
+                                <i class="fas fa-calendar-alt"></i> Agendas
+                            </a>
+                        </li>
                         </li>
                     </ul>
                 </div>

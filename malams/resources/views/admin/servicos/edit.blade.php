@@ -20,6 +20,8 @@
                 <select id="idCategoria" name="idCategoria"
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg"
                     style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     required
                 >
                     <option value="">Selecione uma categoria</option>
@@ -68,6 +70,8 @@
                 <input type="time" id="duracao" name="duracao"
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg focus:outline-none transition"
                     style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     value="{{ old('duracao', $servico->duracao) }}"
                     required
                 >

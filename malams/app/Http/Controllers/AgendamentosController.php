@@ -34,7 +34,7 @@ class AgendamentosController extends Controller
         $agendamento->dataAgendamento = $validated['dataAgendamento'];
         $agendamento->hora = $validated['hora'];
         $agendamento->statusAgendamento = 'Pendente'; // padrão
-        $agendamento->confirmacao = 'nao'; // padrão
+        $agendamento->confirmacao = 'Não'; // padrão
         $agendamento->save();
 
         return redirect()->route('agendamentos.create')->with('success', 'Agendamento criado com sucesso!');

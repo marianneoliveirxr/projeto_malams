@@ -22,7 +22,7 @@ return new class extends Migration
 
             $table->foreign('idServico')->references('idServico')->on('servicos');
             $table->foreign('idFuncionario')->references('idFuncionario')->on('funcionarios');
-            $table->foreign('idUser')->references('id')->on('users');
+            $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

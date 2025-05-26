@@ -23,6 +23,10 @@ class Agendamento extends Model
         'confirmacao',
     ];
 
+    protected $casts = [
+        'dataAgendamento' => 'date', // ou 'datetime'
+    ];
+
     // Relacionamento com o serviço
     public function servico()
     {
@@ -40,4 +44,16 @@ class Agendamento extends Model
     {
         return $this->belongsTo(User::class, 'idUser', 'id');
     }
+
+    public function getConfirmacaoFormatadaAttribute()
+{
+    $mapa = [
+        'nao' => 'Não',
+        'sim' => 'Sim',
+        'pendente' => 'Pendente',
+    ];
+
+    return $mapa[$this->confirmacao] ?? ucfirst($this->confirmacao);
+}
+
 }

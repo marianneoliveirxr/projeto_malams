@@ -59,8 +59,8 @@
             <div class="perfil-menu">
                 <img src="/img/perfil.jpg" alt="Perfil" class="perfil-foto" onclick="toggleMenu()">
                 <div class="menu-dropdown" id="menuDropdown">
-                    <a href="{{ url('/profile') }}" class="link-animado">Meu perfil</a>
-                    <a href="{{ url('/appointments') }}" class="link-animado">Meus agendamentos</a>
+                    <a href="{{ url('/perfil-cliente') }}" class="link-animado">Meu perfil</a>
+                    <a href="{{ url('/agendamentos') }}" class="link-animado">Meus agendamentos</a>
                     <!-- Formulário de logout -->
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                         @csrf

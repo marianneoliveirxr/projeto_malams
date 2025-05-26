@@ -19,6 +19,8 @@
                 <select id="idCategoria" name="idCategoria"
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg focus:outline-none transition"
                     style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     required
                 >
                     <option value="">Selecione uma categoria</option>
@@ -35,6 +37,8 @@
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
                     focus:outline-none transition"
                     style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     placeholder="Ex: Corte de Cabelo"
                     required
                 >
@@ -47,6 +51,8 @@
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg placeholder-[#d9b0b0]
                     focus:outline-none transition"
                     style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     placeholder="Ex: 50,00"
                     required
                 >
@@ -58,6 +64,8 @@
                 <input type="time" id="duracao" name="duracao"
                     class="w-full rounded-lg border px-6 py-4 text-black text-lg focus:outline-none transition"
                     style="border-color:#d9b0b0;"
+                    onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
+                    onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
                     required
                 >
                 <p class="text-sm text-gray-500 mt-2">Informe o tempo aproximado do serviço (formato HH:MM).</p>

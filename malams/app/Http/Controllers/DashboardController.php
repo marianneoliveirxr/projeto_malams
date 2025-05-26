@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Servico;
 use App\Models\User; 
-use App\Models\Funcionario; 
+use App\Models\Funcionario;
+use App\Models\Agendamento; 
 use Carbon\Carbon;
 
 class DashboardController extends Controller
@@ -21,7 +22,7 @@ class DashboardController extends Controller
          $totalFuncionarios = Funcionario::count();
 
         // Agendamentos do dia atual
-        //$pendingTasks = Agendamento::whereDate('data_agendamento', now()->format('Y-m-d'))->count();
+        $pendingTasks = Agendamento::whereDate('dataAgendamento', today())->count();
 
         // Últimas atividades - você pode pegar do banco, logs ou montar um array estático
         $recentActivities = [
@@ -31,7 +32,7 @@ class DashboardController extends Controller
             // ... ou buscar do banco
         ];
 
-        return view('admin.dashboard', compact('totalUsers', 'totalFuncionarios', 'recentActivities'));
+        return view('admin.dashboard', compact('totalUsers', 'totalFuncionarios', 'recentActivities','pendingTasks'));
     }
 
     /**
