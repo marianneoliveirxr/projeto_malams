@@ -11,8 +11,8 @@ use App\Http\Controllers\AgendamentosController;
 use App\Http\Controllers\AgendasDashController;
 use App\Http\Controllers\PerfilClienteController;
 use App\Http\Controllers\AgendaClienteController;
-
-
+use App\Http\Controllers\PerfilFuncionarioController;
+use App\Http\Controllers\AgendaFuncionarioController;
 
 
 Route::get('/', function () {
@@ -98,5 +98,10 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/agendamentos/{idAgendamento}', [AgendaClienteController::class, 'destroy'])->name('agendamentos.destroy');
     Route::post('/agendamentos/{idAgendamento}/confirmar', [AgendaClienteController::class, 'confirmar'])->name('agendamentos.confirmar');
 });
+
+//Rotas para Área do Funcionário 
+
+Route::get('/funcionario/perfil/{id}', [PerfilFuncionarioController::class, 'show'])->name('funcionario.perfil');
+Route::get('/funcionario/agenda/{idFuncionario}', [AgendaFuncionarioController::class, 'index'])->name('funcionario.agenda');
 
 

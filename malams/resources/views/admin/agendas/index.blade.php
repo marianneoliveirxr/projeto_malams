@@ -71,7 +71,8 @@
             <tbody>
                 @forelse ($agendamentos as $agendamento)
                     <tr class="border-b border-[#d9b0b0] hover:bg-gray-100 transition-colors">
-                        <td class="border border-[#d9b0b0] px-6 py-4 text-base text-gray-800">{{ $agendamento->hora }}</td>
+                       <td class="border border-[#d9b0b0] px-6 py-4 text-base text-gray-800">
+                        {{ \Carbon\Carbon::parse($agendamento->hora)->format('H:i') }}</td>
                         <td class="border border-[#d9b0b0] px-6 py-4 text-base text-gray-800">{{ $agendamento->usuario->nomeUser ?? 'N/A' }}</td>
                         <td class="border border-[#d9b0b0] px-6 py-4 text-base text-gray-800">{{ $agendamento->servico->servico ?? 'N/A' }}</td>
                         <td class="border border-[#d9b0b0] px-6 py-4 text-base text-gray-800">{{ $agendamento->statusAgendamento }}</td>

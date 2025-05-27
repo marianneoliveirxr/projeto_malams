@@ -37,7 +37,6 @@ class AgendasDashController extends Controller
         return view('admin.agendas.create', compact('categorias'));
     }
 
-    // Outras funções store, show, edit, update, destroy omitidas...
 
     public function buscarClientes(Request $request)
     {

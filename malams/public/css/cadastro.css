@@ -18,6 +18,7 @@ legend {
 /* Reset de body e html */
 html, body {
     height: 100%;
+    width: 100%;
     margin: 0;
     padding: 0;
     display: flex;
@@ -233,11 +234,13 @@ li {
 
 /* Container */
 .container {
+    width: 100%;           /* ocupa toda a largura da tela */
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-grow: 1;
+    justify-content: center; /* centraliza horizontalmente */
+    align-items: center;     /* centraliza verticalmente, se tiver altura */
     padding: 20px 0;
+    box-sizing: border-box;  /* para não extrapolar a largura */
+    margin: 0 auto;        
 }
 
 /* Card de cadastro */
@@ -255,7 +258,7 @@ li {
 
 /* Imagem do cadastro */
 .imagem-cadastro {
-    width: 65%; /* A imagem ocupa 50% do card */
+    width: 63%; 
     height: auto;
     overflow: hidden;
 }
@@ -272,7 +275,7 @@ li {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 50%; /* Formulário ocupa os outros 50% */
+    width: 37%;
     text-align: center;
     margin: 0;
     padding: 30px;
@@ -280,6 +283,7 @@ li {
     flex: 1; /* Ocupa o restante do card */
     height: 100%;
     box-sizing: border-box;
+    align-items: center;
 }
 
 .form-container h4 {
@@ -289,7 +293,6 @@ li {
     font-optical-sizing: auto;
     font-weight: 605;
     font-style: normal;
-    margin-bottom: 8%;
 }
 
 /* Layout dos campos */

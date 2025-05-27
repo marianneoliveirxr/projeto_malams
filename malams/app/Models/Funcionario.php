@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Categoria;
+use App\Models\Servico;
 
 class Funcionario extends Model
 {
@@ -32,6 +34,6 @@ class Funcionario extends Model
 
     public function servico()
     {
-        return $this->belongsTo(servico::class, 'idServico', 'idServico');
+        return $this->belongsTo(Servico::class, 'idServico', 'idServico');
     }
 }

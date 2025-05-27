@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string('statusAgendamento', 20);
             $table->enum('confirmacao', ['sim', 'nao']);
 
-            $table->foreign('idServico')->references('idServico')->on('servicos');
-            $table->foreign('idFuncionario')->references('idFuncionario')->on('funcionarios');
+            $table->foreign('idServico')->references('idServico')->on('servicos')->onDelete('cascade');
+            $table->foreign('idFuncionario')->references('idFuncionario')->on('funcionarios')->onDelete('cascade');
             $table->foreign('idUser')->references('id')->on('users')->onDelete('cascade');
         });
     }
