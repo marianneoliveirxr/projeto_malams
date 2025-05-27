@@ -85,7 +85,6 @@ nav ul a,
 nav ul a:hover,
 .nav-links:hover {
   color: #E8D6D3;          
-  text-decoration: underline; 
 }
 
 .nav-links {
@@ -123,8 +122,7 @@ nav ul a,
 
 nav ul a:hover,
 .social-icons a:hover {
-  color: #E8D6D3;          
-  text-decoration: underline; 
+  color: #E8D6D3;           
 }
 
 .social-icons a {

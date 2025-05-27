@@ -16,7 +16,7 @@
         </div>
     @endif
 
-    <form action="{{ route('admin.login.verify') }}" method="POST" class="space-y-6">
+    <form action="#" method="POST" class="space-y-6">
         @csrf
         <div>
             <label for="user_type" class="block text-[#000] font-semibold mb-2">Tipo de usuário</label>

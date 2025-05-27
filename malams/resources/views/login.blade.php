@@ -81,8 +81,8 @@
                 <h4>Entre</h4>
                 <form action="{{ route('login-user') }}" method="POST">
                     @csrf
-                    <input type="email" name="txtEmail" placeholder="Email" required>
-                    <input type="password" name="password" placeholder="Senha" required>
+                    <input class="bg-white" type="email" name="txtEmail" placeholder="Email" required>
+                    <input class="bg-white" type="password" name="password" placeholder="Senha" required>
                     <button type="submit">Acessar</button>
                     <a type="text" class="frase" href="{{ url('/cadastro') }}">Ainda não tenho cadastro</a>
                 </form>

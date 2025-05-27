@@ -66,7 +66,6 @@ nav ul a,
 nav ul a:hover,
 .nav-links:hover {
   color: #E8D6D3 !important;
-  text-decoration: underline !important;
   background-color: transparent !important;
 }
 
@@ -105,7 +104,6 @@ nav ul a,
 nav ul a:hover,
 .social-icons a:hover {
   color: #E8D6D3 !important;
-  text-decoration: underline !important;
   background-color: transparent !important;
 }
 

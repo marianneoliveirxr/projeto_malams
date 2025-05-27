@@ -23,7 +23,7 @@
         <nav>
             <ul>
                 <li><a class="nav-links" href="{{ url('/home') }}">Home</a></li>
-                <li><a class="nav-links" href="{{ url('/agendamento') }}">Agendamento</a></li>
+                <li><a class="nav-links" href="{{ url('/agendamentos/create') }}">Agendamento</a></li>
                 <li><a class="nav-links" href="{{ url('/home') }}#sobre">Sobre</a></li>
             </ul>
         </nav>
