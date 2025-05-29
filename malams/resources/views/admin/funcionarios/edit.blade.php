@@ -148,7 +148,7 @@
                     style="border-color:#d9b0b0;"
                     onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
                     onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
-                    placeholder="Confirme a nova senha"
+                    placeholder="Confirme a nova senha (min: 6 caracteres)"
                 >
             </div>
         </div>

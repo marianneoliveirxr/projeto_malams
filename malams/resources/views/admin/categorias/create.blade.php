@@ -1,11 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-@if(session('success'))
-<script>
-    alert("{{ session('success') }}");
-</script>
-@endif
 
 <div class="container mx-auto px-4 py-8 max-w-3xl">
     <h1 class="text-5xl font-extrabold text-black mb-10 tracking-wide">Adicionar Nova Categoria</h1>

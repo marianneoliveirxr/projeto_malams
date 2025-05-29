@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="container mx-auto px-4 py-8 max-w-3xl">
     <h1 class="text-5xl font-extrabold text-black mb-10 tracking-wide">Adicionar Funcionário</h1>
 
@@ -77,7 +78,7 @@
                     style="border-color:#d9b0b0;"
                     onfocus="this.style.borderColor='#b88f8f'; this.style.boxShadow='0 0 10px #d9b0b0';"
                     onblur="this.style.borderColor='#d9b0b0'; this.style.boxShadow='none';"
-                    placeholder="Digite a senha"
+                    placeholder="A senha deve ter no mínimo 6 caracteres."
                     required
                 >
             </div>

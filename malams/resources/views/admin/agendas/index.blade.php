@@ -1,12 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-@if(session('success'))
-<script>
-    alert("{{ session('success') }}");
-</script>
-@endif
-
 <div class="container mx-auto px-4 py-8">
     <!-- Título da página -->
     <div class="flex justify-between items-center mb-6">

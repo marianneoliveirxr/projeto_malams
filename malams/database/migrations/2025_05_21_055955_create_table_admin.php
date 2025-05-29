@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('admin', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nome');
             $table->string('email')->unique();
-            $table->string('password');
+            $table->string('senha');
             $table->unsignedBigInteger('idPermissao')->default(3); 
 
             $table->foreign('idPermissao')

@@ -185,7 +185,7 @@ class AgendasDashController extends Controller
         ]);
 
         // Redirecionar com mensagem de sucesso
-        return redirect()->back()->with('success', 'Agendamento salvo com sucesso!');
+        return redirect()->route('admin.agendas.index')->with('success', 'Agendamento salvo com sucesso!');
     }
 
     public function destroy($id)
