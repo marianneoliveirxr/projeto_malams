@@ -107,21 +107,46 @@ class UsuarioController extends Controller
 }
 
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
+        $cliente = User::findOrFail($id);
+        return view('admin.clientes.edit', compact('cliente'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
-    }
+        $cliente = User::findOrFail($id);
 
+        $request->validate([
+            'nomeUser' => 'required|string|max:100',
+            'cpfUser' => 'required|unique:users,cpfUser,' . $cliente->id,
+            'email' => 'required|email|unique:users,email,' . $cliente->id,
+            'celularUser' => 'required|unique:users,celularUser,' . $cliente->id,
+            'dataNascimento' => 'required|date_format:Y-m-d',
+        ], [
+            'nomeUser.required' => 'O nome é obrigatório.',
+            'cpfUser.required' => 'O CPF é obrigatório.',
+            'cpfUser.unique' => 'Já existe um cadastro com este CPF.',
+            'email.required' => 'O e-mail é obrigatório.',
+            'email.email' => 'Informe um e-mail válido.',
+            'email.unique' => 'Já existe um cadastro com este e-mail.',
+            'celularUser.required' => 'O número de celular é obrigatório.',
+            'celularUser.unique' => 'Já existe um cadastro com este número de celular.',
+            'dataNascimento.required' => 'A data de nascimento é obrigatória.',
+            'dataNascimento.date_format' => 'A data deve estar no formato aaaa-mm-dd.',
+        ]);
+
+        // Atualiza os dados
+        $cliente->nomeUser = $request->nomeUser;
+        $cliente->cpfUser = $request->cpfUser;
+        $cliente->email = $request->email;
+        $cliente->celularUser = $request->celularUser;
+        $cliente->dataNascimento = $request->dataNascimento;
+
+        $cliente->save();
+
+        return redirect()->route('admin.clientes.index')->with('success', 'Cliente atualizado com sucesso!');
+    }
     /**
      * Remove the specified resource from storage.
      */

@@ -33,6 +33,14 @@
         </div>
     </div>
 
+    {{-- Gráfico de Agendamentos por dia --}}
+    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)] mb-8">
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+            <i class="fas fa-calendar-alt text-2xl mr-2 text-gray-600"></i> Agendamentos dos últimos 7 dias
+        </h3>
+        <canvas id="agendamentosChart" height="120"></canvas>
+    </div>
+
     <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)]">
         <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
             <i class="fas fa-history text-2xl mr-2 text-gray-600"></i> Últimas atividades
@@ -45,4 +53,52 @@
             @endforelse
         </ul>
     </div>
+@endsection
+
+@section('scripts')
+    {{-- CDN do Chart.js --}}
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        const ctx = document.getElementById('agendamentosChart').getContext('2d');
+
+        const agendamentosChart = new Chart(ctx, {
+            type: 'line', // pode ser 'bar', 'line', etc.
+            data: {
+                labels: {!! $labels !!},
+                datasets: [{
+                    label: 'Agendamentos',
+                    data: {!! $totais !!},
+                    backgroundColor: 'rgba(217, 176, 176, 0.5)',
+                    borderColor: 'rgba(217, 176, 176, 1)',
+                    borderWidth: 2,
+                    fill: true,
+                    tension: 0.3,
+                    pointRadius: 4,
+                    pointBackgroundColor: 'rgba(217, 176, 176, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        stepSize: 1,
+                        ticks: {
+                            precision: 0
+                        }
+                    }
+                },
+                plugins: {
+                    legend: {
+                        display: true,
+                        labels: {
+                            color: '#333',
+                            font: { size: 14 }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 @endsection

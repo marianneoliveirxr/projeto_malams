@@ -31,6 +31,9 @@ class User extends Authenticatable
         'idPermissao',
     ];
 
+    protected $casts = [
+        'dataNascimento' => 'date',
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -4,7 +4,7 @@
 
 <div class="container mx-auto px-4 py-8">
     <!-- Título da página centralizado -->
-    <div class="mb-10 text-center">
+    <div class="mb-10 ">
         <h1 class="text-4xl font-semibold text-gray-800">Clientes</h1>
     </div>
 
