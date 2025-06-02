@@ -128,17 +128,20 @@ class AgendasDashController extends Controller
     }
 
     // Aplicar filtro das regras do admin
-
-    // Obter data atual
     $agora = new \DateTime('now');
     $hoje = $agora->format('Y-m-d');
     $horaAtual = $agora->format('H:i');
     list($horaAtualH, $horaAtualM) = explode(':', $horaAtual);
     $horaAtualMinutos = intval($horaAtualH) * 60 + intval($horaAtualM);
 
-    $disponiveisFiltrados = array_filter($disponiveis, function ($minutos) use ($dataAgendamento, $hoje, $horaAtualMinutos) {
-        // Excluir horário entre 12:00 e 13:00
-        if ($minutos >= 12 * 60 && $minutos < 13 * 60) {
+    $inicioAlmoco = 12 * 60;  // 720
+    $fimAlmoco = 13 * 60;     // 780
+
+    $disponiveisFiltrados = array_filter($disponiveis, function ($minutos) use ($dataAgendamento, $hoje, $horaAtualMinutos, $duracaoMinutos, $inicioAlmoco, $fimAlmoco) {
+        $fimHorario = $minutos + $duracaoMinutos;
+
+        // Excluir se o intervalo invade o almoço
+        if (!($fimHorario <= $inicioAlmoco || $minutos >= $fimAlmoco)) {
             return false;
         }
 
@@ -158,6 +161,7 @@ class AgendasDashController extends Controller
 
     return response()->json(array_values($disponiveisFormatados));
 }
+
 
 
     public function store(Request $request)

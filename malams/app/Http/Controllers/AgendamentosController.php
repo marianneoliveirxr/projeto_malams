@@ -104,11 +104,17 @@ class AgendamentosController extends Controller
             continue;
         }
 
-        // Excluir horário de almoço: das 12:00 (720 min) até 13:00 (780 min)
-        // Como o horário é início do atendimento, vamos ignorar os horários que iniciam dentro desse intervalo
-        if ($minutos >= 720 && $minutos < 780) {
-            continue;
-        }
+        // Verificar se o horário completo (início até fim) invade o almoço (12:00 a 13:00)
+$inicioAlmoco = 12 * 60; // 720
+$fimAlmoco = 13 * 60;    // 780
+
+$fimHorario = $minutos + $duracaoMinutos;
+$invadeAlmoco = !($fimHorario <= $inicioAlmoco || $minutos >= $fimAlmoco);
+
+if ($invadeAlmoco) {
+    continue;
+}
+
 
         $todosHorarios[] = $minutos;
     }

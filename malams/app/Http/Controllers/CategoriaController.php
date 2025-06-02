@@ -27,18 +27,24 @@ class CategoriaController extends Controller
     /**
      * Armazena a nova categoria no banco.
      */
-    public function store(Request $request)
-    {
-        $validated = $request->validate([
-            'categoria' => 'required|string|max:255|unique:categorias,categoria',
-        ]);
+   public function store(Request $request)
+{
+    $validated = $request->validate([
+        'categoria' => 'required|string|max:255|unique:categorias,categoria',
+    ], [
+        'categoria.required' => 'O campo categoria é obrigatório.',
+        'categoria.string'   => 'O campo categoria deve ser um texto.',
+        'categoria.max'      => 'O campo categoria não pode ter mais de 255 caracteres.',
+        'categoria.unique'   => 'Esta categoria já está cadastrada.',
+    ]);
 
-        Categoria::create([
-            'categoria' => $validated['categoria'],
-        ]);
+    Categoria::create([
+        'categoria' => $validated['categoria'],
+    ]);
 
-        return redirect()->route('admin.categorias.index')->with('success', 'Categoria criada com sucesso!');
-    }
+    return redirect()->route('admin.categorias.index')->with('success', 'Categoria criada com sucesso!');
+}
+
 
     /**
      * Mostra o formulário para editar uma categoria existente.

@@ -41,6 +41,22 @@
         <canvas id="agendamentosChart" height="120"></canvas>
     </div>
 
+    {{-- Gráfico de Receita dos últimos 7 dias --}}
+    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)] mb-8">
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+            <i class="fas fa-dollar-sign text-2xl mr-2 text-gray-600"></i> Receita dos últimos 7 dias
+        </h3>
+        <canvas id="receitaChart" height="120"></canvas>
+    </div>
+
+    {{-- Gráfico Top 5 Serviços mais vendidos --}}
+    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)] mb-8">
+        <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
+            <i class="fas fa-star text-2xl mr-2 text-gray-600"></i> Top 5 Serviços Mais Vendidos (últimos 30 dias)
+        </h3>
+        <canvas id="topServicosChart" height="120"></canvas>
+    </div>
+
     <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)]">
         <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
             <i class="fas fa-history text-2xl mr-2 text-gray-600"></i> Últimas atividades
@@ -56,49 +72,81 @@
 @endsection
 
 @section('scripts')
-    {{-- CDN do Chart.js --}}
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Dados do backend (passados via JSON)
+    const labelsAgendamentos = {!! $labels !!};
+    const dadosAgendamentos = {!! $totais !!};
 
-    <script>
-        const ctx = document.getElementById('agendamentosChart').getContext('2d');
+    const labelsReceita = {!! $labelsReceita !!};
+    const dadosReceita = {!! $valoresReceita !!};
 
-        const agendamentosChart = new Chart(ctx, {
-            type: 'line', // pode ser 'bar', 'line', etc.
-            data: {
-                labels: {!! $labels !!},
-                datasets: [{
-                    label: 'Agendamentos',
-                    data: {!! $totais !!},
-                    backgroundColor: 'rgba(217, 176, 176, 0.5)',
-                    borderColor: 'rgba(217, 176, 176, 1)',
-                    borderWidth: 2,
-                    fill: true,
-                    tension: 0.3,
-                    pointRadius: 4,
-                    pointBackgroundColor: 'rgba(217, 176, 176, 1)'
-                }]
-            },
-            options: {
-                responsive: true,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        stepSize: 1,
-                        ticks: {
-                            precision: 0
-                        }
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: true,
-                        labels: {
-                            color: '#333',
-                            font: { size: 14 }
-                        }
-                    }
-                }
+    const labelsServicos = {!! $servicoLabels !!};
+    const dadosServicos = {!! $servicoTotais !!};
+
+    // Gráfico Agendamentos por dia
+    const ctxAgendamentos = document.getElementById('agendamentosChart').getContext('2d');
+    new Chart(ctxAgendamentos, {
+        type: 'line',
+        data: {
+            labels: labelsAgendamentos,
+            datasets: [{
+                label: 'Agendamentos',
+                data: dadosAgendamentos,
+                borderColor: '#3b82f6',
+                backgroundColor: 'rgba(59,130,246,0.2)',
+                fill: true,
+                tension: 0.4,
+                pointRadius: 5,
+                pointHoverRadius: 7
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true, precision: 0 }
             }
-        });
-    </script>
+        }
+    });
+
+    // Gráfico Receita por dia
+    const ctxReceita = document.getElementById('receitaChart').getContext('2d');
+    new Chart(ctxReceita, {
+        type: 'bar',
+        data: {
+            labels: labelsReceita,
+            datasets: [{
+                label: 'Receita (R$)',
+                data: dadosReceita,
+                backgroundColor: '#10b981'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Gráfico Top 5 Serviços mais vendidos
+    const ctxServicos = document.getElementById('topServicosChart').getContext('2d');
+    new Chart(ctxServicos, {
+        type: 'bar',
+        data: {
+            labels: labelsServicos,
+            datasets: [{
+                label: 'Quantidade vendida',
+                data: dadosServicos,
+                backgroundColor: '#f97316'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                y: { beginAtZero: true, precision: 0 }
+            }
+        }
+    });
+</script>
 @endsection
