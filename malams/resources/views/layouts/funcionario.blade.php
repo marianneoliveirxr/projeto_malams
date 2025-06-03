@@ -16,7 +16,7 @@
 <body class="bg-[#f3f4f6] font-roboto text-gray-800">
     <div class="flex h-screen flex-col">
         <!-- Cabeçalho -->
-        <header class="bg-[#d9b0b0] text-white p-6 flex justify-between items-center shadow-md">
+        <header class="bg-[#d9b0b0] text-white p-4 flex justify-between items-center shadow-md">
             <div class="flex items-center">
                 <img src="/img/malamslogo.png" alt="Logo Malams Saloon" class="h-20 w-auto" />
             </div>
@@ -33,7 +33,7 @@
         <div class="flex flex-1">
             <!-- Sidebar -->
             <aside
-                class="w-72 bg-[#f9fafb] py-12 px-6 flex flex-col justify-between shadow-inner"
+                class="w-72 bg-[#f9fafb] py-5 px-6 flex flex-col justify-between shadow-inner"
             >
                 <div>
                     <h2 class="text-2xl font-semibold mb-8 text-black">Área do Funcionário</h2>

@@ -33,8 +33,9 @@
         </div>
     </div>
 
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
     {{-- Gráfico de Agendamentos por dia --}}
-    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)] mb-8">
+    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)]">
         <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
             <i class="fas fa-calendar-alt text-2xl mr-2 text-gray-600"></i> Agendamentos dos últimos 7 dias
         </h3>
@@ -42,7 +43,7 @@
     </div>
 
     {{-- Gráfico de Receita dos últimos 7 dias --}}
-    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)] mb-8">
+    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)]">
         <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
             <i class="fas fa-dollar-sign text-2xl mr-2 text-gray-600"></i> Receita dos últimos 7 dias
         </h3>
@@ -50,12 +51,14 @@
     </div>
 
     {{-- Gráfico Top 5 Serviços mais vendidos --}}
-    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)] mb-8">
+    <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)]">
         <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
             <i class="fas fa-star text-2xl mr-2 text-gray-600"></i> Top 5 Serviços Mais Vendidos (últimos 30 dias)
         </h3>
         <canvas id="topServicosChart" height="120"></canvas>
     </div>
+</div>
+
 
     <div class="bg-white rounded-lg p-6 shadow-[0_4px_6px_rgba(217,176,176,0.5)]">
         <h3 class="text-xl font-semibold mb-4 text-gray-800 flex items-center">
@@ -93,12 +96,15 @@
             datasets: [{
                 label: 'Agendamentos',
                 data: dadosAgendamentos,
-                borderColor: '#3b82f6',
-                backgroundColor: 'rgba(59,130,246,0.2)',
+                borderColor: '#C63957',
+                backgroundColor: 'rgba(198, 57, 87, 0.5)', 
                 fill: true,
                 tension: 0.4,
-                pointRadius: 5,
-                pointHoverRadius: 7
+                pointRadius: 6, // Tamanho das bolinhas
+             pointHoverRadius: 8, // Tamanho das bolinhas ao passar o mouse
+            pointBackgroundColor: '#fff', // Cor de fundo das bolinhas
+            pointBorderColor: '#C63957', // Cor da borda das bolinhas
+            pointBorderWidth: 2 // Largura da borda das bolinhas
             }]
         },
         options: {
@@ -118,7 +124,7 @@
             datasets: [{
                 label: 'Receita (R$)',
                 data: dadosReceita,
-                backgroundColor: '#10b981'
+                backgroundColor: '#C66239'
             }]
         },
         options: {
@@ -138,7 +144,7 @@
             datasets: [{
                 label: 'Quantidade vendida',
                 data: dadosServicos,
-                backgroundColor: '#f97316'
+                backgroundColor: '#C6A839'
             }]
         },
         options: {
